@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://isg1f625y4p8"]
+
+[ext_resource type="Script" uid="uid://csjgifgn87tqj" path="res://Scripts/player.gd" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://cynlxv1u1jnyg" path="res://Assets/Sprites/pumpkin.png" id="2_kpjcp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rwas"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1519202898]
+script = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146480975]
+shape = SubResource("CircleShape2D_0rwas")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1380125364]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_kpjcp")
