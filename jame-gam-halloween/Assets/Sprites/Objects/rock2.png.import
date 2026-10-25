@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqa42p8dcxo28"
-path="res://.godot/imported/skelet_idle.png-2bef37ffdd28b6b1bf6283a0c128bb7c.ctex"
+uid="uid://d3n8vod38del0"
+path="res://.godot/imported/rock2.png-49ff8a0bee9eb2a3271b2672a859a638.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/skelet_idle.png"
-dest_files=["res://.godot/imported/skelet_idle.png-2bef37ffdd28b6b1bf6283a0c128bb7c.ctex"]
+source_file="res://Assets/Sprites/Objects/rock2.png"
+dest_files=["res://.godot/imported/rock2.png-49ff8a0bee9eb2a3271b2672a859a638.ctex"]
 
 [params]
 
