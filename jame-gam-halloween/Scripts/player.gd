@@ -4,6 +4,11 @@ extends CharacterBody2D
 
 var speed:int = 100
 var health:int = 100
+var level:int = 1
+
+func _ready() -> void:
+	health = GameState.player_health
+	level = GameState.player_level
 
 func _physics_process(delta: float) -> void:
 	

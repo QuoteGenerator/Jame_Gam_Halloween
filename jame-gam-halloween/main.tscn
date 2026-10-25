@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="11_20pc6"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="13_w48qg"]
-[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://basicAtk_btn.gd" id="14_vivmo"]
+[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/basicAtk_btn.gd" id="14_vivmo"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="14_w48qg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
