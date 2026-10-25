@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b4etmlinqsl6o" path="res://Assets/Sprites/Objects/download.png" id="4_fos0i"]
 [ext_resource type="Texture2D" uid="uid://d3n8vod38del0" path="res://Assets/Sprites/Objects/rock2.png" id="4_trn2v"]
+[ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="5_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
 [ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="6_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="7_lgr22"]
@@ -1244,6 +1245,12 @@ texture = ExtResource("1_fos0i")
 region_enabled = true
 region_rect = Rect2(0, 0, 550, 579.035)
 
+[node name="Path" type="Sprite2D" parent="SArea/Ground" unique_id=976677496]
+z_index = -4096
+position = Vector2(0, -204)
+scale = Vector2(1, 4.127119)
+texture = ExtResource("5_2cqfq")
+
 [node name="Border" type="Node" parent="SArea" unique_id=1644374069]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SArea/Border" unique_id=1645116103]
@@ -1373,6 +1380,32 @@ offset_bottom = 1154.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="PumpkinStats" type="Label" parent="CombatUI/Panel/Control" unique_id=698505240]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 420.0
+offset_right = 472.0
+offset_bottom = 508.0
+theme_override_fonts/font = ExtResource("14_w48qg")
+theme_override_font_sizes/font_size = 21
+text = "PUMPKIN
+HP: 25/25    MANA: 10/10"
+
+[node name="Label" type="Label" parent="CombatUI/Panel/Control" unique_id=1257527408]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 445.0
+offset_top = 26.0
+offset_right = 724.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("14_w48qg")
+theme_override_font_sizes/font_size = 31
+text = "* YOUR TURN *"
 
 [connection signal="mouse_entered" from="CombatUI/Panel/Control/BS1" to="CombatUI/Panel/Control/BS1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CombatUI/Panel/Control/BS1" to="CombatUI/Panel/Control/BS1" method="_on_mouse_exited"]
