@@ -1278,6 +1278,7 @@ position = Vector2(3.9999924, -299)
 
 [node name="CombatUI" type="CanvasLayer" parent="." unique_id=93024151 groups=["combat_ui"]]
 process_mode = 2
+visible = false
 script = ExtResource("6_3dxm6")
 
 [node name="Panel" type="Panel" parent="CombatUI" unique_id=343248233]
