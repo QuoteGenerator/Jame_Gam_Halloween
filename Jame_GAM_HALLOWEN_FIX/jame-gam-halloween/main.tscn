@@ -112,8 +112,7 @@ texture = ExtResource("5_2cqfq")
 position = Vector2(-18, -81)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SArea/Border/StaticBody2D" unique_id=1677188794]
-polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2, 34, -2, 38, -10, 145, -8, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -99, -16, -18, -14)
-metadata/_edit_lock_ = true
+polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2, 34, -2, 35, -273, 145, -8, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -99, -16, -1, -274)
 
 [node name="Stones" type="Node" parent="SArea" unique_id=2139515417]
 
