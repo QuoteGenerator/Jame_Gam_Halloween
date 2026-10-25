@@ -1384,13 +1384,14 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 [node name="PumpkinStats" type="Label" parent="CombatUI/Panel/Control" unique_id=698505240]
 layout_mode = 0
 offset_left = 137.0
-offset_top = 420.0
-offset_right = 472.0
-offset_bottom = 508.0
+offset_top = 422.0
+offset_right = 475.0
+offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("14_w48qg")
 theme_override_font_sizes/font_size = 21
 text = "PUMPKIN
-HP: 25/25    MANA: 10/10"
+HP: 25/25    MANA: 10/10
+Lvl. 1"
 
 [node name="Label" type="Label" parent="CombatUI/Panel/Control" unique_id=1257527408]
 clip_contents = true
