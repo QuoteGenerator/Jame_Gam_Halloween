@@ -4,7 +4,7 @@ var speed: float = 110.0
 var player: Node2D
 var chasing: bool = false
 var in_combat: bool = false
-var health: int = 100
+@export var health: int = 100
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var detection_area: Area2D = $DetectionArea
