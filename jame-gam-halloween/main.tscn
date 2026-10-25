@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://p5iilwffme0n" path="res://icon.svg" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="3_r0du0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 size = Vector2(19.450981, 19.921568)
@@ -12,7 +13,7 @@ size = Vector2(19.450981, 19.921568)
 position = Vector2(-52, 14)
 
 [node name="Icon" type="CharacterBody2D" parent="." unique_id=1915591219]
-position = Vector2(53, -7)
+position = Vector2(114, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="Icon" unique_id=1581380764]
 texture = ExtResource("2_uu6xs")
@@ -21,3 +22,6 @@ texture = ExtResource("2_uu6xs")
 position = Vector2(0, 0.5000019)
 scale = Vector2(6.375, 6.375)
 shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
+position = Vector2(-24, -13)

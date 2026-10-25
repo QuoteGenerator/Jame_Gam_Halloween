@@ -1,0 +1,42 @@
+extends CharacterBody2D
+
+var speed: float = 80.0
+var player: Node2D
+var chasing: bool = false
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var detection_area: Area2D = $DetectionArea
+
+func _ready() -> void:
+	detection_area.body_entered.connect(_on_body_entered)
+	detection_area.body_exited.connect(_on_body_exited)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player = body
+		chasing = true
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body == player:
+		player = null
+		chasing = false
+
+
+func _physics_process(delta: float) -> void:
+	var direction := Vector2.ZERO
+
+	if chasing and player:
+		direction = global_position.direction_to(player.global_position)
+		rotation = global_position.angle_to_point(player.global_position)
+
+	velocity = direction * speed
+	
+	if chasing:
+		animation_player.play("move_animation")
+	else:
+		animation_player.play("idle_animation")
+
+	
+	move_and_slide()

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 var speed:int = 100
+var health:int = 100
 
 func _physics_process(delta: float) -> void:
 	
