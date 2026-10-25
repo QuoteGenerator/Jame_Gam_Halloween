@@ -869,12 +869,12 @@ scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
 [node name="Download274" type="Sprite2D" parent="SArea/trees" unique_id=1849464424]
-position = Vector2(-59.36, -169.84)
+position = Vector2(-59.36, -192.34)
 scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
 [node name="Download275" type="Sprite2D" parent="SArea/trees" unique_id=564055460]
-position = Vector2(-62.36, -132.84)
+position = Vector2(-62.36, -120.575)
 scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
@@ -965,4 +965,4 @@ polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2
 position = Vector2(-17.025, 39.805)
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
-position = Vector2(-24, -204)
+position = Vector2(-66, -150)
