@@ -24,3 +24,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity = direction * speed
 	move_and_slide()
+
+
+func on_mouse_entered() -> void:
+	pass # Replace with function body.
