@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br50m032kbnge"]
+[gd_scene format=3 uid="uid://c0psh6numabna"]
 
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_glv2v"]
@@ -9,13 +9,90 @@
 [ext_resource type="Texture2D" uid="uid://d3n8vod38del0" path="res://Assets/Sprites/Objects/rock2.png" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="5_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
-[ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="10_wkp8b"]
+[ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="6_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="7_lgr22"]
+[ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="11_20pc6"]
+[ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="13_w48qg"]
+[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/basicAtk_btn.gd" id="14_vivmo"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="14_w48qg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
 radius = 8.0
 height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
+
+[sub_resource type="Animation" id="Animation_5vvyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 97)]
+}
+
+[sub_resource type="Animation" id="Animation_wkp8b"]
+resource_name = "tbc_skeleton_idle_animation"
+length = 0.36666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 97), Rect2(38, 0, 38, 97)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
+_data = {
+&"RESET": SubResource("Animation_5vvyt"),
+&"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("12_ycdy4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vivmo"]
+texture = ExtResource("13_w48qg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("13_w48qg")
 
 [node name="Main" type="Node2D" unique_id=63515689]
 
@@ -1307,14 +1384,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 [node name="PumpkinStats" type="Label" parent="CombatUI/Panel/Control" unique_id=698505240]
 layout_mode = 0
 offset_left = 137.0
-offset_top = 422.0
-offset_right = 475.0
-offset_bottom = 510.0
+offset_top = 420.0
+offset_right = 472.0
+offset_bottom = 508.0
 theme_override_fonts/font = ExtResource("14_w48qg")
 theme_override_font_sizes/font_size = 21
 text = "PUMPKIN
-HP: 25/25    MANA: 10/10
-Lvl. 1"
+HP: 25/25    MANA: 10/10"
 
 [node name="Label" type="Label" parent="CombatUI/Panel/Control" unique_id=1257527408]
 clip_contents = true
