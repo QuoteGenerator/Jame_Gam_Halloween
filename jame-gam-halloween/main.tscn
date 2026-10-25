@@ -5,8 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b4etmlinqsl6o" path="res://Assets/Sprites/Objects/download.png" id="4_fos0i"]
+[ext_resource type="Texture2D" uid="uid://d3n8vod38del0" path="res://Assets/Sprites/Objects/rock2.png" id="4_trn2v"]
 [ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="6_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_template.png" id="7_lgr22"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
+radius = 8.0
+height = 24.0
 
 [node name="Main" type="Node2D" unique_id=63515689]
 
@@ -950,7 +955,7 @@ texture = ExtResource("4_fos0i")
 [node name="Row" type="Sprite2D" parent="SArea/Ground" unique_id=1255348054]
 z_index = -4096
 texture_repeat = 2
-position = Vector2(2, -36)
+position = Vector2(4, -36)
 texture = ExtResource("1_fos0i")
 region_enabled = true
 region_rect = Rect2(0, 0, 500, 500)
@@ -962,6 +967,20 @@ position = Vector2(-18, -81)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SArea/Border/StaticBody2D" unique_id=1677188794]
 polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2, 34, -2, 38, -10, 145, -8, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -99, -16, -18, -14)
+
+[node name="Stones" type="Node" parent="SArea" unique_id=2139515417]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SArea/Stones" unique_id=652535579]
+position = Vector2(-61, -27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SArea/Stones/StaticBody2D" unique_id=887726471]
+position = Vector2(-0.19, 0.395)
+rotation = -1.5009831
+scale = Vector2(0.89, 0.89)
+shape = SubResource("CapsuleShape2D_lgr22")
+
+[node name="Sprite2D" type="Sprite2D" parent="SArea/Stones/StaticBody2D" unique_id=887676951]
+texture = ExtResource("4_trn2v")
 
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("1_glv2v")]
 position = Vector2(-17.025, 39.805)
@@ -980,6 +999,6 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="CombatUI/Panel" unique_id=781726287]
 layout_mode = 0
-offset_right = 1199.0
-offset_bottom = 1193.1134
+offset_right = 1200.0
+offset_bottom = 1200.0
 texture = ExtResource("7_lgr22")
