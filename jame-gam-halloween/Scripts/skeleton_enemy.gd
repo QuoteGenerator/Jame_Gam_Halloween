@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: float = 80.0
+var speed: float = 110.0
 var player: Node2D
 var chasing: bool = false
 
