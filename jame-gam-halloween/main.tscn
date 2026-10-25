@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b4etmlinqsl6o" path="res://Assets/Sprites/Objects/download.png" id="4_fos0i"]
+[ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="6_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_template.png" id="7_lgr22"]
 
 [node name="Main" type="Node2D" unique_id=63515689]
 
@@ -955,10 +957,10 @@ region_rect = Rect2(0, 0, 500, 500)
 
 [node name="Border" type="Node" parent="SArea" unique_id=1644374069]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="SArea" unique_id=1645116103]
+[node name="StaticBody2D" type="StaticBody2D" parent="SArea/Border" unique_id=1645116103]
 position = Vector2(-18, -81)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SArea/StaticBody2D" unique_id=1677188794]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SArea/Border/StaticBody2D" unique_id=1677188794]
 polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2, 34, -2, 38, -10, 145, -8, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -99, -16, -18, -14)
 
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("1_glv2v")]
@@ -966,3 +968,18 @@ position = Vector2(-17.025, 39.805)
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
 position = Vector2(-66, -150)
+
+[node name="CombatUI" type="CanvasLayer" parent="." unique_id=1418713530 groups=["combat_ui"]]
+process_mode = 2
+visible = false
+script = ExtResource("6_3dxm6")
+
+[node name="Panel" type="Panel" parent="CombatUI" unique_id=2142664895]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CombatUI/Panel" unique_id=781726287]
+layout_mode = 0
+offset_right = 1199.0
+offset_bottom = 1193.1134
+texture = ExtResource("7_lgr22")

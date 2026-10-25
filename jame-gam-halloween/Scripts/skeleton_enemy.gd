@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed: float = 110.0
 var player: Node2D
 var chasing: bool = false
+var in_combat: bool = false
+var health: int = 100
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var detection_area: Area2D = $DetectionArea
@@ -40,3 +42,26 @@ func _physics_process(delta: float) -> void:
 
 	
 	move_and_slide()
+	
+	if chasing and not in_combat:
+		var collision := get_last_slide_collision()
+
+		if collision:
+			var body = collision.get_collider()
+
+			if body is Node2D and body.is_in_group("player"):
+				start_combat(body)	
+
+
+func start_combat(_body: Node2D) -> void:
+	if in_combat:
+		return
+
+	in_combat = true
+	chasing = false
+	velocity = Vector2.ZERO
+
+	var combat_ui = get_tree().get_first_node_in_group("combat_ui")
+
+	if combat_ui:
+		combat_ui.start_combat(self)

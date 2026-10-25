@@ -25,6 +25,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 player=""
+combat_ui=""
 
 [physics]
 
