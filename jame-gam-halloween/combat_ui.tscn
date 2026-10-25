@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://cvh34udiaksh4"]
+
+[ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="1_h1lix"]
+[ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="2_j56r1"]
+[ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="3_rltsl"]
+[ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
+[ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
+[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/basicAtk_btn.gd" id="6_tnwwt"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="7_akiti"]
+[ext_resource type="Texture2D" uid="uid://drfy7woj0dxja" path="res://Assets/Sprites/tbc_sprites/tbc_pumpkin_idle.png" id="8_j56r1"]
+
+[sub_resource type="Animation" id="Animation_5vvyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 97)]
+}
+
+[sub_resource type="Animation" id="Animation_wkp8b"]
+resource_name = "tbc_skeleton_idle_animation"
+length = 0.36666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 97), Rect2(38, 0, 38, 97)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
+_data = {
+&"RESET": SubResource("Animation_5vvyt"),
+&"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("4_ucios")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vivmo"]
+texture = ExtResource("5_6coxg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("5_6coxg")
+
+[sub_resource type="Animation" id="Animation_rltsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_player_idle_animation:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_j56r1"]
+resource_name = "tbc_player_idle_animation"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_player_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19227357),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 39), Rect2(38, 0, 38, 39)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rltsl"]
+_data = {
+&"RESET": SubResource("Animation_rltsl"),
+&"tbc_player_idle_animation": SubResource("Animation_j56r1")
+}
+
+[node name="CombatUI" type="CanvasLayer" unique_id=1173443263 groups=["combat_ui"]]
+process_mode = 2
+script = ExtResource("1_h1lix")
+
+[node name="Panel" type="Panel" parent="." unique_id=830950353]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tbc_base_frame" type="TextureRect" parent="Panel" unique_id=1093005024]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("2_j56r1")
+
+[node name="tbc_AnimationEnemy" type="AnimationPlayer" parent="Panel" unique_id=672003317]
+libraries/ = SubResource("AnimationLibrary_20pc6")
+autoplay = &"tbc_skeleton_idle_animation"
+
+[node name="tbc_skeleton_idle_animation" type="Sprite2D" parent="Panel" unique_id=975333235]
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("3_rltsl")
+region_enabled = true
+region_rect = Rect2(0, 0, 38, 97)
+
+[node name="Control" type="Control" parent="Panel" unique_id=1457317127]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BS1" type="Button" parent="Panel/Control" unique_id=285874461]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 919.0
+offset_right = 443.0
+offset_bottom = 1022.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+script = ExtResource("6_tnwwt")
+
+[node name="Label" type="Label" parent="Panel/Control/BS1" unique_id=754838359]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 56.5
+offset_top = 16.0
+offset_right = 332.5
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 26
+text = "     BASIC ATK 
+ DMG: 5   COST: 0"
+
+[node name="S2" type="Button" parent="Panel/Control" unique_id=1585187993]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 919.0
+offset_right = 860.0
+offset_bottom = 1022.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="S3" type="Button" parent="Panel/Control" unique_id=354851371]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 1051.0
+offset_right = 443.0
+offset_bottom = 1154.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="S4" type="Button" parent="Panel/Control" unique_id=1449181400]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 1051.0
+offset_right = 860.0
+offset_bottom = 1154.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="PumpkinName" type="Label" parent="Panel/Control" unique_id=1098091124]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 420.0
+offset_right = 472.0
+offset_bottom = 508.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "PUMPKIN"
+
+[node name="PumpkinStats" type="Label" parent="Panel/Control" unique_id=450635977]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 420.0
+offset_right = 472.0
+offset_bottom = 508.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "
+HP: 25/25    MANA: 10/10"
+
+[node name="Label" type="Label" parent="Panel/Control" unique_id=88094839]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 445.0
+offset_top = 26.0
+offset_right = 724.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 31
+text = "* YOUR TURN *"
+
+[node name="tbc_AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1522318369]
+libraries/ = SubResource("AnimationLibrary_rltsl")
+autoplay = &"tbc_player_idle_animation"
+
+[node name="tbc_player_idle_animation" type="Sprite2D" parent="Panel" unique_id=150252494]
+position = Vector2(312, 671)
+scale = Vector2(4.244999, 4.244999)
+texture = ExtResource("8_j56r1")
+region_enabled = true
+region_rect = Rect2(0, 0, 38, 39)
+
+[connection signal="mouse_entered" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_exited"]
