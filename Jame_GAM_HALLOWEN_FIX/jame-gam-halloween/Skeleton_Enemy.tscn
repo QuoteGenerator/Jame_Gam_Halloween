@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dejoqp57xlvc"]
 
-[ext_resource type="Script" uid="uid://bu1k7ynase2c1" path="res://Scripts/skeleton_enemy.gd" id="1_s2728"]
+[ext_resource type="Script" uid="uid://bu1k7ynase2c1" path="res://Scripts/enemy.gd" id="1_s2728"]
 [ext_resource type="Texture2D" uid="uid://dqa42p8dcxo28" path="res://Assets/Sprites/Mobs/skelet_idle.png" id="1_snqbw"]
 [ext_resource type="Texture2D" uid="uid://doa84el4rwgb6" path="res://Assets/Sprites/Mobs/skelet_move.png" id="2_upuoj"]
 

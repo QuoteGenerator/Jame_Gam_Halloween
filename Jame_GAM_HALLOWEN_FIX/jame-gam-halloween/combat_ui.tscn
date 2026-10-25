@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="2_j56r1"]
 [ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="3_rltsl"]
 [ext_resource type="Texture2D" uid="uid://drfy7woj0dxja" path="res://Assets/Sprites/tbc_sprites/tbc_pumpkin_idle.png" id="4_j56r1"]
+[ext_resource type="Texture2D" uid="uid://3p516f8hyijh" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_idle.png" id="4_rltsl"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
 [ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/basicAtk_btn.gd" id="6_tnwwt"]
@@ -22,6 +23,59 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 0, 38, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_ghost_idle_animation:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(69, 0, 69, 80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ucios"]
+resource_name = "tbc_ghost_idle_animation"
+length = 0.46666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_ghost_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 69, 80), Rect2(69, 0, 69, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_j56r1"]
@@ -48,31 +102,32 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("tbc_skeleton_idle_animation:visible")
-tracks/0/interp = 1
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tbc_skeleton_idle_animation:region_rect")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.23333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Rect2(0, 0, 38, 97), Rect2(38, 0, 38, 97)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
 _data = {
 &"RESET": SubResource("Animation_rltsl"),
+&"tbc_ghost_idle_animation": SubResource("Animation_ucios"),
 &"tbc_player_idle_animation": SubResource("Animation_j56r1"),
 &"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b")
 }
@@ -102,18 +157,26 @@ texture = ExtResource("2_j56r1")
 
 [node name="tbc_AnimationEnemy" type="AnimationPlayer" parent="Panel" unique_id=1847786269]
 libraries/ = SubResource("AnimationLibrary_20pc6")
-autoplay = &"tbc_skeleton_idle_animation"
 
 [node name="tbc_AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=142804499]
 libraries/ = SubResource("AnimationLibrary_20pc6")
 autoplay = &"tbc_player_idle_animation"
 
 [node name="tbc_skeleton_idle_animation" type="Sprite2D" parent="Panel" unique_id=1358327532]
+visible = false
 position = Vector2(917, 443)
 scale = Vector2(3.9210527, 3.9210527)
 texture = ExtResource("3_rltsl")
 region_enabled = true
 region_rect = Rect2(0, 0, 38, 97)
+
+[node name="tbc_ghost_idle_animation" type="Sprite2D" parent="Panel" unique_id=1254414777]
+visible = false
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("4_rltsl")
+region_enabled = true
+region_rect = Rect2(69, 0, 69, 80)
 
 [node name="tbc_player_idle_animation" type="Sprite2D" parent="Panel" unique_id=670622372]
 position = Vector2(309, 676)

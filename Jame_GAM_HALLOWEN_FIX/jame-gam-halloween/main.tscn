@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="5_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="11_efxa6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
 radius = 8.0
@@ -1220,3 +1221,7 @@ position = Vector2(-17.025, 39.805)
 position = Vector2(3.9999924, -299)
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("10_4c57u")]
+visible = false
+
+[node name="GhostEnemy" parent="." unique_id=706758163 instance=ExtResource("11_efxa6")]
+position = Vector2(71, -56)
