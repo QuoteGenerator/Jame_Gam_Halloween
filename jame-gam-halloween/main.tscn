@@ -3,15 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="3_r0du0"]
+[ext_resource type="Texture2D" uid="uid://0cga8lnrgfl" path="res://Assets/Sprites/Objects/treestump.png" id="3_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b4etmlinqsl6o" path="res://Assets/Sprites/Objects/download.png" id="4_fos0i"]
 [ext_resource type="Texture2D" uid="uid://d3n8vod38del0" path="res://Assets/Sprites/Objects/rock2.png" id="4_trn2v"]
+[ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
 [ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="6_3dxm6"]
-[ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_template.png" id="7_lgr22"]
+[ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="7_lgr22"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
 radius = 8.0
 height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
+
+[sub_resource type="Animation" id="Animation_wkp8b"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
+_data = {
+&"new_animation": SubResource("Animation_wkp8b")
+}
 
 [node name="Main" type="Node2D" unique_id=63515689]
 
@@ -590,6 +602,126 @@ position = Vector2(-232.35999, -95.84)
 scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
+[node name="Download53" type="Sprite2D" parent="SArea/trees" unique_id=832751473]
+position = Vector2(-242, 42.72)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download54" type="Sprite2D" parent="SArea/trees" unique_id=591467725]
+position = Vector2(-241, 83.72)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download59" type="Sprite2D" parent="SArea/trees" unique_id=1763595927]
+position = Vector2(-244.35999, 111.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download60" type="Sprite2D" parent="SArea/trees" unique_id=2143497029]
+position = Vector2(-243.35999, 152.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download65" type="Sprite2D" parent="SArea/trees" unique_id=1646570673]
+position = Vector2(-246.35999, 189.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download66" type="Sprite2D" parent="SArea/trees" unique_id=157555850]
+position = Vector2(-245.35999, 230.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download197" type="Sprite2D" parent="SArea/trees" unique_id=489635113]
+position = Vector2(-245, -167.55997)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download198" type="Sprite2D" parent="SArea/trees" unique_id=1747226992]
+position = Vector2(-244, -126.55997)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download199" type="Sprite2D" parent="SArea/trees" unique_id=136541618]
+position = Vector2(-247.35999, -98.84)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download200" type="Sprite2D" parent="SArea/trees" unique_id=350486228]
+position = Vector2(-246.35999, -57.839996)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download201" type="Sprite2D" parent="SArea/trees" unique_id=1542306871]
+position = Vector2(-249.35999, -20.839996)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download202" type="Sprite2D" parent="SArea/trees" unique_id=242166935]
+position = Vector2(-248.35999, 20.160004)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download71" type="Sprite2D" parent="SArea/trees" unique_id=125119777]
+position = Vector2(260, 42.72)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download72" type="Sprite2D" parent="SArea/trees" unique_id=895320557]
+position = Vector2(261, 83.72)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download77" type="Sprite2D" parent="SArea/trees" unique_id=799639085]
+position = Vector2(257.64, 111.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download78" type="Sprite2D" parent="SArea/trees" unique_id=2100374859]
+position = Vector2(258.64, 152.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download83" type="Sprite2D" parent="SArea/trees" unique_id=65392514]
+position = Vector2(255.64001, 189.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download84" type="Sprite2D" parent="SArea/trees" unique_id=905409839]
+position = Vector2(256.64, 230.44)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download203" type="Sprite2D" parent="SArea/trees" unique_id=1890727668]
+position = Vector2(257, -167.55997)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download204" type="Sprite2D" parent="SArea/trees" unique_id=1473664934]
+position = Vector2(258, -126.55997)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download205" type="Sprite2D" parent="SArea/trees" unique_id=1187490338]
+position = Vector2(254.64001, -98.84)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download206" type="Sprite2D" parent="SArea/trees" unique_id=533738714]
+position = Vector2(255.64001, -57.839996)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download207" type="Sprite2D" parent="SArea/trees" unique_id=402815810]
+position = Vector2(252.64001, -20.839996)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download208" type="Sprite2D" parent="SArea/trees" unique_id=2058823860]
+position = Vector2(253.64001, 20.160004)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
 [node name="Download217" type="Sprite2D" parent="SArea/trees" unique_id=1690372558]
 position = Vector2(244, -293.28)
 scale = Vector2(0.120000005, 0.120000005)
@@ -925,6 +1057,86 @@ position = Vector2(-140.00002, -276.56)
 scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
+[node name="Download193" type="Sprite2D" parent="SArea/trees" unique_id=319906820]
+position = Vector2(-114, -324.28003)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download194" type="Sprite2D" parent="SArea/trees" unique_id=1482790887]
+position = Vector2(-147, -322.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download195" type="Sprite2D" parent="SArea/trees" unique_id=1664733958]
+position = Vector2(-190, -318.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download196" type="Sprite2D" parent="SArea/trees" unique_id=1148462570]
+position = Vector2(-229, -319.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download289" type="Sprite2D" parent="SArea/trees" unique_id=873451418]
+position = Vector2(244, -329.28003)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download290" type="Sprite2D" parent="SArea/trees" unique_id=722812399]
+position = Vector2(211, -327.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download291" type="Sprite2D" parent="SArea/trees" unique_id=1626722678]
+position = Vector2(168, -323.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download292" type="Sprite2D" parent="SArea/trees" unique_id=737230160]
+position = Vector2(129, -324.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download293" type="Sprite2D" parent="SArea/trees" unique_id=175236397]
+position = Vector2(155.99998, -321.28003)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download294" type="Sprite2D" parent="SArea/trees" unique_id=1388278994]
+position = Vector2(122.999985, -319.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download295" type="Sprite2D" parent="SArea/trees" unique_id=536208171]
+position = Vector2(79.999985, -315.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download296" type="Sprite2D" parent="SArea/trees" unique_id=1601372411]
+position = Vector2(40.999985, -316.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download297" type="Sprite2D" parent="SArea/trees" unique_id=217799457]
+position = Vector2(-25, -317.28003)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download298" type="Sprite2D" parent="SArea/trees" unique_id=1517978538]
+position = Vector2(-58, -315.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download299" type="Sprite2D" parent="SArea/trees" unique_id=1184293196]
+position = Vector2(-101, -311.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
+[node name="Download300" type="Sprite2D" parent="SArea/trees" unique_id=1713995280]
+position = Vector2(-140, -312.56006)
+scale = Vector2(0.120000005, 0.120000005)
+texture = ExtResource("4_fos0i")
+
 [node name="Download284" type="Sprite2D" parent="SArea/trees" unique_id=2107167498]
 position = Vector2(-139.00002, -235.56)
 scale = Vector2(0.120000005, 0.120000005)
@@ -950,6 +1162,10 @@ position = Vector2(-143.36, -88.84)
 scale = Vector2(0.120000005, 0.120000005)
 texture = ExtResource("4_fos0i")
 
+[node name="Treestump" type="Sprite2D" parent="SArea/trees" unique_id=13648101]
+position = Vector2(-67, -143)
+texture = ExtResource("3_wkp8b")
+
 [node name="Ground" type="Node" parent="SArea" unique_id=1961701556]
 
 [node name="Row" type="Sprite2D" parent="SArea/Ground" unique_id=1255348054]
@@ -958,7 +1174,7 @@ texture_repeat = 2
 position = Vector2(4, -36)
 texture = ExtResource("1_fos0i")
 region_enabled = true
-region_rect = Rect2(0, 0, 500, 500)
+region_rect = Rect2(0, 0, 550, 579.035)
 
 [node name="Border" type="Node" parent="SArea" unique_id=1644374069]
 
@@ -982,15 +1198,31 @@ shape = SubResource("CapsuleShape2D_lgr22")
 [node name="Sprite2D" type="Sprite2D" parent="SArea/Stones/StaticBody2D" unique_id=887676951]
 texture = ExtResource("4_trn2v")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="SArea/Stones" unique_id=1151670462]
+position = Vector2(78, 27.000004)
+rotation = 2.211594
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SArea/Stones/StaticBody2D2" unique_id=457805494]
+position = Vector2(-0.7881052, -4.4021444)
+scale = Vector2(1.315, 1.315)
+shape = SubResource("CircleShape2D_03owx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SArea/Stones/StaticBody2D2" unique_id=1227987818]
+position = Vector2(-1.6167576, 6.195655)
+scale = Vector2(1.315, 1.315)
+shape = SubResource("CircleShape2D_03owx")
+
+[node name="Sprite2D" type="Sprite2D" parent="SArea/Stones/StaticBody2D2" unique_id=1814571786]
+texture = ExtResource("5_3dxm6")
+
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("1_glv2v")]
 position = Vector2(-17.025, 39.805)
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
-position = Vector2(-66, -150)
+position = Vector2(3.9999924, -299)
 
 [node name="CombatUI" type="CanvasLayer" parent="." unique_id=1418713530 groups=["combat_ui"]]
 process_mode = 2
-visible = false
 script = ExtResource("6_3dxm6")
 
 [node name="Panel" type="Panel" parent="CombatUI" unique_id=2142664895]
@@ -1002,3 +1234,9 @@ layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 1200.0
 texture = ExtResource("7_lgr22")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CombatUI/Panel" unique_id=741961571]
+libraries/ = SubResource("AnimationLibrary_20pc6")
+autoplay = &"new_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatUI/Panel" unique_id=1357218371]
