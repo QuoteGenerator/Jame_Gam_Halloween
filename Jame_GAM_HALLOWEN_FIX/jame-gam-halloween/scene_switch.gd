@@ -36,4 +36,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	print("timer out")
-	get_tree().call_deferred("change_scene_to_file", "res://area_1.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Tutorial_Area.tscn")

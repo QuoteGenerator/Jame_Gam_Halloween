@@ -3,7 +3,8 @@ extends Node2D
 @onready var black_screen: ColorRect = $BlackScreen
 @onready var path_follower: PathFollow2D = $Path2D/PathFollow2D
 @onready var fade_anim: AnimationPlayer = $BlackScreen/AnimationPlayer
-@onready var player: CharacterBody2D = $Path2D/PathFollow2D/Player
+@onready var player: CharacterBody2D = $Player
+
 
 # Called when the node enters the scene tree for the first time.
 var is_path_following = false

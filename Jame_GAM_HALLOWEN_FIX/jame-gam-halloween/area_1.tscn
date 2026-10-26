@@ -70,6 +70,10 @@ _data = {
 [node name="Area1" type="Node2D" unique_id=764503392]
 script = ExtResource("1_keoi2")
 
+[node name="Player" parent="." unique_id=1519202898 instance=ExtResource("5_1rxqu")]
+z_index = 1
+position = Vector2(-3.00001, 147.00003)
+
 [node name="Path2D" type="Path2D" parent="." unique_id=429640536]
 position = Vector2(-6, 28)
 curve = SubResource("Curve2D_1rxqu")
@@ -79,10 +83,7 @@ position = Vector2(3, 119)
 rotation = -1.5707964
 loop = false
 
-[node name="Player" parent="Path2D/PathFollow2D" unique_id=1519202898 instance=ExtResource("5_1rxqu")]
-z_index = 1
-position = Vector2(-3.0517578e-05, -1.001358e-05)
-rotation = -3.1415925
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=244787956]
 
 [node name="Area1" type="Sprite2D" parent="." unique_id=418817557]
 position = Vector2(0, 1)
