@@ -150,10 +150,13 @@ _data = {
 radius = 9.303965
 height = 32.70925
 
-[node name="GhostEnemy" type="CharacterBody2D" unique_id=845605063]
+[node name="GhostEnemy" type="CharacterBody2D" unique_id=845605063 groups=["ghost"]]
 rotation = 1.5707964
 scale = Vector2(1.4, 1.4)
 script = ExtResource("1_v38g5")
+health = 10
+max_health = 10
+enemy_name = "Ghost"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569457113]
 shape = SubResource("CircleShape2D_dfj8p")

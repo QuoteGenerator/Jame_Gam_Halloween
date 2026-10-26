@@ -5,6 +5,10 @@ var player: Node2D
 var chasing: bool = false
 var in_combat: bool = false
 @export var health: int = 100
+@export var max_health: int = 100
+@export var mana: int = 15
+@export var max_mana: int = 15
+@export var enemy_name: String = "ENEMY"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var detection_area: Area2D = $DetectionArea
@@ -50,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			var body = collision.get_collider()
 
 			if body is Node2D and body.is_in_group("player"):
-				start_combat(body)	
+				start_combat(body)
 
 
 func start_combat(_body: Node2D) -> void:
@@ -64,4 +68,4 @@ func start_combat(_body: Node2D) -> void:
 	var combat_ui = get_tree().get_first_node_in_group("combat_ui")
 
 	if combat_ui:
-		combat_ui.start_combat(self)
+		combat_ui.start_combat(self, _body)

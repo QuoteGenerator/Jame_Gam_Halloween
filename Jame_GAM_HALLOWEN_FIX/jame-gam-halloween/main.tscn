@@ -148,11 +148,17 @@ texture = ExtResource("5_3dxm6")
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("1_glv2v")]
 position = Vector2(-17.025, 39.805)
 
-[node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
+[node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("3_r0du0")]
 position = Vector2(3.9999924, -299)
+enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("10_4c57u")]
 visible = false
 
 [node name="GhostEnemy" parent="." unique_id=706758163 instance=ExtResource("11_efxa6")]
 position = Vector2(71, -56)
+enemy_name = "Ghost (Tod)"
+
+[node name="GhostEnemy2" parent="." unique_id=198820486 instance=ExtResource("11_efxa6")]
+position = Vector2(-85.999985, -60)
+enemy_name = "Ghost (Fred)"

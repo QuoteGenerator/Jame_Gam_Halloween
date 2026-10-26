@@ -30,6 +30,8 @@ window/stretch/aspect="expand"
 
 player=""
 combat_ui=""
+ghost=""
+skeleton=""
 
 [physics]
 

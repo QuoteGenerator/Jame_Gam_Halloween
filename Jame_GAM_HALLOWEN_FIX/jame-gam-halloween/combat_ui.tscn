@@ -36,18 +36,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Rect2(69, 0, 69, 80)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_ucios"]
 resource_name = "tbc_ghost_idle_animation"
@@ -76,6 +64,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_j56r1"]
@@ -122,6 +122,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
@@ -245,7 +257,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 
-[node name="PumpkinName" type="Label" parent="Panel/Control" unique_id=188503472]
+[node name="PlayerName" type="Label" parent="Panel/Control" unique_id=188503472]
 layout_mode = 0
 offset_left = 137.0
 offset_top = 420.0
@@ -256,16 +268,36 @@ theme_override_font_sizes/font_size = 21
 text = "PUMPKIN
 "
 
-[node name="PumpkinStats" type="Label" parent="Panel/Control" unique_id=893615213]
+[node name="PlayerStats" type="Label" parent="Panel/Control" unique_id=893615213]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 420.0
-offset_right = 472.0
-offset_bottom = 508.0
+offset_left = 138.0
+offset_top = 445.0
+offset_right = 476.0
+offset_bottom = 533.0
 theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 21
-text = "
-HP: 25/25    MANA: 10/10"
+text = "HP: 25/25    MANA: 10/10"
+
+[node name="EnemyName" type="Label" parent="Panel/Control" unique_id=1699826288]
+layout_mode = 0
+offset_left = 724.0
+offset_top = 714.0
+offset_right = 1059.0
+offset_bottom = 802.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "ENEMY
+"
+
+[node name="EnemyStats" type="Label" parent="Panel/Control" unique_id=2129516309]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 741.0
+offset_right = 1063.0
+offset_bottom = 829.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "HP: 10/10    MANA: 5/5"
 
 [node name="Label" type="Label" parent="Panel/Control" unique_id=2030402740]
 clip_contents = true
@@ -284,3 +316,4 @@ text = "* YOUR TURN *"
 
 [connection signal="mouse_entered" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_pressed"]

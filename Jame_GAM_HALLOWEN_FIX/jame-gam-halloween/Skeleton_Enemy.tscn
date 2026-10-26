@@ -154,6 +154,11 @@ height = 32.70925
 rotation = 1.5707964
 scale = Vector2(1.4, 1.4)
 script = ExtResource("1_s2728")
+health = 5
+max_health = 15
+mana = 10
+max_mana = 10
+enemy_name = "Skeleton"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569457113]
 shape = SubResource("CircleShape2D_dfj8p")
