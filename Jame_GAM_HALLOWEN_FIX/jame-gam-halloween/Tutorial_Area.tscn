@@ -81,9 +81,17 @@ _data = {
 size = Vector2(21, 20)
 
 [sub_resource type="Curve2D" id="Curve2D_uwtsg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -127, 0, 0, 0, 0, 0, -209)
+}
+point_count = 2
 
 [node name="TutorialArea" type="Node2D" unique_id=1696652792]
 script = ExtResource("1_0b11v")
+
+[node name="Player" parent="." unique_id=1519202898 instance=ExtResource("2_ueham")]
+z_index = 1
+position = Vector2(3, 119)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=139747261]
 curve = SubResource("Curve2D_6vlkc")
@@ -93,10 +101,9 @@ position = Vector2(3, 119)
 rotation = -1.5707964
 loop = false
 
-[node name="Player" parent="Path2D/PathFollow2D" unique_id=1519202898 instance=ExtResource("2_ueham")]
-z_index = 1
-position = Vector2(-3.0517578e-05, -7.6293945e-06)
-rotation = -3.1415925
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=2089690171]
+rotation = 3.1415927
+remote_path = NodePath("../../../Player")
 
 [node name="TArea" type="Sprite2D" parent="." unique_id=2115904042]
 position = Vector2(3, -6)
@@ -186,14 +193,21 @@ texture = ExtResource("4_3va81")
 region_enabled = true
 region_rect = Rect2(0, 0, 495, 157)
 
-[node name="Row" type="Sprite2D" parent="." unique_id=1817363686]
+[node name="Row4" type="Sprite2D" parent="." unique_id=1675001072]
 z_index = -4096
 texture_repeat = 2
 position = Vector2(4, -36)
 texture = ExtResource("5_4ndks")
 region_enabled = true
 region_rect = Rect2(0, 0, 550, 579.035)
-metadata/_edit_lock_ = true
+
+[node name="Row" type="Sprite2D" parent="." unique_id=1817363686]
+z_index = -4096
+texture_repeat = 2
+position = Vector2(4, -36)
+texture = ExtResource("5_4ndks")
+region_enabled = true
+region_rect = Rect2(0, 0, 550, 787.095)
 
 [node name="Row2" type="Sprite2D" parent="." unique_id=559116715]
 position = Vector2(-67, 2)
@@ -204,8 +218,8 @@ position = Vector2(84, -4)
 texture = ExtResource("5_4ndks")
 
 [node name="Path" type="Sprite2D" parent="." unique_id=1928846684]
-position = Vector2(0, -186.25)
-scale = Vector2(1, 3.2457628)
+position = Vector2(0, -249.25)
+scale = Vector2(1, 5.381356)
 texture = ExtResource("6_fwyjp")
 
 [node name="Path2" type="Sprite2D" parent="." unique_id=2092420346]
@@ -286,6 +300,12 @@ one_shot = true
 curve = SubResource("Curve2D_uwtsg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=519259962]
+position = Vector2(0, -127)
+rotation = -1.5707964
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1149099821]
+rotation = 3.1415927
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]
