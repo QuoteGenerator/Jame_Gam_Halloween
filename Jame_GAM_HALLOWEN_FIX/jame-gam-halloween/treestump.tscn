@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://mv1w0so7hbf1"]
+
+[ext_resource type="Texture2D" uid="uid://0cga8lnrgfl" path="res://Assets/Sprites/Objects/treestump.png" id="1_7paea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 12.0
+
+[node name="treestump" type="StaticBody2D" unique_id=148929270]
+
+[node name="Treestump" type="Sprite2D" parent="." unique_id=301290629]
+texture = ExtResource("1_7paea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373117673]
+shape = SubResource("CircleShape2D_g4v7s")
