@@ -9,7 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="5_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://cxoex0y00mwbg" path="res://scene_switch.gd" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="11_efxa6"]
+
+[sub_resource type="Curve2D" id="Curve2D_efxa6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -138, 0, 0, 0, 0, 0, -220)
+}
+point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgr22"]
 radius = 8.0
@@ -17,7 +24,60 @@ height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytaun"]
+size = Vector2(32, 20)
+
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0")
+}
+
 [node name="Main" type="Node2D" unique_id=63515689]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1266127625]
+curve = SubResource("Curve2D_efxa6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=309022969]
+position = Vector2(0, -138)
+rotation = -1.5707964
+loop = false
+
+[node name="Player" parent="Path2D/PathFollow2D" unique_id=1519202898 instance=ExtResource("1_glv2v")]
+z_index = 1
+position = Vector2(-182.00003, -1.5258789e-05)
+rotation = -3.1415925
 
 [node name="SArea" type="Sprite2D" parent="." unique_id=1082908416]
 texture = ExtResource("4_cm0pq")
@@ -25,6 +85,7 @@ texture = ExtResource("4_cm0pq")
 [node name="trees" type="Node" parent="SArea" unique_id=1287349965]
 
 [node name="TreeFull" type="Sprite2D" parent="SArea/trees" unique_id=2033928321]
+z_index = 2
 texture_repeat = 2
 position = Vector2(-4, 150)
 texture = ExtResource("2_efxa6")
@@ -32,6 +93,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 495, 157)
 
 [node name="TreeFull3" type="Sprite2D" parent="SArea/trees" unique_id=1671203496]
+z_index = 2
 texture_repeat = 2
 position = Vector2(-50, -130)
 texture = ExtResource("2_efxa6")
@@ -39,6 +101,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull5" type="Sprite2D" parent="SArea/trees" unique_id=834189389]
+z_index = 2
 texture_repeat = 2
 position = Vector2(50, -131)
 texture = ExtResource("2_efxa6")
@@ -46,6 +109,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull6" type="Sprite2D" parent="SArea/trees" unique_id=514319667]
+z_index = 2
 texture_repeat = 2
 position = Vector2(-49, -245.5)
 texture = ExtResource("2_efxa6")
@@ -53,6 +117,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull7" type="Sprite2D" parent="SArea/trees" unique_id=357574584]
+z_index = 2
 texture_repeat = 2
 position = Vector2(51, -246.5)
 texture = ExtResource("2_efxa6")
@@ -60,6 +125,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull8" type="Sprite2D" parent="SArea/trees" unique_id=859789360]
+z_index = 2
 texture_repeat = 2
 position = Vector2(-51, -364.5)
 texture = ExtResource("2_efxa6")
@@ -67,6 +133,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull9" type="Sprite2D" parent="SArea/trees" unique_id=2022671335]
+z_index = 2
 texture_repeat = 2
 position = Vector2(49, -365.5)
 texture = ExtResource("2_efxa6")
@@ -74,6 +141,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull2" type="Sprite2D" parent="SArea/trees" unique_id=1067961930]
+z_index = 2
 texture_repeat = 2
 position = Vector2(-177, -177)
 rotation = -1.5707964
@@ -82,6 +150,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 497.99, 157)
 
 [node name="TreeFull4" type="Sprite2D" parent="SArea/trees" unique_id=161012216]
+z_index = 2
 texture_repeat = 2
 position = Vector2(173, -177)
 rotation = -1.5707964
@@ -100,10 +169,18 @@ region_enabled = true
 region_rect = Rect2(0, 0, 550, 579.035)
 metadata/_edit_lock_ = true
 
+[node name="Row2" type="Sprite2D" parent="SArea/Ground" unique_id=1639548148]
+z_index = -4096
+texture_repeat = 2
+position = Vector2(5, -615)
+texture = ExtResource("1_fos0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 550, 579.035)
+
 [node name="Path" type="Sprite2D" parent="SArea/Ground" unique_id=976677496]
 z_index = -4096
-position = Vector2(0, -204)
-scale = Vector2(1, 4.127119)
+position = Vector2(0, -329.125)
+scale = Vector2(1, 8.368644)
 texture = ExtResource("5_2cqfq")
 
 [node name="Border" type="Node" parent="SArea" unique_id=1644374069]
@@ -145,11 +222,8 @@ shape = SubResource("CircleShape2D_03owx")
 [node name="Sprite2D" type="Sprite2D" parent="SArea/Stones/StaticBody2D2" unique_id=1814571786]
 texture = ExtResource("5_3dxm6")
 
-[node name="Player" parent="." unique_id=1519202898 instance=ExtResource("1_glv2v")]
-position = Vector2(-17.025, 39.805)
-
 [node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("3_r0du0")]
-position = Vector2(3.9999924, -299)
+position = Vector2(2.3841858e-07, -98.000015)
 enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("10_4c57u")]
@@ -162,3 +236,30 @@ enemy_name = "Ghost (Tod)"
 [node name="GhostEnemy2" parent="." unique_id=198820486 instance=ExtResource("11_efxa6")]
 position = Vector2(-85.999985, -60)
 enemy_name = "Ghost (Fred)"
+
+[node name="SceneSwitch" type="Area2D" parent="." unique_id=1699795903]
+script = ExtResource("11_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch" unique_id=1975628300]
+position = Vector2(-1, -158)
+shape = SubResource("RectangleShape2D_ytaun")
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=488772797]
+visible = false
+z_index = 4096
+offset_left = -567.0
+offset_top = -536.0
+offset_right = 659.0
+offset_bottom = 454.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=2004161104]
+libraries/ = SubResource("AnimationLibrary_efxa6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1597339290]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="SceneSwitch" method="_on_timer_timeout"]

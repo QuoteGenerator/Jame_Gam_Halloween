@@ -1,17 +1,96 @@
 [gd_scene format=3 uid="uid://dug6057aw0vsc"]
 
-[ext_resource type="Script" uid="uid://csjgifgn87tqj" path="res://Scripts/player.gd" id="1_fqcjd"]
+[ext_resource type="Script" uid="uid://b0pvd1jrhn0en" path="res://tutorial_area.gd" id="1_0b11v"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="2_ueham"]
 [ext_resource type="Texture2D" uid="uid://dewhohg7hkc26" path="res://Assets/Sprites/Areas/t_area.png" id="3_nkvb4"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="4_3va81"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="5_4ndks"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="6_fwyjp"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="7_3va81"]
+[ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="8_6vlkc"]
+[ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="9_0b11v"]
+[ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="10_bx2f0"]
+[ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_dipwe"]
+[ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="12_fpldr"]
+[ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="13_0b11v"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="14_dipwe"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="15_fpldr"]
+
+[sub_resource type="Curve2D" id="Curve2D_6vlkc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 119, 0, 0, 0, 0, 3, 68)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dipwe"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
 
 [node name="TutorialArea" type="Node2D" unique_id=1696652792]
-script = ExtResource("1_fqcjd")
+script = ExtResource("1_0b11v")
 
-[node name="Player" parent="." unique_id=1519202898 instance=ExtResource("2_ueham")]
+[node name="Path2D" type="Path2D" parent="." unique_id=139747261]
+curve = SubResource("Curve2D_6vlkc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1950041070]
+position = Vector2(3, 119)
+rotation = -1.5707964
+loop = false
+
+[node name="Player" parent="Path2D/PathFollow2D" unique_id=1519202898 instance=ExtResource("2_ueham")]
+z_index = 1
+position = Vector2(-3.0517578e-05, -7.6293945e-06)
+rotation = -3.1415925
 
 [node name="TArea" type="Sprite2D" parent="." unique_id=2115904042]
 position = Vector2(3, -6)
@@ -20,13 +99,15 @@ texture = ExtResource("3_nkvb4")
 [node name="trees" type="Node" parent="." unique_id=590680971]
 
 [node name="TreeFull" type="Sprite2D" parent="trees" unique_id=201740185]
+z_index = 1
 texture_repeat = 2
-position = Vector2(-4, 150)
+position = Vector2(255, 150)
 texture = ExtResource("4_3va81")
 region_enabled = true
 region_rect = Rect2(0, 0, 495, 157)
 
 [node name="TreeFull3" type="Sprite2D" parent="trees" unique_id=469658762]
+z_index = 1
 texture_repeat = 2
 position = Vector2(-50, -130)
 texture = ExtResource("4_3va81")
@@ -34,6 +115,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull5" type="Sprite2D" parent="trees" unique_id=1805188766]
+z_index = 1
 texture_repeat = 2
 position = Vector2(50, -131)
 texture = ExtResource("4_3va81")
@@ -41,6 +123,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull6" type="Sprite2D" parent="trees" unique_id=197630008]
+z_index = 1
 texture_repeat = 2
 position = Vector2(-49, -245.5)
 texture = ExtResource("4_3va81")
@@ -48,6 +131,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull7" type="Sprite2D" parent="trees" unique_id=2067492664]
+z_index = 1
 texture_repeat = 2
 position = Vector2(51, -246.5)
 texture = ExtResource("4_3va81")
@@ -55,6 +139,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull8" type="Sprite2D" parent="trees" unique_id=1776669160]
+z_index = 1
 texture_repeat = 2
 position = Vector2(-51, -364.5)
 texture = ExtResource("4_3va81")
@@ -62,6 +147,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=186943583]
+z_index = 1
 texture_repeat = 2
 position = Vector2(49, -365.5)
 texture = ExtResource("4_3va81")
@@ -69,6 +155,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1963820084]
+z_index = 1
 texture_repeat = 2
 position = Vector2(-177, -177)
 rotation = -1.5707964
@@ -77,12 +164,21 @@ region_enabled = true
 region_rect = Rect2(0, 0, 497.99, 157)
 
 [node name="TreeFull4" type="Sprite2D" parent="trees" unique_id=965627998]
+z_index = 1
 texture_repeat = 2
 position = Vector2(173, -177)
 rotation = -1.5707964
 texture = ExtResource("4_3va81")
 region_enabled = true
 region_rect = Rect2(0, 0, 497.99, 157)
+
+[node name="TreeFull10" type="Sprite2D" parent="trees" unique_id=695935479]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-246, 151)
+texture = ExtResource("4_3va81")
+region_enabled = true
+region_rect = Rect2(0, 0, 495, 157)
 
 [node name="Row" type="Sprite2D" parent="." unique_id=1817363686]
 z_index = -4096
@@ -113,3 +209,58 @@ texture = ExtResource("6_fwyjp")
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("7_3va81")]
 visible = false
+
+[node name="Objects" type="Node" parent="." unique_id=1836125525]
+
+[node name="Fallenlog1" parent="Objects" unique_id=261858462 instance=ExtResource("8_6vlkc")]
+position = Vector2(-47.999996, 33)
+rotation = -1.7889625
+
+[node name="treestump" parent="Objects" unique_id=148929270 instance=ExtResource("9_0b11v")]
+position = Vector2(81, -15)
+
+[node name="Fallenlog2" parent="Objects" unique_id=1464683074 instance=ExtResource("10_bx2f0")]
+position = Vector2(40, -16)
+rotation = -1.5707964
+
+[node name="rock2" parent="Objects" unique_id=162913101 instance=ExtResource("11_dipwe")]
+position = Vector2(-87, 23)
+
+[node name="rock1" parent="Objects" unique_id=170553724 instance=ExtResource("12_fpldr")]
+position = Vector2(-40, -53)
+
+[node name="Fallenlog3" parent="Objects" unique_id=241232779 instance=ExtResource("8_6vlkc")]
+position = Vector2(10, 26.999998)
+rotation = 1.7418386
+
+[node name="PumpkinPie" parent="." unique_id=538749438 instance=ExtResource("13_0b11v")]
+position = Vector2(-79, -58)
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1909973100]
+visible = false
+z_index = 4096
+offset_left = -636.0
+offset_top = -507.0
+offset_right = 590.0
+offset_bottom = 483.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=954469845]
+libraries/ = SubResource("AnimationLibrary_dipwe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1977418202]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=130202172]
+position = Vector2(-16, -76)
+polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2, 34, -2, 35, -273, 145, -8, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -99, -16, -1, -274)
+
+[node name="rock2" parent="." unique_id=642357929 instance=ExtResource("11_dipwe")]
+position = Vector2(-42.000004, -23.000002)
+rotation = 0.37350047
+
+[node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("14_dipwe")]
+position = Vector2(-75, -26)
+
+[node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]
+position = Vector2(52, -50.000004)
+rotation = -3.1415927
