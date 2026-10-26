@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://buegoepk4uxm1"]
 
-[ext_resource type="Script" uid="uid://celvuv1ik80o5" path="res://area_1.gd" id="1_keoi2"]
+[ext_resource type="Script" uid="uid://celvuv1ik80o5" path="res://Scripts/area_1.gd" id="1_keoi2"]
 [ext_resource type="Texture2D" uid="uid://dgcevkonqdx6v" path="res://Assets/Sprites/Areas/area1.png" id="1_pauv7"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_2n87t"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_weo7h"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_1rxqu"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_1rxqu"]
-[ext_resource type="Script" uid="uid://bj5qw1bsb546x" path="res://scene_switch3.gd" id="7_nboye"]
+[ext_resource type="Script" uid="uid://bj5qw1bsb546x" path="res://Scripts/scene_switch3.gd" id="7_nboye"]
 [ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="8_hur56"]
 [ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="9_lx7ru"]
 [ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="10_r2afo"]
@@ -314,7 +314,6 @@ position = Vector2(10, 4)
 
 [node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("13_r2afo")]
 position = Vector2(-78, 28)
-scale = Vector2(1, 1)
 
 [node name="pumpkin_spice_latte" parent="." unique_id=870276362 instance=ExtResource("14_th8es")]
 position = Vector2(-78, 10)
@@ -335,6 +334,7 @@ rotation = 1.5707964
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D" unique_id=1077746707]
 remote_path = NodePath("../../../GhostEnemy")
+update_scale = false
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]

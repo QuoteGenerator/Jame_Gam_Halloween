@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bagjlkk6pvm1k"]
+
+[ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="1_n0crx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 5.0
+
+[node name="Area2D" type="Area2D" unique_id=2003987931]
+
+[node name="PumpkinSoup" type="Sprite2D" parent="." unique_id=1030875474]
+texture = ExtResource("1_n0crx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976212661]
+shape = SubResource("CircleShape2D_g4v7s")

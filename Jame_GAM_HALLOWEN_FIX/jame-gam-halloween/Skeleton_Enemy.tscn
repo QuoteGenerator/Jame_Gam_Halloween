@@ -147,8 +147,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2728"]
-radius = 9.303965
-height = 32.70925
+radius = 5.244383
+height = 17.08169
 
 [node name="SkeletonEnemy" type="CharacterBody2D" unique_id=845605063]
 rotation = 1.5707964
@@ -183,7 +183,7 @@ libraries/ = SubResource("AnimationLibrary_s2728")
 rotation = 1.5707964
 scale = Vector2(1.2000014, 1.4000027)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=385759316]
-position = Vector2(0, -27)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1034087141]
+position = Vector2(-1.1324883e-06, -11.224468)
 scale = Vector2(2.27, 2.27)
 shape = SubResource("CapsuleShape2D_s2728")

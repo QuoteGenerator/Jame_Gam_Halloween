@@ -147,7 +147,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2728"]
-radius = 6.2932596
+radius = 4.9821634
 height = 17.08169
 
 [node name="GhostEnemy" type="CharacterBody2D" unique_id=845605063 groups=["ghost"]]

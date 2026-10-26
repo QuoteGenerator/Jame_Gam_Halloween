@@ -1,0 +1,410 @@
+[gd_scene format=3 uid="uid://c4ukheh6x4hrn"]
+
+[ext_resource type="Texture2D" uid="uid://cyeqeujphni44" path="res://Assets/Sprites/Areas/area2.png" id="1_myfck"]
+[ext_resource type="Script" uid="uid://bmuh1hem6l778" path="res://Scripts/area_2.gd" id="1_xeaa6"]
+[ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_iybe0"]
+[ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_nenjx"]
+[ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_vfcf2"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_ma1mr"]
+[ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="6_uaa26"]
+[ext_resource type="Script" uid="uid://b25bvj0s3dyvf" path="res://Scripts/scene_switch4.gd" id="7_uuvrh"]
+[ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="9_n06xo"]
+[ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="10_mk0rf"]
+[ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_33v66"]
+[ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="12_hwr21"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="13_e2j2b"]
+[ext_resource type="PackedScene" uid="uid://bagjlkk6pvm1k" path="res://pumpkin_soup.tscn" id="13_mk0rf"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="14_33v66"]
+[ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="15_e2j2b"]
+[ext_resource type="PackedScene" uid="uid://beokwlpeuu3o0" path="res://pumpkin_spice_latte.tscn" id="17_3opce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(222, 129)
+
+[sub_resource type="Curve2D" id="Curve2D_uuvrh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 153, 0, 0, 0, 0, 2, 105)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xeaa6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 256, -28, 0, 0, 0, 0, 338, -28)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(20, 19)
+
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xeaa6"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_e2j2b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -42, 49, 0, 0, 0, 0, 42, 49, 0, 0, 0, 0, -42, 49)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_3opce"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 165, -90, 0, 0, 0, 0, 165, 10, 0, 0, 0, 0, 165, -90)
+}
+point_count = 3
+
+[node name="Area2" type="Node2D" unique_id=72408179]
+script = ExtResource("1_xeaa6")
+
+[node name="Player" parent="." unique_id=1519202898 instance=ExtResource("5_ma1mr")]
+position = Vector2(-4, 181)
+
+[node name="Area2" type="Sprite2D" parent="." unique_id=1988498366]
+z_index = -6
+position = Vector2(65, 16)
+texture = ExtResource("1_myfck")
+
+[node name="trees" type="Node" parent="." unique_id=455697744]
+
+[node name="TreeFull11" type="Sprite2D" parent="trees" unique_id=832589441]
+z_index = 1
+texture_repeat = 2
+position = Vector2(68, 377)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 135.78, 157)
+
+[node name="TreeFull" type="Sprite2D" parent="trees" unique_id=719026926]
+z_index = 1
+texture_repeat = 2
+position = Vector2(68, 219)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 135.78, 157)
+
+[node name="TreeFull3" type="Sprite2D" parent="trees" unique_id=1666834388]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-8, -168)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull5" type="Sprite2D" parent="trees" unique_id=1889468183]
+z_index = 1
+texture_repeat = 2
+position = Vector2(85, -169.5)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull6" type="Sprite2D" parent="trees" unique_id=1940128690]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-7, -283.5)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull7" type="Sprite2D" parent="trees" unique_id=2109557659]
+z_index = 1
+texture_repeat = 2
+position = Vector2(86, -285)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull8" type="Sprite2D" parent="trees" unique_id=529947382]
+z_index = 1
+texture_repeat = 2
+position = Vector2(298, 201)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 316.875, 117.395)
+
+[node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=1775107507]
+z_index = 1
+texture_repeat = 2
+position = Vector2(356, 117)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 316.41, 39.62)
+
+[node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1254891698]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-133.5, -113)
+rotation = -1.5707964
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 497.99, 157)
+
+[node name="TreeFull4" type="Sprite2D" parent="trees" unique_id=1116049552]
+z_index = 1
+texture_repeat = 2
+position = Vector2(212, -290)
+rotation = -1.5707964
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 361.44, 157)
+
+[node name="TreeFull10" type="Sprite2D" parent="trees" unique_id=1900315990]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-119, 218.5)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 225.665, 157)
+
+[node name="TreeFull12" type="Sprite2D" parent="trees" unique_id=84459342]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-142, 376.5)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 270.29, 157)
+
+[node name="TreeFull13" type="Sprite2D" parent="trees" unique_id=1196907125]
+z_index = 1
+texture_repeat = 2
+position = Vector2(376, 32)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 357.805, 117.9)
+
+[node name="TreeFull14" type="Sprite2D" parent="trees" unique_id=170012080]
+z_index = 1
+texture_repeat = 2
+position = Vector2(376, -71)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 362.805, 78.955)
+
+[node name="TreeFull15" type="Sprite2D" parent="trees" unique_id=1592255200]
+z_index = 1
+texture_repeat = 2
+position = Vector2(128, 82)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 135.875, 117.9)
+
+[node name="TreeFull16" type="Sprite2D" parent="trees" unique_id=375710423]
+z_index = 1
+texture_repeat = 2
+position = Vector2(296, 319)
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 316.875, 117.395)
+
+[node name="TreeFull17" type="Sprite2D" parent="trees" unique_id=1164456463]
+z_index = 1
+texture_repeat = 2
+position = Vector2(369, -290)
+rotation = -1.5707964
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 361.44, 157)
+
+[node name="TreeFull18" type="Sprite2D" parent="trees" unique_id=1164185754]
+z_index = 1
+texture_repeat = 2
+position = Vector2(528, -290)
+rotation = -1.5707964
+texture = ExtResource("2_iybe0")
+region_enabled = true
+region_rect = Rect2(0, 0, 361.44, 157)
+
+[node name="Row" type="Sprite2D" parent="." unique_id=1807789559]
+z_index = -4096
+texture_repeat = 2
+position = Vector2(129, -13)
+texture = ExtResource("3_nenjx")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.615, 867.23)
+
+[node name="Path" type="Sprite2D" parent="." unique_id=1388812036]
+z_index = -4096
+position = Vector2(-4, 293.56253)
+scale = Vector2(1, 4.8622875)
+texture = ExtResource("4_vfcf2")
+
+[node name="Path2" type="Sprite2D" parent="." unique_id=264507680]
+z_index = -4096
+position = Vector2(378.50003, -27.999998)
+rotation = 1.5707964
+scale = Vector2(1, 5.963983)
+texture = ExtResource("4_vfcf2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1022344204]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1179129391]
+position = Vector2(23, -13)
+polygon = PackedVector2Array(174, -104, -86, -105, -91, 158, -91, 162, 45, 160, 45, 45, 180, 44, 181, -5, 395, -5, 135, 124, 130, 186, -31, 181, -121, 169, -115, 24, -114, -188, 173, -184)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1664839723]
+position = Vector2(312, -103.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("6_uaa26")]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="." unique_id=694508108]
+position = Vector2(-6, 28)
+curve = SubResource("Curve2D_uuvrh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1472285643]
+position = Vector2(2, 153)
+rotation = -1.5707964
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=367978382]
+rotation = 3.1415927
+remote_path = NodePath("../../../Player")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=849812228]
+curve = SubResource("Curve2D_xeaa6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=1491119219]
+position = Vector2(256, -28)
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1046472758]
+rotation = 1.5707964
+
+[node name="Scene_Switch" type="Area2D" parent="." unique_id=1091336778]
+script = ExtResource("7_uuvrh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene_Switch" unique_id=316407629]
+position = Vector2(276, -28.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=419216925]
+visible = false
+z_index = 4096
+offset_left = -636.0
+offset_top = -655.0
+offset_right = 917.0
+offset_bottom = 633.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=714121317]
+libraries/ = SubResource("AnimationLibrary_xeaa6")
+
+[node name="Timer" type="Timer" parent="." unique_id=950791340]
+wait_time = 2.0
+one_shot = true
+
+[node name="Fallenlog1" parent="." unique_id=261858462 instance=ExtResource("9_n06xo")]
+position = Vector2(57, 5)
+
+[node name="Fallenlog2" parent="." unique_id=1464683074 instance=ExtResource("10_mk0rf")]
+position = Vector2(110, -70)
+rotation = -0.24958208
+
+[node name="rock2" parent="." unique_id=162913101 instance=ExtResource("11_33v66")]
+position = Vector2(100, -104)
+rotation = 0.24958208
+
+[node name="rock1" parent="." unique_id=170553724 instance=ExtResource("12_hwr21")]
+position = Vector2(-31, 82)
+rotation = 1.6179202
+
+[node name="Area2D" parent="." unique_id=2003987931 instance=ExtResource("13_mk0rf")]
+position = Vector2(-14, 51)
+
+[node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("14_33v66")]
+position = Vector2(-42, 49)
+rotation = 0.0
+
+[node name="treestump" parent="." unique_id=148929270 instance=ExtResource("15_e2j2b")]
+position = Vector2(5, -15)
+
+[node name="Fallenlog3" parent="." unique_id=1792611355 instance=ExtResource("10_mk0rf")]
+position = Vector2(5, -55)
+
+[node name="rock3" parent="." unique_id=2065408679 instance=ExtResource("12_hwr21")]
+position = Vector2(32, -20)
+
+[node name="SkeletonEnemy2" parent="." unique_id=1493750566 groups=["skeleton"] instance=ExtResource("14_33v66")]
+position = Vector2(36, -53)
+rotation = -1.5707964
+
+[node name="GhostEnemy" parent="." unique_id=1587126569 instance=ExtResource("13_e2j2b")]
+position = Vector2(165, -90)
+
+[node name="pumpkin_spice_latte" parent="." unique_id=870276362 instance=ExtResource("17_3opce")]
+position = Vector2(126, -97)
+
+[node name="Path2D3" type="Path2D" parent="." unique_id=1835630335]
+curve = SubResource("Curve2D_e2j2b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=2035340919]
+position = Vector2(-42, 49)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D" unique_id=1159775507]
+remote_path = NodePath("../../../SkeletonEnemy")
+update_scale = false
+
+[node name="Path2D4" type="Path2D" parent="." unique_id=2024224263]
+curve = SubResource("Curve2D_3opce")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4" unique_id=274572360]
+position = Vector2(165, -90)
+rotation = 1.5707964
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D4/PathFollow2D" unique_id=654857020]
+remote_path = NodePath("../../../GhostEnemy")
+update_scale = false
+
+[connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
+[connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="Scene_Switch" method="_on_timer_timeout"]
