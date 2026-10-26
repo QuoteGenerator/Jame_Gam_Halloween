@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://buegoepk4uxm1"]
+
+[ext_resource type="Script" uid="uid://celvuv1ik80o5" path="res://area_1.gd" id="1_keoi2"]
+[ext_resource type="Texture2D" uid="uid://dgcevkonqdx6v" path="res://Assets/Sprites/Areas/area1.png" id="1_pauv7"]
+[ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_2n87t"]
+[ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_weo7h"]
+[ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_1rxqu"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_1rxqu"]
+
+[sub_resource type="Curve2D" id="Curve2D_1rxqu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 119, 0, 0, 0, 0, 3, 68)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nboye"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
+
+[node name="Area1" type="Node2D" unique_id=764503392]
+script = ExtResource("1_keoi2")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=429640536]
+position = Vector2(-6, 28)
+curve = SubResource("Curve2D_1rxqu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1197177866]
+position = Vector2(3, 119)
+rotation = -1.5707964
+loop = false
+
+[node name="Player" parent="Path2D/PathFollow2D" unique_id=1519202898 instance=ExtResource("5_1rxqu")]
+z_index = 1
+position = Vector2(-3.0517578e-05, -1.001358e-05)
+rotation = -3.1415925
+
+[node name="Area1" type="Sprite2D" parent="." unique_id=418817557]
+position = Vector2(0, 1)
+texture = ExtResource("1_pauv7")
+
+[node name="trees" type="Node" parent="." unique_id=1664797401]
+
+[node name="TreeFull11" type="Sprite2D" parent="trees" unique_id=1062175792]
+z_index = 1
+texture_repeat = 2
+position = Vector2(247, 339)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 495, 157)
+
+[node name="TreeFull" type="Sprite2D" parent="trees" unique_id=458488171]
+z_index = 1
+texture_repeat = 2
+position = Vector2(249, 180)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 495, 157)
+
+[node name="TreeFull3" type="Sprite2D" parent="trees" unique_id=1468133320]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-50, -155)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull5" type="Sprite2D" parent="trees" unique_id=1194857873]
+z_index = 1
+texture_repeat = 2
+position = Vector2(50, -156)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull6" type="Sprite2D" parent="trees" unique_id=1684226884]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-49, -270.5)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull7" type="Sprite2D" parent="trees" unique_id=141224153]
+z_index = 1
+texture_repeat = 2
+position = Vector2(51, -271.5)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull8" type="Sprite2D" parent="trees" unique_id=665107933]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-51, -389.5)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=117901851]
+z_index = 1
+texture_repeat = 2
+position = Vector2(49, -390.5)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1995331920]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-177, -147)
+rotation = -1.5707964
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 497.99, 157)
+
+[node name="TreeFull4" type="Sprite2D" parent="trees" unique_id=26512725]
+z_index = 1
+texture_repeat = 2
+position = Vector2(173, -148)
+rotation = -1.5707964
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 497.99, 157)
+
+[node name="TreeFull10" type="Sprite2D" parent="trees" unique_id=1091116905]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-251, 181)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 495, 157)
+
+[node name="TreeFull12" type="Sprite2D" parent="trees" unique_id=590270136]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-251, 338)
+texture = ExtResource("2_2n87t")
+region_enabled = true
+region_rect = Rect2(0, 0, 495, 157)
+
+[node name="Row" type="Sprite2D" parent="." unique_id=833245543]
+z_index = -4096
+texture_repeat = 2
+position = Vector2(4, 1)
+texture = ExtResource("3_weo7h")
+region_enabled = true
+region_rect = Rect2(0, 0, 550, 579.035)
+
+[node name="Path" type="Sprite2D" parent="." unique_id=716328072]
+position = Vector2(-3, -208.25)
+scale = Vector2(1, 3.2457628)
+texture = ExtResource("4_1rxqu")
+
+[node name="Path2" type="Sprite2D" parent="." unique_id=1177420781]
+position = Vector2(-4, 210.75002)
+scale = Vector2(1, 3.2457628)
+texture = ExtResource("4_1rxqu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1480948724]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=803532323]
+position = Vector2(-16, -105)
+polygon = PackedVector2Array(0, 0, -90, -1, -93, 158, -93, 219, 118, 215, 120, -2, 34, -2, 35, -273, 145, -8, 135, 124, 132, 238, -31, 239, -116, 242, -115, 24, -99, -16, -1, -274)
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1679852583]
+visible = false
+z_index = 4096
+offset_left = -636.0
+offset_top = -507.0
+offset_right = 590.0
+offset_bottom = 483.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=388341355]
+libraries/ = SubResource("AnimationLibrary_nboye")

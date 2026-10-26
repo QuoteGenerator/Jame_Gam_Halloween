@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="13_0b11v"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="14_dipwe"]
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="15_fpldr"]
+[ext_resource type="Script" uid="uid://dolpru2rub64q" path="res://scene_switch2.gd" id="16_fpldr"]
 
 [sub_resource type="Curve2D" id="Curve2D_6vlkc"]
 _data = {
@@ -75,6 +76,11 @@ _data = {
 &"fade_in": SubResource("Animation_bx2f0"),
 &"fade_out": SubResource("Animation_dipwe")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(21, 20)
+
+[sub_resource type="Curve2D" id="Curve2D_uwtsg"]
 
 [node name="TutorialArea" type="Node2D" unique_id=1696652792]
 script = ExtResource("1_0b11v")
@@ -264,3 +270,23 @@ position = Vector2(-75, -26)
 [node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]
 position = Vector2(52, -50.000004)
 rotation = -3.1415927
+
+[node name="SceneSwitch" type="Area2D" parent="." unique_id=1350106262]
+script = ExtResource("16_fpldr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch" unique_id=1484780293]
+position = Vector2(-0.5, -147)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Timer" type="Timer" parent="." unique_id=630995632]
+wait_time = 2.0
+one_shot = true
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=1088016912]
+curve = SubResource("Curve2D_uwtsg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=519259962]
+
+[connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="SceneSwitch" method="_on_timer_timeout"]
