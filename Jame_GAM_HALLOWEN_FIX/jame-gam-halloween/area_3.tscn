@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://due7xn5xxyqi2"]
 
-[ext_resource type="Script" uid="uid://cdi0o04fopi7" path="res://area_3.gd" id="1_1tdum"]
+[ext_resource type="Script" uid="uid://cdi0o04fopi7" path="res://Scripts/area_3.gd" id="1_1tdum"]
 [ext_resource type="Texture2D" uid="uid://bqfxlnpdio3ll" path="res://Assets/Sprites/Areas/area3.png" id="1_jbiam"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_y2vgt"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_8551s"]
@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_k2lr6"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_dxi2c"]
 [ext_resource type="Script" uid="uid://bkk6f38qpuxdj" path="res://Scripts/scene_switch5.gd" id="7_kwpfj"]
+[ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="9_nek6s"]
+[ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="10_e6mn2"]
+[ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_7qnuv"]
+[ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="12_2lb5y"]
+[ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="13_ulutv"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="14_2fqny"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="15_85wqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lr6"]
 size = Vector2(28, 212)
@@ -74,6 +81,12 @@ _data = {
 &"fade_in": SubResource("Animation_bx2f0"),
 &"fade_out": SubResource("Animation_dipwe")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_d4inj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 74, -237, 0, 0, 0, 0, 74, -319)
+}
+point_count = 2
 
 [node name="Area3" type="Node2D" unique_id=295634975]
 script = ExtResource("1_1tdum")
@@ -283,3 +296,73 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=41740733]
 libraries/ = SubResource("AnimationLibrary_d4inj")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=1194401361]
+position = Vector2(0, -2)
+curve = SubResource("Curve2D_d4inj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=786080775]
+position = Vector2(74, -237)
+rotation = -1.5707964
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1708242141]
+rotation = 3.1415927
+
+[node name="Timer" type="Timer" parent="." unique_id=822624670]
+wait_time = 2.0
+one_shot = true
+
+[node name="Fallenlog1" parent="." unique_id=261858462 instance=ExtResource("9_nek6s")]
+position = Vector2(-74, -8)
+
+[node name="rock1" parent="." unique_id=170553724 instance=ExtResource("10_e6mn2")]
+position = Vector2(-74, -55)
+
+[node name="rock2" parent="." unique_id=162913101 instance=ExtResource("11_7qnuv")]
+position = Vector2(-75, 31.999996)
+rotation = -1.3683381
+
+[node name="treestump" parent="." unique_id=148929270 instance=ExtResource("12_2lb5y")]
+position = Vector2(-7, 68)
+
+[node name="Fallenlog2" parent="." unique_id=1464683074 instance=ExtResource("13_ulutv")]
+position = Vector2(-7, 29)
+
+[node name="treestump2" parent="." unique_id=1296679533 instance=ExtResource("12_2lb5y")]
+position = Vector2(19, -70)
+
+[node name="treestump3" parent="." unique_id=847776677 instance=ExtResource("12_2lb5y")]
+position = Vector2(44, -70)
+
+[node name="Fallenlog3" parent="." unique_id=247281715 instance=ExtResource("9_nek6s")]
+position = Vector2(69, -53)
+rotation = -0.12391838
+
+[node name="rock3" parent="." unique_id=1851905263 instance=ExtResource("10_e6mn2")]
+position = Vector2(72.000015, -7.000002)
+rotation = -0.3228859
+
+[node name="treestump4" parent="." unique_id=1378768225 instance=ExtResource("12_2lb5y")]
+position = Vector2(117, -127)
+
+[node name="treestump5" parent="." unique_id=1659660767 instance=ExtResource("12_2lb5y")]
+position = Vector2(74, -128)
+
+[node name="rock4" parent="." unique_id=262795131 instance=ExtResource("11_7qnuv")]
+position = Vector2(96, -128.00003)
+rotation = 1.8675023
+
+[node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("14_2fqny")]
+position = Vector2(-39, -45)
+
+[node name="SkeletonEnemy" parent="." unique_id=1071752477 instance=ExtResource("15_85wqg")]
+position = Vector2(24, 54.999996)
+rotation = 0.0
+
+[node name="SkeletonEnemy2" parent="." unique_id=579337935 instance=ExtResource("15_85wqg")]
+position = Vector2(33, -161)
+
+[connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
+[connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="Scene_Switch" method="_on_timer_timeout"]
