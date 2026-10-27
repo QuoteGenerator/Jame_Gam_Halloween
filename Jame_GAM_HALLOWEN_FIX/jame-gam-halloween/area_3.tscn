@@ -88,6 +88,18 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_nek6s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -39, -46, 0, 0, 0, 0, -39, 61, 0, 0, 0, 0, -39, -46)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_e6mn2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 112, 59, 0, 0, 0, 0, 112, -74, 0, 0, 0, 0, 112, 59)
+}
+point_count = 3
+
 [node name="Area3" type="Node2D" unique_id=295634975]
 script = ExtResource("1_1tdum")
 
@@ -340,8 +352,8 @@ position = Vector2(69, -53)
 rotation = -0.12391838
 
 [node name="rock3" parent="." unique_id=1851905263 instance=ExtResource("10_e6mn2")]
-position = Vector2(72.000015, -7.000002)
-rotation = -0.3228859
+position = Vector2(68.00001, -6)
+rotation = 0.2984513
 
 [node name="treestump4" parent="." unique_id=1378768225 instance=ExtResource("12_2lb5y")]
 position = Vector2(117, -127)
@@ -356,12 +368,36 @@ rotation = 1.8675023
 [node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("14_2fqny")]
 position = Vector2(-39, -45)
 
-[node name="SkeletonEnemy" parent="." unique_id=1071752477 instance=ExtResource("15_85wqg")]
-position = Vector2(24, 54.999996)
-rotation = 0.0
+[node name="SkeletonEnemy" parent="." unique_id=1071752477 groups=["skeleton"] instance=ExtResource("15_85wqg")]
+position = Vector2(112, 59)
+rotation = -1.5707964
+scale = Vector2(1.400002, 1.400002)
 
-[node name="SkeletonEnemy2" parent="." unique_id=579337935 instance=ExtResource("15_85wqg")]
+[node name="SkeletonEnemy2" parent="." unique_id=579337935 groups=["skeleton"] instance=ExtResource("15_85wqg")]
 position = Vector2(33, -161)
+
+[node name="GhostPath" type="Path2D" parent="." unique_id=591525514]
+position = Vector2(0, 1)
+curve = SubResource("Curve2D_nek6s")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="GhostPath" unique_id=896017258]
+position = Vector2(-39, -46)
+rotation = 1.5707964
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GhostPath/PathFollow2D" unique_id=634286773]
+remote_path = NodePath("../../../GhostEnemy")
+update_scale = false
+
+[node name="SkelePath" type="Path2D" parent="." unique_id=62377167]
+curve = SubResource("Curve2D_e6mn2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SkelePath" unique_id=1011859131]
+position = Vector2(112, 59)
+rotation = -1.5707964
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkelePath/PathFollow2D" unique_id=1617842240]
+remote_path = NodePath("../../../SkeletonEnemy")
+update_scale = false
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
