@@ -505,7 +505,7 @@ text = "* YOUR TURN *"
 
 [node name="Sparkle" type="AnimatedSprite2D" parent="Panel/Wand" unique_id=663018458]
 z_index = 2
-position = Vector2(529.5, 601.75)
+position = Vector2(544.5, 584.75)
 scale = Vector2(3.625, 3.625)
 sprite_frames = SubResource("SpriteFrames_j62ju")
 animation = &"sparkle"
