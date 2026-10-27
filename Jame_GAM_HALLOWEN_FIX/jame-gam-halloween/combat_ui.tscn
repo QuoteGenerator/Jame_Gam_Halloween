@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="10_6coxg"]
 [ext_resource type="Texture2D" uid="uid://bd6i66vvrqfcu" path="res://Assets/Sprites/Consumables/pumpkin_spice_latte.png" id="10_tnwwt"]
 [ext_resource type="Texture2D" uid="uid://mq7782la3467" path="res://Assets/Sprites/Consumables/pumpkin_pie.png" id="11_tnwwt"]
+[ext_resource type="Texture2D" uid="uid://jds3dystspv4" path="res://Assets/sparkles.png" id="13_b12oa"]
+[ext_resource type="Texture2D" uid="uid://dbq05cio0v82a" path="res://Assets/Sprites/tbc_sprites/wand_idle.png" id="14_nw44a"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -155,6 +157,109 @@ texture = ExtResource("5_6coxg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
 texture = ExtResource("5_6coxg")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38scg"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(169, 0, 13, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g77y"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(165, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsdqx"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(132, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f28f"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(99, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnccv"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(66, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ksj"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(33, 0, 33, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg2mp"]
+atlas = ExtResource("13_b12oa")
+region = Rect2(0, 0, 33, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j62ju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38scg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g77y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsdqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f28f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnccv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ksj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg2mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ksj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnccv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f28f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsdqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g77y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38scg")
+}],
+"loop": 0,
+"name": &"sparkle",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jft5"]
+atlas = ExtResource("14_nw44a")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uu5"]
+atlas = ExtResource("14_nw44a")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qedbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jft5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uu5")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_b12oa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 460, 699, 0, 0, 0, 0, 446, 676, 0, 0, 0, 0, 440, 642, 0, 0, 0, 0, 476, 636, 0, 0, 0, 0, 500, 643, 0, 0, 0, 0, 493, 656, 0, 0, 0, 0, 453, 649, 0, 0, 0, 0, 441, 635, 0, 0, 0, 0, 497, 635, 0, 0, 0, 0, 502, 655, 0, 0, 0, 0, 467, 660, 0, 0, 0, 0, 460, 699)
+}
+point_count = 12
 
 [node name="CombatUI" type="CanvasLayer" unique_id=111705774 groups=["combat_ui"]]
 process_mode = 2
@@ -396,6 +501,38 @@ theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 31
 text = "* YOUR TURN *"
 
+[node name="Wand" type="Node2D" parent="Panel" unique_id=1002404145]
+
+[node name="Sparkle" type="AnimatedSprite2D" parent="Panel/Wand" unique_id=663018458]
+z_index = 2
+position = Vector2(529.5, 601.75)
+scale = Vector2(3.625, 3.625)
+sprite_frames = SubResource("SpriteFrames_j62ju")
+animation = &"sparkle"
+
+[node name="Wand" type="AnimatedSprite2D" parent="Panel/Wand" unique_id=110295943]
+position = Vector2(456.5, 676.75)
+scale = Vector2(3.625, 3.625)
+sprite_frames = SubResource("SpriteFrames_qedbx")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="WandPath1" type="Path2D" parent="Panel" unique_id=1364365966]
+position = Vector2(-4, -22)
+curve = SubResource("Curve2D_b12oa")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Panel/WandPath1" unique_id=106560941]
+position = Vector2(460, 699)
+rotation = -2.1175852
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Panel/WandPath1/PathFollow2D" unique_id=277345727]
+update_rotation = false
+update_scale = false
+
 [connection signal="mouse_entered" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_exited"]
 [connection signal="pressed" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_pressed"]
+[connection signal="animation_finished" from="Panel/Wand/Sparkle" to="." method="_on_sparkle_animation_finished"]

@@ -17,6 +17,13 @@ var current_player: CharacterBody2D
 @onready var pumpkin_soup_amount_label: Label = $Panel/Control/pumpkin_soup_button/pumpkin_soup_amount
 @onready var pumpkin_spice_latte_amount_label: Label = $Panel/Control/pumpkin_spice_latte_button/pumpkin_spice_latte_amount
 
+@onready var sparkle: AnimatedSprite2D = $Panel/Wand/Sparkle
+@onready var path_follower: PathFollow2D = $Panel/WandPath1/PathFollow2D
+@onready var remote_transform: RemoteTransform2D = $Panel/WandPath1/PathFollow2D/RemoteTransform2D
+@onready var wand: AnimatedSprite2D = $Panel/Wand/Wand
+
+var wand_path_following:bool = false
+
 var playersTurn:bool = true
 var enemysTurn:bool = false
 
@@ -24,6 +31,13 @@ func _ready() -> void:
 	visible = false
 	turnLabel.text = "* YOUR TURN *"
 
+func _physics_process(delta: float) -> void:
+	if wand_path_following:
+		path_follower.progress_ratio += 0.050
+	
+	if path_follower.progress_ratio >= 1 and wand_path_following:
+		remote_transform.remote_path = NodePath("")
+		wand_path_following = false
 
 func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
 	playersTurn = true
@@ -87,12 +101,18 @@ func end_combat():
 func Player_Basic_Attack():
 	if playersTurn:
 		turnLabel.text = "* YOUR TURN *"
-		current_enemy.health -= 5
-		playersTurn = false
-		enemysTurn = true
-		update_enemy_stats()
+		sparkle.play("sparkle")
+		wand_path_following = true
+		path_follower.progress == 0.0
+		remote_transform.remote_path = wand.get_path()
 		
-
+		
+func _on_sparkle_animation_finished() -> void:
+	current_enemy.health -= 5
+	playersTurn = false
+	enemysTurn = true
+	update_enemy_stats()
+	
 func Enemy_Attack():
 	if enemysTurn:
 		turnLabel.modulate = Color(255,0,0)
