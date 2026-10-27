@@ -25,11 +25,7 @@ func _physics_process(delta: float) -> void:
 		player.set_physics_process(true)
 		rotate = true
 		remote_transform.remote_path = NodePath("")
+		player.rotation_degrees = 90
+
+			
 		
-		
-	if rotate:
-			player.rotation_degrees -= 90
-			rotate = false
-			
-			
-			
