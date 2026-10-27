@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 5.0990195
 
-[node name="PumpkinPie" type="Area2D" unique_id=383099381]
+[node name="pumpkin_pie" type="Area2D" unique_id=383099381]
 
 [node name="PumpkinPie" type="Sprite2D" parent="." unique_id=1955978041]
 texture = ExtResource("1_rm7hs")

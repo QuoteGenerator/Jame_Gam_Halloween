@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	mana = GameState.player_mana
 	max_mana = GameState.player_max_mana
-	
+		
 	
 func _physics_process(delta: float) -> void:
 	
@@ -46,3 +46,24 @@ func _physics_process(delta: float) -> void:
 
 func on_mouse_entered() -> void:
 	pass # Replace with function body.
+	
+	
+func _on_pickup_area_area_entered(area: Area2D) -> void:
+	if area.name == "pumpkin_pie":
+		add_item("pumpkin_pie")
+		area.queue_free()
+	
+	elif area.name == "pumpkin_soup":
+		add_item("pumpkin_soup")
+		area.queue_free()
+	
+	elif area.name == "pumpkin_spice_latte":
+		add_item("pumpkin_spice_latte")
+		area.queue_free()	
+	
+func add_item(item_name: String) -> void:
+	for item in GameState.items:
+		if item["Name"] == item_name:
+			item["Amount"] += 1
+			print(item["Name"], ": ", item["Amount"])
+			return

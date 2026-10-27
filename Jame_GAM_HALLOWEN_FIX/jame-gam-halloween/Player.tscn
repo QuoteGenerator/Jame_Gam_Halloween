@@ -5,6 +5,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rwas"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogq8d"]
+
 [node name="Player" type="CharacterBody2D" unique_id=1519202898 groups=["player"]]
 rotation = 1.5707964
 script = ExtResource("1_08gt5")
@@ -19,3 +21,12 @@ texture = ExtResource("2_7ygsn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1764832438]
 zoom = Vector2(4, 4)
+
+[node name="PickUpArea" type="Area2D" parent="." unique_id=2145051651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea" unique_id=838253084]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CircleShape2D_ogq8d")
+debug_color = Color(0.6671774, 0.51126325, 0, 0.41960785)
+
+[connection signal="area_entered" from="PickUpArea" to="." method="_on_pickup_area_area_entered"]

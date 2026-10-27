@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://cxoex0y00mwbg" path="res://Scripts/scene_switch.gd" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="12_dg77c"]
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -259,6 +260,9 @@ libraries/ = SubResource("AnimationLibrary_efxa6")
 [node name="Timer" type="Timer" parent="." unique_id=1597339290]
 wait_time = 2.0
 one_shot = true
+
+[node name="pumpkin_pie" parent="." unique_id=383099381 instance=ExtResource("12_dg77c")]
+position = Vector2(0, 7)
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]

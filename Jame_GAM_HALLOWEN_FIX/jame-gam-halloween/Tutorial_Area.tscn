@@ -253,9 +253,6 @@ position = Vector2(-40, -53)
 position = Vector2(10, 26.999998)
 rotation = 1.7418386
 
-[node name="PumpkinPie" parent="." unique_id=538749438 instance=ExtResource("13_0b11v")]
-position = Vector2(-79, -58)
-
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=1909973100]
 visible = false
 z_index = 4096
@@ -306,6 +303,9 @@ loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1149099821]
 rotation = 3.1415927
+
+[node name="pumpkin_pie" parent="." unique_id=383099381 instance=ExtResource("13_0b11v")]
+position = Vector2(-77, -56)
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]

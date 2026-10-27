@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://3p516f8hyijh" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_idle.png" id="4_rltsl"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
-[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/basicAtk_btn.gd" id="6_tnwwt"]
+[ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/combat_button.gd" id="6_tnwwt"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="7_akiti"]
+[ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="10_6coxg"]
+[ext_resource type="Texture2D" uid="uid://bd6i66vvrqfcu" path="res://Assets/Sprites/Consumables/pumpkin_spice_latte.png" id="10_tnwwt"]
+[ext_resource type="Texture2D" uid="uid://mq7782la3467" path="res://Assets/Sprites/Consumables/pumpkin_pie.png" id="11_tnwwt"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -237,6 +240,85 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 
+[node name="pumpkin_spice_latte_button" type="Button" parent="Panel/Control" unique_id=1131345316]
+layout_mode = 0
+offset_left = 963.0
+offset_top = 1058.0
+offset_right = 1083.0
+offset_bottom = 1114.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="pumpkin_spice_latte_amount" type="Label" parent="Panel/Control/pumpkin_spice_latte_button" unique_id=375500418]
+clip_contents = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "5x"
+
+[node name="pumpkin_spice_latte" type="Sprite2D" parent="Panel/Control/pumpkin_spice_latte_button" unique_id=648126351]
+position = Vector2(79.000015, 27.000004)
+rotation = 0.29926115
+scale = Vector2(3.1249976, 3.1249976)
+texture = ExtResource("10_tnwwt")
+
+[node name="pumpkin_soup_button" type="Button" parent="Panel/Control" unique_id=88852179]
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 958.0
+offset_right = 1158.0
+offset_bottom = 1014.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="pumpkin_soup_amount" type="Label" parent="Panel/Control/pumpkin_soup_button" unique_id=683353571]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 15.0
+offset_right = 40.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "0x"
+
+[node name="pumpkin_soup" type="Sprite2D" parent="Panel/Control/pumpkin_soup_button" unique_id=377064275]
+position = Vector2(84, 26.000006)
+rotation = -0.04419857
+scale = Vector2(3.9444416, 3.9444416)
+texture = ExtResource("10_6coxg")
+
+[node name="pumpkin_pie_button" type="Button" parent="Panel/Control" unique_id=1331403307]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 958.0
+offset_right = 1005.0
+offset_bottom = 1014.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="pumpkin_pie_amount" type="Label" parent="Panel/Control/pumpkin_pie_button" unique_id=399558932]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 15.0
+offset_right = 42.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "3x"
+
+[node name="pumpkin_pie" type="Sprite2D" parent="Panel/Control/pumpkin_pie_button" unique_id=973696029]
+position = Vector2(80, 27)
+rotation = -0.07870076
+scale = Vector2(5.3799896, 5.3799896)
+texture = ExtResource("11_tnwwt")
+
 [node name="S3" type="Button" parent="Panel/Control" unique_id=1227104619]
 layout_mode = 0
 offset_left = 53.0
@@ -299,7 +381,7 @@ theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 21
 text = "HP: 10/10    MANA: 5/5"
 
-[node name="Label" type="Label" parent="Panel/Control" unique_id=2030402740]
+[node name="TurnLabel" type="Label" parent="Panel/Control" unique_id=2030402740]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 5

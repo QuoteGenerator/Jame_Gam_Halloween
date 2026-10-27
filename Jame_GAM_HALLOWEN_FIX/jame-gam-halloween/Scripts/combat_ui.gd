@@ -11,14 +11,29 @@ var current_player: CharacterBody2D
 @onready var playerNameLabel: Label = $Panel/Control/PlayerName
 @onready var playerStatsLabel: Label = $Panel/Control/PlayerStats
 
+@onready var turnLabel: Label = $Panel/Control/TurnLabel
+
+@onready var pumpkin_pie_amount_label: Label = $Panel/Control/pumpkin_pie_button/pumpkin_pie_amount
+@onready var pumpkin_soup_amount_label: Label = $Panel/Control/pumpkin_soup_button/pumpkin_soup_amount
+@onready var pumpkin_spice_latte_amount_label: Label = $Panel/Control/pumpkin_spice_latte_button/pumpkin_spice_latte_amount
+
+var playersTurn:bool = true
+var enemysTurn:bool = false
+
 func _ready() -> void:
 	visible = false
+	turnLabel.text = "* YOUR TURN *"
 
 
 func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
+	playersTurn = true
+	
+	enemysTurn = false
 	current_enemy = enemy
 	current_player = player
-
+	
+	showItemAmount()
+	
 	visible = true
 
 	get_tree().paused = true
@@ -59,9 +74,47 @@ func update_enemy_stats():
 	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "    "\
 	+ "MANA: " + str(current_enemy.mana) + "/" + str(current_enemy.max_mana)
 	
+	Enemy_Attack()
+	
+	
 func end_combat():
 	current_enemy.queue_free()
 
 	current_enemy = null
 	visible = false
 	get_tree().paused = false
+	
+func Player_Basic_Attack():
+	if playersTurn:
+		turnLabel.text = "* YOUR TURN *"
+		current_enemy.health -= 5
+		playersTurn = false
+		enemysTurn = true
+		update_enemy_stats()
+		
+
+func Enemy_Attack():
+	if enemysTurn:
+		turnLabel.modulate = Color(255,0,0)
+		turnLabel.text = "*" + current_enemy.enemy_name + "*"
+		await get_tree().create_timer(2.0, true).timeout
+		current_player.health -= 5
+		GameState.player_health -= 5
+		playersTurn = true
+		enemysTurn = false
+		update_player_stats()
+		turnLabel.modulate = Color(255,255,255)
+		turnLabel.text = "* YOUR TURN *"
+		
+
+func showItemAmount():
+	
+	var pumpkin_pie_amount = GameState.items[0].Amount
+	var pumpkin_soup_amount = GameState.items[1].Amount
+	var pumpkin_spice_latte_amount = GameState.items[2].Amount
+	
+	
+	
+	pumpkin_pie_amount_label.text = str(pumpkin_pie_amount) + "x"
+	pumpkin_soup_amount_label.text = str(pumpkin_soup_amount) + "x"
+	pumpkin_spice_latte_amount_label.text = str(pumpkin_spice_latte_amount) + "x"
