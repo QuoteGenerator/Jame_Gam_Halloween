@@ -103,7 +103,7 @@ func Player_Basic_Attack():
 		turnLabel.text = "* YOUR TURN *"
 		sparkle.play("sparkle")
 		wand_path_following = true
-		path_follower.progress == 0.0
+		path_follower.progress = 0.0
 		remote_transform.remote_path = wand.get_path()
 		
 		
