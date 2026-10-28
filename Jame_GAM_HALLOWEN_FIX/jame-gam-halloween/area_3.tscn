@@ -202,7 +202,7 @@ region_rect = Rect2(0, 0, 150.425, 157)
 [node name="TreeFull13" type="Sprite2D" parent="trees" unique_id=1549049437]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-103, -241)
+position = Vector2(-103, -240)
 texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 349.255, 117.9)
@@ -243,7 +243,7 @@ region_rect = Rect2(0, 0, 350.155, 78.955)
 [node name="TreeFull20" type="Sprite2D" parent="trees" unique_id=827278334]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-302, -125)
+position = Vector2(-303, -128)
 texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 349.535, 78.955)

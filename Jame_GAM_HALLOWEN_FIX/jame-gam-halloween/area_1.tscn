@@ -305,7 +305,7 @@ position = Vector2(-78, 28)
 [node name="pumpkin_spice_latte" parent="." unique_id=870276362 instance=ExtResource("14_th8es")]
 position = Vector2(-78, 10)
 
-[node name="SkeletonEnemy" parent="." unique_id=233608979 groups=["skeleton"] instance=ExtResource("15_th8es")]
+[node name="SkeletonEnemy" parent="." unique_id=233608979 instance=ExtResource("15_th8es")]
 position = Vector2(83, 11)
 rotation = 3.1415927
 
