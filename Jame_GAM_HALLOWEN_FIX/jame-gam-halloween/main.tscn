@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://drk3f3b55nuev" path="res://zombie.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://dns0dt1n55247" path="res://witch.tscn" id="14_w48qg"]
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -268,6 +269,10 @@ enemy_name = "Ghost (Ella)"
 [node name="zombie" parent="." unique_id=760905082 instance=ExtResource("13_ycdy4")]
 position = Vector2(-88, 33)
 rotation = 0.8408073
+
+[node name="witch" parent="." unique_id=1545696519 instance=ExtResource("14_w48qg")]
+position = Vector2(82, 60.999992)
+rotation = 3.0303998
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]

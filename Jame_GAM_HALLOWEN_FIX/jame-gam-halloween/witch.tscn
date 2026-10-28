@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bu1k7ynase2c1" path="res://Scripts/enemy.gd" id="1_bv18x"]
 [ext_resource type="Texture2D" uid="uid://ctpbu4xeej45e" path="res://Assets/Sprites/Mobs/witch_idle.png" id="2_bv18x"]
-[ext_resource type="Texture2D" uid="uid://rmf4m32ukkpb" path="res://Assets/Sprites/Mobs/zombie_move.png" id="3_10cfa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfj8p"]
 
@@ -30,7 +29,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Rect2(0, 0, 23, 13)]
+"values": [Rect2(0, 0, 22, 30)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -59,7 +58,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_s2728"]
 resource_name = "idle_animation"
-length = 0.43333334
+length = 0.23333333
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,10 +79,10 @@ tracks/1/path = NodePath("idle_animation:region_rect")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Rect2(0, 0, 17, 19), Rect2(0, 19, 17, 19), Rect2(0, 38, 17, 19)]
+"values": [Rect2(0, 0, 22, 30), Rect2(22, 0, 22, 30)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -100,7 +99,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_upuoj"]
 resource_name = "move_animation"
-length = 0.4
+length = 0.23333333
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -133,10 +132,10 @@ tracks/2/path = NodePath("move_animation:region_rect")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Rect2(0, 0, 17, 27), Rect2(17, 0, 17, 27), Rect2(34, 0, 17, 27)]
+"values": [Rect2(0, 0, 22, 30), Rect2(22, 0, 22, 30)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2728"]
@@ -167,12 +166,12 @@ shape = SubResource("CircleShape2D_dfj8p")
 rotation = 1.5707964
 texture = ExtResource("2_bv18x")
 region_enabled = true
-region_rect = Rect2(0, 0, 23, 13)
+region_rect = Rect2(0, 0, 22, 30)
 
 [node name="move_animation" type="Sprite2D" parent="." unique_id=411505652]
 visible = false
 rotation = 1.5707964
-texture = ExtResource("3_10cfa")
+texture = ExtResource("2_bv18x")
 region_enabled = true
 region_rect = Rect2(0, 0, 21, 23)
 
