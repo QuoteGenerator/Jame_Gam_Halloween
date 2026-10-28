@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://d3n8vod38del0" path="res://Assets/Sprites/Objects/rock2.png" id="4_trn2v"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="5_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://c15yddiojjd6k" path="res://Assets/Sprites/Objects/rock1.png" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://cxoex0y00mwbg" path="res://Scripts/scene_switch.gd" id="11_dg77c"]
-[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="12_dg77c"]
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
@@ -223,21 +223,8 @@ shape = SubResource("CircleShape2D_03owx")
 [node name="Sprite2D" type="Sprite2D" parent="SArea/Stones/StaticBody2D2" unique_id=1814571786]
 texture = ExtResource("5_3dxm6")
 
-[node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("3_r0du0")]
-position = Vector2(2.3841858e-07, -98.000015)
-health = 10
-enemy_name = "Damaged Skeleton (Fred)"
-
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("10_4c57u")]
 visible = false
-
-[node name="GhostEnemy" parent="." unique_id=706758163 instance=ExtResource("11_efxa6")]
-position = Vector2(71, -56)
-enemy_name = "Ghost (Tod)"
-
-[node name="GhostEnemy2" parent="." unique_id=198820486 instance=ExtResource("11_efxa6")]
-position = Vector2(-85.999985, -60)
-enemy_name = "Ghost (Fred)"
 
 [node name="SceneSwitch" type="Area2D" parent="." unique_id=1699795903]
 script = ExtResource("11_dg77c")
@@ -264,6 +251,18 @@ one_shot = true
 
 [node name="pumpkin_pie" parent="." unique_id=383099381 instance=ExtResource("12_dg77c")]
 position = Vector2(0, 7)
+
+[node name="skeleton" parent="." unique_id=845605063 instance=ExtResource("3_r0du0")]
+position = Vector2(-1, -93)
+health = 10
+
+[node name="ghost" parent="." unique_id=84443125 instance=ExtResource("11_efxa6")]
+position = Vector2(73, -50)
+enemy_name = "Ghost (Aleks)"
+
+[node name="ghost2" parent="." unique_id=504590207 instance=ExtResource("11_efxa6")]
+position = Vector2(-82, -54)
+enemy_name = "Ghost (Ella)"
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]

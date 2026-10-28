@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_7qnuv"]
 [ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="12_2lb5y"]
 [ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="13_ulutv"]
-[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="14_2fqny"]
-[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="15_85wqg"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="14_2fqny"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="15_85wqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lr6"]
 size = Vector2(28, 212)

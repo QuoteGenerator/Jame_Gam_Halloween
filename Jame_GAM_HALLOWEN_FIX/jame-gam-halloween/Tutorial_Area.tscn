@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_dipwe"]
 [ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="12_fpldr"]
 [ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="13_0b11v"]
-[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="14_dipwe"]
-[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="15_fpldr"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="14_dipwe"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="15_fpldr"]
 [ext_resource type="Script" uid="uid://dolpru2rub64q" path="res://Scripts/scene_switch2.gd" id="16_fpldr"]
 
 [sub_resource type="Curve2D" id="Curve2D_6vlkc"]
@@ -275,7 +275,7 @@ polygon = PackedVector2Array(0, 0, -88, 0, -91, 158, -91, 162, 119, 161, 120, -2
 position = Vector2(-42.000004, -23.000002)
 rotation = 0.37350047
 
-[node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("14_dipwe")]
+[node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("14_dipwe")]
 position = Vector2(-75, -26)
 
 [node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]

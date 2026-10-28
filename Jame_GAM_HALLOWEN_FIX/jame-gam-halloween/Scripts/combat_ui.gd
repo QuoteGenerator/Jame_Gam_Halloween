@@ -152,4 +152,6 @@ func _on_pumpkin_spice_latte_button_mouse_entered() -> void:
 
 
 func play_enemy_idle_animation():
-	animationEnemyPlayer.play("tbc_skeleton_idle_animation")
+	if(current_enemy != null):
+		var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()
+		animationEnemyPlayer.play("tbc_"+ scene_name_enemy +"_idle_animation")

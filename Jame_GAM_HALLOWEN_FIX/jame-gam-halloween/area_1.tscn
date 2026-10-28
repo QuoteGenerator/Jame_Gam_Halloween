@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="10_r2afo"]
 [ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="11_th8es"]
 [ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="12_ayu7x"]
-[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="13_r2afo"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="13_r2afo"]
 [ext_resource type="PackedScene" uid="uid://beokwlpeuu3o0" path="res://pumpkin_spice_latte.tscn" id="14_th8es"]
-[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="15_th8es"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="15_th8es"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="16_ayu7x"]
 
 [sub_resource type="Curve2D" id="Curve2D_1rxqu"]

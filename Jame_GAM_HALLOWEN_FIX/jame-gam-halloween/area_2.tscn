@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="10_mk0rf"]
 [ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_33v66"]
 [ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="12_hwr21"]
-[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://Ghost_Enemy.tscn" id="13_e2j2b"]
+[ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="13_e2j2b"]
 [ext_resource type="PackedScene" uid="uid://bagjlkk6pvm1k" path="res://pumpkin_soup.tscn" id="13_mk0rf"]
-[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://Skeleton_Enemy.tscn" id="14_33v66"]
+[ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="14_33v66"]
 [ext_resource type="PackedScene" uid="uid://mv1w0so7hbf1" path="res://treestump.tscn" id="15_e2j2b"]
 [ext_resource type="PackedScene" uid="uid://beokwlpeuu3o0" path="res://pumpkin_spice_latte.tscn" id="17_3opce"]
 

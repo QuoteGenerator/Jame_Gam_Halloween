@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3p516f8hyijh" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_idle.png" id="4_rltsl"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
+[ext_resource type="Texture2D" uid="uid://bb2kbeopjvyoj" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_hit.png" id="6_j62ju"]
 [ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/combat_button.gd" id="6_tnwwt"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="7_akiti"]
 [ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="10_6coxg"]
@@ -54,9 +55,60 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_j62ju"]
 resource_name = "tbc_ghost_getHit_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_ghost_getHit_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ucios"]
 resource_name = "tbc_ghost_idle_animation"
@@ -373,8 +425,10 @@ region_enabled = true
 region_rect = Rect2(69, 0, 69, 80)
 
 [node name="tbc_ghost_getHit_animation" type="Sprite2D" parent="Panel" unique_id=1632606906]
+visible = false
 position = Vector2(917, 443)
 scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("6_j62ju")
 
 [node name="tbc_player_idle_animation" type="Sprite2D" parent="Panel" unique_id=670622372]
 position = Vector2(309, 676)
