@@ -166,22 +166,6 @@ texture = ExtResource("4_ayu7x")
 region_enabled = true
 region_rect = Rect2(0, 0, 109.67, 140.87)
 
-[node name="TreeFull8" type="Sprite2D" parent="trees" unique_id=665107933]
-z_index = 1
-texture_repeat = 2
-position = Vector2(-42, -533)
-texture = ExtResource("4_ayu7x")
-region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
-
-[node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=117901851]
-z_index = 1
-texture_repeat = 2
-position = Vector2(84, -514)
-texture = ExtResource("4_ayu7x")
-region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
-
 [node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1995331920]
 z_index = 1
 texture_repeat = 2
