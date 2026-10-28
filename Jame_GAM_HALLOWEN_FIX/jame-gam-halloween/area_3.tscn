@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://by32et73gkr3a" path="res://fallenlog_2.tscn" id="13_ulutv"]
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="14_2fqny"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="15_85wqg"]
+[ext_resource type="PackedScene" uid="uid://drk3f3b55nuev" path="res://zombie.tscn" id="16_e6mn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2lr6"]
 size = Vector2(28, 212)
@@ -368,13 +369,10 @@ rotation = 1.8675023
 [node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("14_2fqny")]
 position = Vector2(-39, -45)
 
-[node name="SkeletonEnemy" parent="." unique_id=1071752477 groups=["skeleton"] instance=ExtResource("15_85wqg")]
+[node name="SkeletonEnemy" parent="." unique_id=1071752477 instance=ExtResource("15_85wqg")]
 position = Vector2(112, 59)
 rotation = -1.5707964
 scale = Vector2(1.400002, 1.400002)
-
-[node name="SkeletonEnemy2" parent="." unique_id=579337935 groups=["skeleton"] instance=ExtResource("15_85wqg")]
-position = Vector2(33, -161)
 
 [node name="GhostPath" type="Path2D" parent="." unique_id=591525514]
 position = Vector2(0, 1)
@@ -398,6 +396,9 @@ rotation = -1.5707964
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkelePath/PathFollow2D" unique_id=1617842240]
 remote_path = NodePath("../../../SkeletonEnemy")
 update_scale = false
+
+[node name="zombie" parent="." unique_id=767436491 instance=ExtResource("16_e6mn2")]
+position = Vector2(31, -148)
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
