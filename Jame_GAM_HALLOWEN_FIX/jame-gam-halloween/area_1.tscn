@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://celvuv1ik80o5" path="res://Scripts/area_1.gd" id="1_keoi2"]
 [ext_resource type="Texture2D" uid="uid://dgcevkonqdx6v" path="res://Assets/Sprites/Areas/area1.png" id="1_pauv7"]
-[ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_2n87t"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_weo7h"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_1rxqu"]
+[ext_resource type="Texture2D" uid="uid://lqpt80n814nh" path="res://Assets/Sprites/Objects/tree_half.png" id="4_ayu7x"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_1rxqu"]
 [ext_resource type="Script" uid="uid://bj5qw1bsb546x" path="res://Scripts/scene_switch3.gd" id="7_nboye"]
 [ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="8_hur56"]
@@ -19,7 +19,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_1rxqu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3, 119, 0, 0, 0, 0, 3, 68)
+"points": PackedVector2Array(0, 0, 0, 0, 3, 119, 0, 0, 0, 0, 3, 65)
 }
 point_count = 2
 
@@ -97,10 +97,10 @@ script = ExtResource("1_keoi2")
 
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("5_1rxqu")]
 z_index = 1
-position = Vector2(-3, 147)
+position = Vector2(-3, 143)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=429640536]
-position = Vector2(-6, 28)
+position = Vector2(-6, 24)
 curve = SubResource("Curve2D_1rxqu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1197177866]
@@ -121,8 +121,8 @@ texture = ExtResource("1_pauv7")
 [node name="TreeFull11" type="Sprite2D" parent="trees" unique_id=1062175792]
 z_index = 1
 texture_repeat = 2
-position = Vector2(247, 339)
-texture = ExtResource("2_2n87t")
+position = Vector2(249, 354)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
 region_rect = Rect2(0, 0, 495, 157)
 
@@ -130,73 +130,73 @@ region_rect = Rect2(0, 0, 495, 157)
 z_index = 1
 texture_repeat = 2
 position = Vector2(249, 180)
-texture = ExtResource("2_2n87t")
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 495, 157)
+region_rect = Rect2(0, 0, 495, 187.9)
 
 [node name="TreeFull3" type="Sprite2D" parent="trees" unique_id=1468133320]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-50, -155)
-texture = ExtResource("2_2n87t")
+position = Vector2(-48, -162)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
+region_rect = Rect2(0, 0, 108.185, 141.145)
 
 [node name="TreeFull5" type="Sprite2D" parent="trees" unique_id=1194857873]
 z_index = 1
 texture_repeat = 2
-position = Vector2(50, -156)
-texture = ExtResource("2_2n87t")
+position = Vector2(56, -162)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
+region_rect = Rect2(0, 0, 108.345, 141.385)
 
 [node name="TreeFull6" type="Sprite2D" parent="trees" unique_id=1684226884]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-49, -270.5)
-texture = ExtResource("2_2n87t")
+position = Vector2(-47, -306)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
+region_rect = Rect2(0, 0, 107.385, 141.025)
 
 [node name="TreeFull7" type="Sprite2D" parent="trees" unique_id=141224153]
 z_index = 1
 texture_repeat = 2
-position = Vector2(51, -271.5)
-texture = ExtResource("2_2n87t")
+position = Vector2(58, -303)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 90.5, 117.395)
+region_rect = Rect2(0, 0, 109.67, 140.87)
 
 [node name="TreeFull8" type="Sprite2D" parent="trees" unique_id=665107933]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-51, -389.5)
-texture = ExtResource("2_2n87t")
+position = Vector2(-42, -533)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=117901851]
 z_index = 1
 texture_repeat = 2
-position = Vector2(49, -390.5)
-texture = ExtResource("2_2n87t")
+position = Vector2(84, -514)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
 [node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1995331920]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-177, -147)
+position = Vector2(-196, -162)
 rotation = -1.5707964
-texture = ExtResource("2_2n87t")
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 497.99, 157)
+region_rect = Rect2(0, 0, 497.99, 187.655)
 
 [node name="TreeFull4" type="Sprite2D" parent="trees" unique_id=26512725]
 z_index = 1
 texture_repeat = 2
-position = Vector2(173, -148)
+position = Vector2(182, -159)
 rotation = -1.5707964
-texture = ExtResource("2_2n87t")
+texture = ExtResource("4_ayu7x")
 region_enabled = true
 region_rect = Rect2(0, 0, 497.99, 157)
 
@@ -204,22 +204,22 @@ region_rect = Rect2(0, 0, 497.99, 157)
 z_index = 1
 texture_repeat = 2
 position = Vector2(-251, 181)
-texture = ExtResource("2_2n87t")
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 495, 157)
+region_rect = Rect2(0, 0, 485.95, 188.085)
 
 [node name="TreeFull12" type="Sprite2D" parent="trees" unique_id=590270136]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-251, 338)
-texture = ExtResource("2_2n87t")
+position = Vector2(-253, 368)
+texture = ExtResource("4_ayu7x")
 region_enabled = true
-region_rect = Rect2(0, 0, 495, 157)
+region_rect = Rect2(0, 0, 487.165, 188.43)
 
 [node name="Row" type="Sprite2D" parent="." unique_id=833245543]
 z_index = -4096
 texture_repeat = 2
-position = Vector2(4, 1)
+position = Vector2(-5, 1)
 texture = ExtResource("3_weo7h")
 region_enabled = true
 region_rect = Rect2(0, 0, 550, 867.23)
@@ -238,7 +238,7 @@ texture = ExtResource("4_1rxqu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=803532323]
 position = Vector2(-16, -105)
-polygon = PackedVector2Array(-2, 0, -90, -1, -93, 158, -93, 219, 118, 215, 120, -2, 30, -2, 29, -273, 145, -8, 135, 124, 132, 238, -31, 239, -116, 242, -115, 24, -99, -16, -1, -274)
+polygon = PackedVector2Array(-2, 0, -96, -2, -97, 158, -96, 207, 131, 203, 132, 1, 30, 0, 29, -273, 156, -7, 152, 123, 157, 238, -31, 239, -116, 242, -115, 24, -119, -17, -1, -274)
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=1679852583]
 visible = false
@@ -296,14 +296,17 @@ position = Vector2(53, 54)
 position = Vector2(28, 54)
 
 [node name="treestump4" parent="." unique_id=1612511469 instance=ExtResource("11_th8es")]
-position = Vector2(84, -37)
+position = Vector2(75, -39)
+
+[node name="treestump4" parent="treestump4" unique_id=58442054 instance=ExtResource("11_th8es")]
+position = Vector2(26, 1)
 
 [node name="Fallenlog3" parent="." unique_id=2074376918 instance=ExtResource("10_r2afo")]
-position = Vector2(43, -39)
+position = Vector2(35, -41)
 rotation = 4.728097
 
 [node name="Fallenlog4" parent="." unique_id=1969921415 instance=ExtResource("8_hur56")]
-position = Vector2(-10.999997, -50)
+position = Vector2(-18, -52.000008)
 rotation = 1.8901916
 
 [node name="rock2" parent="." unique_id=162913101 instance=ExtResource("12_ayu7x")]
@@ -335,6 +338,14 @@ rotation = 1.5707964
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D" unique_id=1077746707]
 remote_path = NodePath("../../../GhostEnemy")
 update_scale = false
+
+[node name="rock4" parent="." unique_id=1316769959 instance=ExtResource("12_ayu7x")]
+position = Vector2(103, 54.000004)
+rotation = 0.49741885
+
+[node name="rock5" parent="." unique_id=1114913589 instance=ExtResource("12_ayu7x")]
+position = Vector2(-102, -9)
+rotation = -2.115339
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]

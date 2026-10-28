@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cdi0o04fopi7" path="res://Scripts/area_3.gd" id="1_1tdum"]
 [ext_resource type="Texture2D" uid="uid://bqfxlnpdio3ll" path="res://Assets/Sprites/Areas/area3.png" id="1_jbiam"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_y2vgt"]
-[ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_8551s"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="2_kwpfj"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_k2lr6"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_dxi2c"]
+[ext_resource type="Texture2D" uid="uid://cq3as0urft43k" path="res://Assets/Sprites/Objects/tree_empty.png" id="5_nek6s"]
 [ext_resource type="Script" uid="uid://bkk6f38qpuxdj" path="res://Scripts/scene_switch5.gd" id="7_kwpfj"]
 [ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="9_nek6s"]
 [ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="10_e6mn2"]
@@ -120,16 +120,16 @@ texture = ExtResource("1_jbiam")
 [node name="TreeFull11" type="Sprite2D" parent="trees" unique_id=1235069269]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-292, 161)
-texture = ExtResource("2_8551s")
+position = Vector2(-292, 156)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 135.78, 157)
+region_rect = Rect2(0, 0, 201.04, 157)
 
 [node name="TreeFull" type="Sprite2D" parent="trees" unique_id=1811156720]
 z_index = 1
 texture_repeat = 2
-position = Vector2(211, 163)
-texture = ExtResource("2_8551s")
+position = Vector2(225, 145)
+texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 135.78, 157)
 
@@ -137,7 +137,7 @@ region_rect = Rect2(0, 0, 135.78, 157)
 z_index = 1
 texture_repeat = 2
 position = Vector2(-96, -490)
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
@@ -145,7 +145,7 @@ region_rect = Rect2(0, 0, 90.5, 117.395)
 z_index = 1
 texture_repeat = 2
 position = Vector2(-95, -363)
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 117.395)
 
@@ -153,7 +153,7 @@ region_rect = Rect2(0, 0, 90.5, 117.395)
 z_index = 1
 texture_repeat = 2
 position = Vector2(179, -341)
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 312.6)
 
@@ -161,7 +161,7 @@ region_rect = Rect2(0, 0, 90.5, 312.6)
 z_index = 1
 texture_repeat = 2
 position = Vector2(275, -324)
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
 region_rect = Rect2(0, 0, 90.5, 273.865)
 
@@ -169,83 +169,83 @@ region_rect = Rect2(0, 0, 90.5, 273.865)
 z_index = 1
 texture_repeat = 2
 position = Vector2(107, -338)
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 45.55, 312.045)
+region_rect = Rect2(0, 0, 50.595, 312.005)
 
 [node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=332757709]
 z_index = 1
 texture_repeat = 2
-position = Vector2(207, -51)
+position = Vector2(207, -60)
 rotation = -1.5707964
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 270.13, 157)
+region_rect = Rect2(0, 0, 250.88, 157)
 
 [node name="TreeFull10" type="Sprite2D" parent="trees" unique_id=153535412]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-108, 157)
-texture = ExtResource("2_8551s")
+position = Vector2(-90, 158)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 225.665, 157)
+region_rect = Rect2(0, 0, 199.89, 157)
 
 [node name="TreeFull12" type="Sprite2D" parent="trees" unique_id=386444897]
 z_index = 1
 texture_repeat = 2
-position = Vector2(75, 157)
-texture = ExtResource("2_8551s")
+position = Vector2(84, 157)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 135.925, 157)
+region_rect = Rect2(0, 0, 150.425, 157)
 
 [node name="TreeFull13" type="Sprite2D" parent="trees" unique_id=1549049437]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-107, -241)
-texture = ExtResource("2_8551s")
+position = Vector2(-103, -241)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 357.805, 117.9)
+region_rect = Rect2(0, 0, 349.255, 117.9)
 
 [node name="TreeFull14" type="Sprite2D" parent="trees" unique_id=1896644875]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-303, 40)
-texture = ExtResource("2_8551s")
+position = Vector2(-299, 40)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 360.465, 78.955)
+region_rect = Rect2(0, 0, 350.505, 78.955)
 
 [node name="TreeFull15" type="Sprite2D" parent="trees" unique_id=454120584]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-60, -126)
-texture = ExtResource("2_8551s")
+position = Vector2(-61, -126)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 135.875, 117.9)
+region_rect = Rect2(0, 0, 150.805, 117.9)
 
 [node name="TreeFull16" type="Sprite2D" parent="trees" unique_id=994405965]
 z_index = 1
 texture_repeat = 2
-position = Vector2(16, -457)
+position = Vector2(16, -449)
 rotation = 1.5707964
-texture = ExtResource("2_8551s")
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 315.925, 117.395)
+region_rect = Rect2(0, 0, 300.325, 117.395)
 
 [node name="TreeFull19" type="Sprite2D" parent="trees" unique_id=1922005408]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-301, -46)
-texture = ExtResource("2_8551s")
+position = Vector2(-299, -46)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 360.465, 78.955)
+region_rect = Rect2(0, 0, 350.155, 78.955)
 
 [node name="TreeFull20" type="Sprite2D" parent="trees" unique_id=827278334]
 z_index = 1
 texture_repeat = 2
-position = Vector2(-313, -134)
-texture = ExtResource("2_8551s")
+position = Vector2(-302, -125)
+texture = ExtResource("5_nek6s")
 region_enabled = true
-region_rect = Rect2(0, 0, 360.465, 78.955)
+region_rect = Rect2(0, 0, 349.535, 78.955)
 
 [node name="Row" type="Sprite2D" parent="." unique_id=52598740]
 z_index = -4096
@@ -273,7 +273,7 @@ texture = ExtResource("4_dxi2c")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2139822716]
 position = Vector2(51, -16)
 rotation = 3.1415927
-polygon = PackedVector2Array(181.99998, -105.000015, -88.000015, -104.999985, -85.999985, 173.00002, -40.999985, 174.00002, -30.99997, 376, -10.999966, 371, -10.999985, 176, 57.000015, 176, 54.000008, 60.999996, 181, 61.99999, 106.00004, 431, -53.99996, 445, -121, 169, -115, 24, -114, -188, 183.99998, -177.00002)
+polygon = PackedVector2Array(180.99998, -106.000015, -91, -102.999985, -86.999985, 175.00002, -41.999985, 176.00002, -30.99997, 376, -10.999966, 371, -10.999985, 179, 50.000015, 179, 51.000008, 66, 181, 63.99999, 106.00004, 431, -53.99996, 445, -121, 169, -115, 24, -114, -188, 183.99998, -177.00002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=228187476]
 position = Vector2(-145, 16)
