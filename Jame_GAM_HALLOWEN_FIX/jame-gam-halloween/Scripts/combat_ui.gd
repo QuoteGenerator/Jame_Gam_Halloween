@@ -147,10 +147,6 @@ func showItemAmount():
 	pumpkin_spice_latte_amount_label.text = str(pumpkin_spice_latte_amount) + "x"
 
 
-func _on_pumpkin_spice_latte_button_mouse_entered() -> void:
-	pass # Replace with function body.
-
-
 func play_enemy_idle_animation():
 	if(current_enemy != null):
 		var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()

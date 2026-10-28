@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dns0dt1n55247"]
+
+[ext_resource type="Script" uid="uid://bu1k7ynase2c1" path="res://Scripts/enemy.gd" id="1_bv18x"]
+[ext_resource type="Texture2D" uid="uid://ctpbu4xeej45e" path="res://Assets/Sprites/Mobs/witch_idle.png" id="2_bv18x"]
+[ext_resource type="Texture2D" uid="uid://rmf4m32ukkpb" path="res://Assets/Sprites/Mobs/zombie_move.png" id="3_10cfa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfj8p"]
+
+[sub_resource type="Animation" id="Animation_v7it2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("idle_animation:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 23, 13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("move_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("move_animation:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 21, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_s2728"]
+resource_name = "idle_animation"
+length = 0.43333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("idle_animation:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 17, 19), Rect2(0, 19, 17, 19), Rect2(0, 38, 17, 19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("move_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_upuoj"]
+resource_name = "move_animation"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("move_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("move_animation:region_rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 17, 27), Rect2(17, 0, 17, 27), Rect2(34, 0, 17, 27)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2728"]
+_data = {
+&"RESET": SubResource("Animation_v7it2"),
+&"idle_animation": SubResource("Animation_s2728"),
+&"move_animation": SubResource("Animation_upuoj")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2728"]
+radius = 5.244383
+height = 17.08169
+
+[node name="witch" type="CharacterBody2D" unique_id=845605063 groups=["skeleton"]]
+rotation = 1.5707964
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1_bv18x")
+health = 5
+max_health = 15
+mana = 10
+max_mana = 10
+enemy_name = "Skeleton"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569457113]
+shape = SubResource("CircleShape2D_dfj8p")
+
+[node name="idle_animation" type="Sprite2D" parent="." unique_id=305303267]
+rotation = 1.5707964
+texture = ExtResource("2_bv18x")
+region_enabled = true
+region_rect = Rect2(0, 0, 23, 13)
+
+[node name="move_animation" type="Sprite2D" parent="." unique_id=411505652]
+visible = false
+rotation = 1.5707964
+texture = ExtResource("3_10cfa")
+region_enabled = true
+region_rect = Rect2(0, 0, 21, 23)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810163875]
+libraries/ = SubResource("AnimationLibrary_s2728")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1730715704]
+rotation = 1.5707964
+scale = Vector2(1.2000014, 1.4000027)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1034087141]
+position = Vector2(-1.1324883e-06, -11.224468)
+scale = Vector2(2.27, 2.27)
+shape = SubResource("CapsuleShape2D_s2728")

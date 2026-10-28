@@ -80,7 +80,7 @@ tracks/1/path = NodePath("idle_animation:region_rect")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.33333334, 0.52417934),
+"times": PackedFloat32Array(0, 0.13333334, 0.33333334, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Rect2(0, 0, 23, 13), Rect2(0, 13, 23, 13), Rect2(0, 26, 23, 13), Rect2(0, 13, 23, 13)]
