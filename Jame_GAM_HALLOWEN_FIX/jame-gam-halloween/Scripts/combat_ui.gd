@@ -3,7 +3,7 @@ extends CanvasLayer
 
 var current_enemy: CharacterBody2D
 var current_player: CharacterBody2D
-@onready var animationPlayer: AnimationPlayer = $Panel/tbc_AnimationEnemy
+@onready var animationEnemyPlayer: AnimationPlayer = $Panel/tbc_AnimationEnemy
 
 @onready var enemyNameLabel: Label = $Panel/Control/EnemyName
 @onready var enemyStatsLabel: Label = $Panel/Control/EnemyStats
@@ -69,13 +69,13 @@ func update_player_stats():
 	+ "MANA: " + str(current_player.mana) + "/" + str(current_player.max_mana)
 
 func SkeletonEnemyBattle():
-	animationPlayer.play("tbc_skeleton_idle_animation")
+	animationEnemyPlayer.play("tbc_skeleton_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
 	update_enemy_stats()
 
 
 func GhostEnemyBattle():
-	animationPlayer.play("tbc_ghost_idle_animation")
+	animationEnemyPlayer.play("tbc_ghost_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
 	update_enemy_stats()
 	
@@ -108,6 +108,13 @@ func Player_Basic_Attack():
 		
 		
 func _on_sparkle_animation_finished() -> void:
+	if current_enemy.is_in_group("skeleton"):
+		animationEnemyPlayer.play("tbc_skeleton_getHit_animation")
+	elif current_enemy.is_in_group("ghost"):
+		animationEnemyPlayer.play("tbc_ghost_getHit_animation")
+
+	await animationEnemyPlayer.animation_finished
+	
 	current_enemy.health -= 5
 	playersTurn = false
 	enemysTurn = true
@@ -138,3 +145,11 @@ func showItemAmount():
 	pumpkin_pie_amount_label.text = str(pumpkin_pie_amount) + "x"
 	pumpkin_soup_amount_label.text = str(pumpkin_soup_amount) + "x"
 	pumpkin_spice_latte_amount_label.text = str(pumpkin_spice_latte_amount) + "x"
+
+
+func _on_pumpkin_spice_latte_button_mouse_entered() -> void:
+	pass # Replace with function body.
+
+
+func play_enemy_idle_animation():
+	animationEnemyPlayer.play("tbc_skeleton_idle_animation")

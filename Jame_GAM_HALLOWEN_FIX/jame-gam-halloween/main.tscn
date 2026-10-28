@@ -225,6 +225,7 @@ texture = ExtResource("5_3dxm6")
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 groups=["skeleton"] instance=ExtResource("3_r0du0")]
 position = Vector2(2.3841858e-07, -98.000015)
+health = 10
 enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("10_4c57u")]

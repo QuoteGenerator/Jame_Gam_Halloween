@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="2_j56r1"]
 [ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="3_rltsl"]
 [ext_resource type="Texture2D" uid="uid://drfy7woj0dxja" path="res://Assets/Sprites/tbc_sprites/tbc_pumpkin_idle.png" id="4_j56r1"]
+[ext_resource type="Texture2D" uid="uid://ba6wnp1cywp5e" path="res://Assets/Sprites/tbc_sprites/skelet_hit.png" id="4_nw44a"]
 [ext_resource type="Texture2D" uid="uid://3p516f8hyijh" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_idle.png" id="4_rltsl"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
@@ -41,6 +42,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Rect2(69, 0, 69, 80)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j62ju"]
+resource_name = "tbc_ghost_getHit_animation"
 
 [sub_resource type="Animation" id="Animation_ucios"]
 resource_name = "tbc_ghost_idle_animation"
@@ -83,6 +99,10 @@ tracks/2/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_qedbx"]
+resource_name = "tbc_player_getHit_animation"
+length = 0.36666667
+
 [sub_resource type="Animation" id="Animation_j56r1"]
 resource_name = "tbc_player_idle_animation"
 length = 0.43333334
@@ -98,6 +118,48 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Rect2(0, 0, 38, 39), Rect2(38, 0, 38, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_nw44a"]
+resource_name = "tbc_skeleton_getHit_animation"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_getHit_animation:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_wkp8b"]
@@ -144,8 +206,11 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20pc6"]
 _data = {
 &"RESET": SubResource("Animation_rltsl"),
+&"tbc_ghost_getHit_animation": SubResource("Animation_j62ju"),
 &"tbc_ghost_idle_animation": SubResource("Animation_ucios"),
+&"tbc_player_getHit_animation": SubResource("Animation_qedbx"),
 &"tbc_player_idle_animation": SubResource("Animation_j56r1"),
+&"tbc_skeleton_getHit_animation": SubResource("Animation_nw44a"),
 &"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b")
 }
 
@@ -271,7 +336,8 @@ offset_bottom = 40.0
 
 [node name="tbc_base_frame" type="TextureRect" parent="Panel" unique_id=594356664]
 layout_mode = 0
-offset_right = 1200.0
+offset_left = 1.0
+offset_right = 1201.0
 offset_bottom = 1200.0
 texture = ExtResource("2_j56r1")
 
@@ -290,6 +356,14 @@ texture = ExtResource("3_rltsl")
 region_enabled = true
 region_rect = Rect2(0, 0, 38, 97)
 
+[node name="tbc_skeleton_getHit_animation" type="Sprite2D" parent="Panel" unique_id=1721695174]
+visible = false
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("4_nw44a")
+region_enabled = true
+region_rect = Rect2(0, 0, 38, 97)
+
 [node name="tbc_ghost_idle_animation" type="Sprite2D" parent="Panel" unique_id=1254414777]
 visible = false
 position = Vector2(917, 443)
@@ -298,6 +372,10 @@ texture = ExtResource("4_rltsl")
 region_enabled = true
 region_rect = Rect2(69, 0, 69, 80)
 
+[node name="tbc_ghost_getHit_animation" type="Sprite2D" parent="Panel" unique_id=1632606906]
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+
 [node name="tbc_player_idle_animation" type="Sprite2D" parent="Panel" unique_id=670622372]
 position = Vector2(309, 676)
 scale = Vector2(3.9210527, 3.9210527)
@@ -305,12 +383,16 @@ texture = ExtResource("4_j56r1")
 region_enabled = true
 region_rect = Rect2(0, 0, 38, 39)
 
+[node name="tbc_player_getHit_animation" type="Sprite2D" parent="Panel" unique_id=1910426232]
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+
 [node name="Control" type="Control" parent="Panel" unique_id=1928000521]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BS1" type="Button" parent="Panel/Control" unique_id=467105723]
+[node name="simple_attack_button" type="Button" parent="Panel/Control" unique_id=467105723]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 919.0
@@ -321,7 +403,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 script = ExtResource("6_tnwwt")
 
-[node name="Label" type="Label" parent="Panel/Control/BS1" unique_id=1117369447]
+[node name="Label" type="Label" parent="Panel/Control/simple_attack_button" unique_id=1117369447]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -354,6 +436,7 @@ offset_bottom = 1114.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+script = ExtResource("6_tnwwt")
 
 [node name="pumpkin_spice_latte_amount" type="Label" parent="Panel/Control/pumpkin_spice_latte_button" unique_id=375500418]
 clip_contents = true
@@ -381,19 +464,20 @@ offset_bottom = 1014.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+script = ExtResource("6_tnwwt")
 
 [node name="pumpkin_soup_amount" type="Label" parent="Panel/Control/pumpkin_soup_button" unique_id=683353571]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 6.0
 offset_top = 15.0
-offset_right = 40.0
+offset_right = 39.0
 offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 21
 text = "0x"
 
 [node name="pumpkin_soup" type="Sprite2D" parent="Panel/Control/pumpkin_soup_button" unique_id=377064275]
-position = Vector2(84, 26.000006)
+position = Vector2(84, 27)
 rotation = -0.04419857
 scale = Vector2(3.9444416, 3.9444416)
 texture = ExtResource("10_6coxg")
@@ -407,6 +491,7 @@ offset_bottom = 1014.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+script = ExtResource("6_tnwwt")
 
 [node name="pumpkin_pie_amount" type="Label" parent="Panel/Control/pumpkin_pie_button" unique_id=399558932]
 layout_mode = 0
@@ -532,7 +617,16 @@ loop = false
 update_rotation = false
 update_scale = false
 
-[connection signal="mouse_entered" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_mouse_exited"]
-[connection signal="pressed" from="Panel/Control/BS1" to="Panel/Control/BS1" method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/pumpkin_soup_button" to="Panel/Control/pumpkin_soup_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/pumpkin_soup_button" to="Panel/Control/pumpkin_soup_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/pumpkin_soup_button" to="Panel/Control/pumpkin_soup_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/pumpkin_pie_button" to="Panel/Control/pumpkin_pie_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/pumpkin_pie_button" to="Panel/Control/pumpkin_pie_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/pumpkin_pie_button" to="Panel/Control/pumpkin_pie_button" method="_on_pressed"]
 [connection signal="animation_finished" from="Panel/Wand/Sparkle" to="." method="_on_sparkle_animation_finished"]
