@@ -32,6 +32,8 @@ player=""
 combat_ui=""
 ghost=""
 skeleton=""
+which=""
+zombie=""
 
 [physics]
 
