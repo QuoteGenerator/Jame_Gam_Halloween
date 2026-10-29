@@ -17,6 +17,10 @@ func _ready() -> void:
 	
 	if get_child_count() > 1:
 		itemImage = get_child(1) as Sprite2D
+		
+	GameState.move1_selected.connect(update_moves)
+	GameState.move2_selected.connect(update_moves)
+	update_moves()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,11 +92,11 @@ func _on_s_3_pressed() -> void:
 
 
 func _on_s_3_mouse_entered() -> void:
-	move3.position = Vector2(56.5, 20)
+	move3.position = Vector2(18, 20)
 
 
 func _on_s_3_mouse_exited() -> void:
-	move3.position = Vector2(56.5, 16)
+	move3.position = Vector2(18, 16)
 
 
 func _on_s_4_pressed() -> void:
@@ -106,21 +110,23 @@ func _on_s_4_mouse_entered() -> void:
 func _on_s_4_mouse_exited() -> void:
 	move4.position = Vector2(56.5, 16)
 
-func update_moves(attack_name: String):
-	if attack_name == "FIREBALL":
-		print("Fireball selected")
-		move2.text = "FIREBALL\nDMG: 7   COST: 10   HIT%: 70"
+func update_moves():
+	move2.text= GameState.player_moveset["S2"]
+	move3.text= GameState.player_moveset["S3"]
+	move4.text= GameState.player_moveset["S4"]
+	#if attack_name == "FIREBALL":
+	#	print("Fireball selected")
+	#	move2.text = "FIREBALL\nDMG: 7   COST: 10   HIT%: 70"
 	
-	elif attack_name == "METEOR":
-		print("Meteor selected")
-		move2.text = "METEOR\nDMG: 12  COST: 15  HIT%: 45"
+	#elif attack_name == "METEOR":
+	#	print("Meteor selected")
+	#	move2.text = "METEOR\nDMG: 12  COST: 15  HIT%: 45"
+		
+	#elif attack_name == "GUST":
+	#	print("Gust selected")
+	#	move3.text = "GUST\nDMG: 7   COST: 10   HIT%: 70"
 	
-	#if move_milestone_1.fireball_selected:
-	#	print("selected 1")
-	#	move2.text = "FIREBALL
-	#	DMG: 7  COST: 10  HIT%: 70"
-	#	
-	#if move_milestone_1.meteor_selected:
-	#	print("selected 1")
-	#	move2.text = "METEOR
-	#	DMG: 12   COST: 15  HIT%: 45"
+	#elif attack_name == "TORNADO":
+	#	print("Tornado selected")
+	#	move3.text = "TORNADO\nDMG: 12  COST: 15  HIT%: 45"
+	

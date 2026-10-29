@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://beokwlpeuu3o0" path="res://pumpkin_spice_latte.tscn" id="14_th8es"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="15_th8es"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="16_ayu7x"]
+[ext_resource type="PackedScene" uid="uid://s4d17eurxlp2" path="res://wind_cards.tscn" id="17_f5w84"]
 
 [sub_resource type="Curve2D" id="Curve2D_1rxqu"]
 _data = {
@@ -330,6 +331,8 @@ rotation = 0.49741885
 [node name="rock5" parent="." unique_id=1114913589 instance=ExtResource("12_ayu7x")]
 position = Vector2(-102, -9)
 rotation = -2.115339
+
+[node name="Move_Milestone2" parent="." unique_id=581881684 instance=ExtResource("17_f5w84")]
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]

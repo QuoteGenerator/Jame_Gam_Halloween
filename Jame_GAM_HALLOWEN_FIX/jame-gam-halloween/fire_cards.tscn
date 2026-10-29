@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnokheo2ovrgs"]
 
-[ext_resource type="Script" uid="uid://bcedn2ute8puy" path="res://milestone1.gd" id="1_8d0gq"]
+[ext_resource type="Script" uid="uid://bcedn2ute8puy" path="res://Scripts/milestone1.gd" id="1_8d0gq"]
 [ext_resource type="Texture2D" uid="uid://cueu02bm2rthk" path="res://Assets/Sprites/fire_card.png" id="1_g0tij"]
 [ext_resource type="Texture2D" uid="uid://dao2n4lbhokdr" path="res://Assets/Sprites/panel.png" id="2_0ho6w"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_8d0gq"]
@@ -41,7 +41,7 @@ scale = Vector2(0.21, 0.21)
 theme_override_fonts/font = ExtResource("2_8d0gq")
 theme_override_font_sizes/font_size = 40
 text = "YOU'VE REACHED LVL 2! 
-PICK YOUR 2ND MOVE."
+PICK YOUR ENCHANTED SPELL."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -76,7 +76,7 @@ theme_override_constants/line_spacing = -3
 theme_override_constants/paragraph_spacing = 1
 theme_override_fonts/font = ExtResource("2_8d0gq")
 theme_override_font_sizes/font_size = 22
-text = "Strong vs. Sunglasses!
+text = "Strong vs. Sunglasses! Melt the Swag away.
 
 Stats:
 
@@ -118,7 +118,7 @@ theme_override_constants/line_spacing = -3
 theme_override_constants/paragraph_spacing = 1
 theme_override_fonts/font = ExtResource("2_8d0gq")
 theme_override_font_sizes/font_size = 22
-text = "Strong vs. Sunglasses!
+text = "Strong vs. Sunglasses! Melt the Swag away.
 
 Stats:
 

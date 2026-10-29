@@ -1,5 +1,8 @@
 extends Node
 
+signal move1_selected
+signal move2_selected
+
 var player_level: int = 1
 
 var player_health: int = 20
@@ -7,8 +10,19 @@ var player_max_health: int = 20
 
 var player_mana: int = 25
 var player_max_mana: int = 25
+
 var items:Array = [
 		{"Amount": 0, "Name": "pumpkin_pie"}, 
 		{"Amount": 0, "Name": "pumpkin_soup"}, 
 		{"Amount": 0, "Name": "pumpkin_spice_latte"}
 	]
+
+var player_moveset = {
+	"S2": "",
+	"S3": "",
+	"S4": ""
+}
+
+var move_milestone_1_completed = false
+var move_milestone_2_completed = false
+var move_milestone_3_completed = false
