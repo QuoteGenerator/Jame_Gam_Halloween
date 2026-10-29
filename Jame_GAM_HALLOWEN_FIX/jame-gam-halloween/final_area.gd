@@ -43,6 +43,9 @@ func _physics_process(delta: float) -> void:
 		
 	if witch_chase:
 		witch.chasing = true
+		
+	if is_instance_valid(witch) and witch.health <= 0:
+		print("witch dead!")
 
 func _on_dialogue_end_finished():
 	witch.speed = 110.0

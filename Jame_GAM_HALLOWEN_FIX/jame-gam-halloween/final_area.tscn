@@ -304,7 +304,7 @@ loop = false
 position = Vector2(0, 3.8146973e-06)
 rotation = -3.1415925
 
-[node name="witch" parent="." unique_id=845605063 instance=ExtResource("7_f5s4f")]
+[node name="witch" parent="." unique_id=845605063 groups=["skeleton", "which"] instance=ExtResource("7_f5s4f")]
 
 [node name="Path2D" type="Path2D" parent="." unique_id=105194992]
 curve = SubResource("Curve2D_npc6x")
