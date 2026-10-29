@@ -61,6 +61,9 @@ func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
 	if(enemy.is_in_group("zombie")):
 		ZombieEnemyBattle()
 		
+	if(enemy.is_in_group("witch")):
+		WitchEnemyBattle()
+		
 	if player != null:
 		update_player_stats()
 		
@@ -86,6 +89,11 @@ func ZombieEnemyBattle():
 	animationEnemyPlayer.play("tbc_zombie_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
 	update_enemy_stats()
+	
+func WitchEnemyBattle():
+	animationEnemyPlayer.play("tbc_witch_idle_animation")
+	enemyNameLabel.text = current_enemy.enemy_name
+	update_enemy_stats()	
 	
 func update_enemy_stats():
 	if current_enemy.health <= 0:

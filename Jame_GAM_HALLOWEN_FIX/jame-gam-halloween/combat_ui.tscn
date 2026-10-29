@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://glmjbdp32fhs" path="res://Scripts/combat_ui.gd" id="1_h1lix"]
 [ext_resource type="Texture2D" uid="uid://0j60qhns4ofa" path="res://Assets/Sprites/tbc_sprites/tbc_template.png" id="2_j56r1"]
 [ext_resource type="Texture2D" uid="uid://ch4h8v1wvyfys" path="res://Assets/Sprites/tbc_sprites/tbc_skele_idle.png" id="3_rltsl"]
+[ext_resource type="Texture2D" uid="uid://d1i38w8slc57a" path="res://Assets/Sprites/tbc_sprites/tbc_witch_idle.png" id="4_cikkb"]
 [ext_resource type="Texture2D" uid="uid://drfy7woj0dxja" path="res://Assets/Sprites/tbc_sprites/tbc_pumpkin_idle.png" id="4_j56r1"]
 [ext_resource type="Texture2D" uid="uid://ba6wnp1cywp5e" path="res://Assets/Sprites/tbc_sprites/skelet_hit.png" id="4_nw44a"]
 [ext_resource type="Texture2D" uid="uid://baixobgleibxb" path="res://Assets/Sprites/tbc_sprites/tbc_zombie_idle.png" id="4_qedbx"]
 [ext_resource type="Texture2D" uid="uid://3p516f8hyijh" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_idle.png" id="4_rltsl"]
 [ext_resource type="Texture2D" uid="uid://bff4kwnc84o5r" path="res://Assets/Sprites/Buttons/spell_btn.png" id="4_ucios"]
 [ext_resource type="Texture2D" uid="uid://fbyannyqvm5f" path="res://Assets/Sprites/Buttons/spell_hover.png" id="5_6coxg"]
+[ext_resource type="Texture2D" uid="uid://doqyxraw7rma1" path="res://Assets/Sprites/tbc_sprites/tbc_witch_hit.png" id="5_7wprw"]
 [ext_resource type="Texture2D" uid="uid://bb2kbeopjvyoj" path="res://Assets/Sprites/tbc_sprites/tbc_ghost_hit.png" id="6_j62ju"]
 [ext_resource type="Script" uid="uid://cm3jn8nc0g3y8" path="res://Scripts/combat_button.gd" id="6_tnwwt"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="7_akiti"]
@@ -232,6 +234,113 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_gjqx6"]
+resource_name = "tbc_witch_getHit_animation"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_witch_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_witch_getHit_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bvyq1"]
+resource_name = "tbc_witch_idle_animation"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_witch_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 88, 88), Rect2(90, -1, 88, 89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_witch_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_7wprw"]
 resource_name = "tbc_zombie_getHit_animation"
 length = 0.16666667
@@ -324,6 +433,8 @@ _data = {
 &"tbc_player_idle_animation": SubResource("Animation_j56r1"),
 &"tbc_skeleton_getHit_animation": SubResource("Animation_nw44a"),
 &"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b"),
+&"tbc_witch_getHit_animation": SubResource("Animation_gjqx6"),
+&"tbc_witch_idle_animation": SubResource("Animation_bvyq1"),
 &"tbc_zombie_getHit_animation": SubResource("Animation_7wprw"),
 &"tbc_zombie_idle_animation": SubResource("Animation_cikkb")
 }
@@ -469,6 +580,21 @@ scale = Vector2(3.9210527, 3.9210527)
 texture = ExtResource("3_rltsl")
 region_enabled = true
 region_rect = Rect2(0, 0, 38, 97)
+
+[node name="tbc_witch_idle_animation" type="Sprite2D" parent="Panel" unique_id=680798629]
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("4_cikkb")
+region_enabled = true
+region_rect = Rect2(90, 0, 88, 88)
+
+[node name="tbc_witch_getHit_animation" type="Sprite2D" parent="Panel" unique_id=446618692]
+visible = false
+position = Vector2(917, 443)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("5_7wprw")
+region_enabled = true
+region_rect = Rect2(0, 0, 90, 90)
 
 [node name="tbc_zombie_idle_animation" type="Sprite2D" parent="Panel" unique_id=219229348]
 visible = false
