@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://7f48fqsv0s12"]
+
+[ext_resource type="Texture2D" uid="uid://cug6ftyvaiir6" path="res://Assets/Sprites/Areas/final_area.png" id="1_hgxce"]
+[ext_resource type="Script" uid="uid://4w7w0g5lew5c" path="res://final_area.gd" id="1_qy1bl"]
+[ext_resource type="Texture2D" uid="uid://cq3as0urft43k" path="res://Assets/Sprites/Objects/tree_empty.png" id="2_4ekaj"]
+[ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_wyo8o"]
+[ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="4_f5s4f"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_qy1bl"]
+[ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="6_npc6x"]
+[ext_resource type="PackedScene" uid="uid://dns0dt1n55247" path="res://witch.tscn" id="7_f5s4f"]
+[ext_resource type="PackedScene" uid="uid://bahkdi53jc6bf" path="res://dialoguebox_end.tscn" id="9_npc6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(41, 327)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(332, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(20, 286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(332, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(94, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
+size = Vector2(17, 23)
+
+[sub_resource type="Curve2D" id="Curve2D_qy1bl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, 165, 0, 0, 0, 0, 4, 67)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_npc6x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, -12)
+}
+point_count = 1
+
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_npc6x"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
+
+[node name="Final_Area" type="Node2D" unique_id=1420655837]
+script = ExtResource("1_qy1bl")
+
+[node name="FinalArea" type="Sprite2D" parent="." unique_id=431508086]
+position = Vector2(5, -14)
+texture = ExtResource("1_hgxce")
+
+[node name="trees" type="Node" parent="." unique_id=1436702459]
+
+[node name="TreeFull11" type="Sprite2D" parent="trees" unique_id=1941637803]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-292, 182)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 201.04, 157)
+
+[node name="TreeFull" type="Sprite2D" parent="trees" unique_id=843577136]
+z_index = 1
+texture_repeat = 2
+position = Vector2(236, 168)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 150.88, 196.485)
+
+[node name="TreeFull3" type="Sprite2D" parent="trees" unique_id=450682743]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-104, -445.5)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 117.395)
+
+[node name="TreeFull5" type="Sprite2D" parent="trees" unique_id=114097457]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-44, -312)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 251.135, 117.395)
+
+[node name="TreeFull6" type="Sprite2D" parent="trees" unique_id=1361038058]
+z_index = 1
+texture_repeat = 2
+position = Vector2(119, -292)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 312.6)
+
+[node name="TreeFull7" type="Sprite2D" parent="trees" unique_id=787864638]
+z_index = 1
+texture_repeat = 2
+position = Vector2(213, -319)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 90.5, 273.865)
+
+[node name="TreeFull9" type="Sprite2D" parent="trees" unique_id=881057358]
+z_index = 1
+texture_repeat = 2
+position = Vector2(287, -339)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 50.595, 312.005)
+
+[node name="TreeFull2" type="Sprite2D" parent="trees" unique_id=1163913597]
+z_index = 1
+texture_repeat = 2
+position = Vector2(242, -57)
+rotation = -1.5707964
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 250.88, 157)
+
+[node name="TreeFull10" type="Sprite2D" parent="trees" unique_id=654406889]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-92, 181)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 199.89, 157)
+
+[node name="TreeFull12" type="Sprite2D" parent="trees" unique_id=1286936768]
+z_index = 1
+texture_repeat = 2
+position = Vector2(84, 178)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 150.425, 157)
+
+[node name="TreeFull13" type="Sprite2D" parent="trees" unique_id=2103211868]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-123, -194)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 400.2, 117.9)
+
+[node name="TreeFull14" type="Sprite2D" parent="trees" unique_id=1617021802]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-318, 68)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 350.505, 78.955)
+
+[node name="TreeFull16" type="Sprite2D" parent="trees" unique_id=1730370898]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-227, -404)
+rotation = 1.5707964
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 300.325, 117.395)
+
+[node name="TreeFull19" type="Sprite2D" parent="trees" unique_id=1231717054]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-321, -13)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 350.155, 78.955)
+
+[node name="TreeFull20" type="Sprite2D" parent="trees" unique_id=663211111]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-324, -94)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 349.535, 78.955)
+
+[node name="TreeFull15" type="Sprite2D" parent="trees" unique_id=1266927141]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-292, 182)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 201.04, 157)
+
+[node name="TreeFull17" type="Sprite2D" parent="trees" unique_id=1682017343]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-219, 334)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 451.205, 157)
+
+[node name="TreeFull18" type="Sprite2D" parent="trees" unique_id=1097494709]
+z_index = 1
+texture_repeat = 2
+position = Vector2(236, 339)
+texture = ExtResource("2_4ekaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 451.205, 157)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=1590981255]
+
+[node name="L" type="CollisionShape2D" parent="Boundary" unique_id=823617242]
+position = Vector2(-181.5, -14.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="T" type="CollisionShape2D" parent="Boundary" unique_id=1306119306]
+position = Vector2(9, -172)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="R" type="CollisionShape2D" parent="Boundary" unique_id=927062208]
+position = Vector2(188, -16)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="B" type="CollisionShape2D" parent="Boundary" unique_id=804355168]
+position = Vector2(8, 130)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="Roof" type="CollisionShape2D" parent="Boundary" unique_id=813931565]
+position = Vector2(-2, -70.5)
+shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" unique_id=2007563008]
+position = Vector2(-57.5, -64.5)
+shape = SubResource("RectangleShape2D_fcnqv")
+
+[node name="Row" type="Sprite2D" parent="." unique_id=1416782665]
+z_index = -4096
+texture_repeat = 2
+position = Vector2(-5, 1)
+texture = ExtResource("3_wyo8o")
+region_enabled = true
+region_rect = Rect2(0, 0, 732.305, 809.08)
+
+[node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("4_f5s4f")]
+visible = false
+
+[node name="Path" type="Sprite2D" parent="." unique_id=974805953]
+z_index = -4096
+position = Vector2(4, 262.56253)
+scale = Vector2(1, 4.8622875)
+texture = ExtResource("6_npc6x")
+
+[node name="PlayerPath" type="Path2D" parent="." unique_id=1329412344]
+curve = SubResource("Curve2D_qy1bl")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlayerPath" unique_id=915168810]
+position = Vector2(4, 165)
+rotation = -1.5707964
+loop = false
+
+[node name="Player" parent="PlayerPath/PathFollow2D" unique_id=1519202898 instance=ExtResource("5_qy1bl")]
+position = Vector2(0, 3.8146973e-06)
+rotation = -3.1415925
+
+[node name="witch" parent="." unique_id=845605063 instance=ExtResource("7_f5s4f")]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=105194992]
+curve = SubResource("Curve2D_npc6x")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=610630507]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=1953667879]
+rotation = 1.5707964
+remote_path = NodePath("../../../witch")
+update_scale = false
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1146722603]
+visible = false
+z_index = 4096
+offset_left = -636.0
+offset_top = -655.0
+offset_right = 917.0
+offset_bottom = 633.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=64767790]
+libraries/ = SubResource("AnimationLibrary_npc6x")
+
+[node name="Textbox" parent="." unique_id=1368686350 instance=ExtResource("9_npc6x")]
+offset = Vector2(-89.89, -681.73)
+scale = Vector2(1.165, 1.56)
+transform = Transform2D(1.165, 0, 0, 1.56, -89.89, -681.73)

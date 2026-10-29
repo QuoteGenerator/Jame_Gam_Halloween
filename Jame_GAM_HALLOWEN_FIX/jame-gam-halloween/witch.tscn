@@ -163,14 +163,14 @@ enemy_name = "Skeleton"
 shape = SubResource("CircleShape2D_dfj8p")
 
 [node name="idle_animation" type="Sprite2D" parent="." unique_id=305303267]
-rotation = 1.5707964
+rotation = -1.5707964
 texture = ExtResource("2_bv18x")
 region_enabled = true
 region_rect = Rect2(0, 0, 22, 30)
 
 [node name="move_animation" type="Sprite2D" parent="." unique_id=411505652]
 visible = false
-rotation = 1.5707964
+rotation = -1.5707964
 texture = ExtResource("2_bv18x")
 region_enabled = true
 region_rect = Rect2(0, 0, 21, 23)

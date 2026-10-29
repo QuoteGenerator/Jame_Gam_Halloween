@@ -99,7 +99,7 @@ position = Vector2(8, -40)
 scale = Vector2(2.0781252, 2.0781252)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame_progress = 0.025762126
+frame_progress = 0.93503726
 
 [node name="Control" type="Control" parent="." unique_id=209509781]
 layout_mode = 3
