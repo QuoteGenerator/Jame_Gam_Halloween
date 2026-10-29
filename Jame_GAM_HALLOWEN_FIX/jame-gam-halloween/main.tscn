@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://b142g8djmuba0" path="res://Scripts/starter_area.gd" id="1_vivmo"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="2_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="3_r0du0"]
 [ext_resource type="Texture2D" uid="uid://7w8f0d5cc01g" path="res://Assets/Sprites/Areas/s_area.png" id="4_cm0pq"]
@@ -61,13 +62,31 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vivmo"]
 _data = {
 &"RESET": SubResource("Animation_0b11v"),
-&"fade_in": SubResource("Animation_bx2f0")
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
 }
 
 [node name="Main" type="Node2D" unique_id=63515689]
+script = ExtResource("1_vivmo")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1266127625]
 curve = SubResource("Curve2D_efxa6")
@@ -244,8 +263,8 @@ offset_right = 659.0
 offset_bottom = 454.0
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=2004161104]
-libraries/ = SubResource("AnimationLibrary_efxa6")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=82396331]
+libraries/ = SubResource("AnimationLibrary_vivmo")
 
 [node name="Timer" type="Timer" parent="." unique_id=1597339290]
 wait_time = 2.0
