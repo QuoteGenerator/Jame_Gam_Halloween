@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu2f7vt5i3vl5"]
 
-[ext_resource type="Script" uid="uid://rx2s7aavyle2" path="res://outro.gd" id="1_d2ofq"]
+[ext_resource type="Script" uid="uid://rx2s7aavyle2" path="res://Scripts/outro.gd" id="1_d2ofq"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_njae7"]
 
 [node name="Outro" type="Node2D" unique_id=166334674]

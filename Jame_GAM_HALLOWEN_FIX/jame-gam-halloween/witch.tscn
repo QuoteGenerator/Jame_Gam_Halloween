@@ -157,7 +157,7 @@ health = 5
 max_health = 15
 mana = 10
 max_mana = 10
-enemy_name = "Skeleton"
+enemy_name = "Witch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569457113]
 shape = SubResource("CircleShape2D_dfj8p")

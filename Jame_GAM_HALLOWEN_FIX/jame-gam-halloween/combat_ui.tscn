@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://mq7782la3467" path="res://Assets/Sprites/Consumables/pumpkin_pie.png" id="11_tnwwt"]
 [ext_resource type="Texture2D" uid="uid://jds3dystspv4" path="res://Assets/sparkles.png" id="13_b12oa"]
 [ext_resource type="Texture2D" uid="uid://dbq05cio0v82a" path="res://Assets/Sprites/tbc_sprites/wand_idle.png" id="14_nw44a"]
+[ext_resource type="Texture2D" uid="uid://byeoo7x84ks8r" path="res://Assets/Sprites/tbc_sprites/sunglasses_anim_skelly.png" id="21_gjqx6"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -576,6 +577,28 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dsod"]
+atlas = ExtResource("21_gjqx6")
+region = Rect2(0, 0, 17, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b7x5"]
+atlas = ExtResource("21_gjqx6")
+region = Rect2(17, 0, 17, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dsod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b7x5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.38
+}]
+
 [node name="CombatUI" type="CanvasLayer" unique_id=111705774 groups=["combat_ui"]]
 process_mode = 2
 script = ExtResource("1_h1lix")
@@ -599,7 +622,6 @@ libraries/ = SubResource("AnimationLibrary_20pc6")
 autoplay = &"tbc_player_idle_animation"
 
 [node name="tbc_skeleton_idle_animation" type="Sprite2D" parent="Panel" unique_id=1358327532]
-visible = false
 position = Vector2(917, 443)
 scale = Vector2(3.9210527, 3.9210527)
 texture = ExtResource("3_rltsl")
@@ -827,12 +849,22 @@ text = "PUMPKIN
 [node name="PlayerStats" type="Label" parent="Panel/Control" unique_id=893615213]
 layout_mode = 0
 offset_left = 138.0
-offset_top = 445.0
+offset_top = 446.0
 offset_right = 476.0
-offset_bottom = 533.0
+offset_bottom = 534.0
 theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 21
 text = "HP: 25/25    MANA: 10/10"
+
+[node name="PlayerLvl" type="Label" parent="Panel/Control" unique_id=510982596]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 475.0
+offset_right = 220.0
+offset_bottom = 501.0
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 21
+text = "LVL: 1"
 
 [node name="EnemyName" type="Label" parent="Panel/Control" unique_id=1699826288]
 layout_mode = 0
@@ -900,6 +932,13 @@ loop = false
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Panel/WandPath1/PathFollow2D" unique_id=277345727]
 update_rotation = false
 update_scale = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=3446359]
+visible = false
+position = Vector2(919, 296)
+scale = Vector2(3.921, 3.921)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
 
 [connection signal="mouse_entered" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_exited"]

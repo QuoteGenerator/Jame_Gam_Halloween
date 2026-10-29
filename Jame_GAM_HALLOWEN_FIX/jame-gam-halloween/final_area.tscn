@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7f48fqsv0s12"]
 
 [ext_resource type="Texture2D" uid="uid://cug6ftyvaiir6" path="res://Assets/Sprites/Areas/final_area.png" id="1_hgxce"]
-[ext_resource type="Script" uid="uid://4w7w0g5lew5c" path="res://final_area.gd" id="1_qy1bl"]
+[ext_resource type="Script" uid="uid://4w7w0g5lew5c" path="res://Scripts/final_area.gd" id="1_qy1bl"]
 [ext_resource type="Texture2D" uid="uid://cq3as0urft43k" path="res://Assets/Sprites/Objects/tree_empty.png" id="2_4ekaj"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_wyo8o"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="4_f5s4f"]

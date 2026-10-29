@@ -10,6 +10,7 @@ var current_player: CharacterBody2D
 
 @onready var playerNameLabel: Label = $Panel/Control/PlayerName
 @onready var playerStatsLabel: Label = $Panel/Control/PlayerStats
+@onready var playerLvlLabel: Label = $Panel/Control/PlayerLvl
 
 @onready var turnLabel: Label = $Panel/Control/TurnLabel
 
@@ -75,6 +76,7 @@ func update_player_stats():
 	playerStatsLabel.text = \
 	"HP: " + str(current_player.health) + "/" + str(current_player.max_health) + "    "\
 	+ "MANA: " + str(current_player.mana) + "/" + str(current_player.max_mana)
+	playerLvlLabel.text = "LVL: " + str(GameState.player_level)
 
 func SkeletonEnemyBattle():
 	animationEnemyPlayer.play("tbc_skeleton_idle_animation")
@@ -99,6 +101,7 @@ func WitchEnemyBattle():
 	
 func update_enemy_stats():
 	if current_enemy.health <= 0:
+		GameState.player_level += 1
 		end_combat()
 		return
 		
