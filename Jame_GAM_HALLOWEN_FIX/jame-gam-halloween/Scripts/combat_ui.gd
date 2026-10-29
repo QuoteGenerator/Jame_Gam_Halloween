@@ -57,6 +57,9 @@ func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
 	
 	if(enemy.is_in_group("ghost")):
 		GhostEnemyBattle()
+	
+	if(enemy.is_in_group("zombie")):
+		ZombieEnemyBattle()
 		
 	if player != null:
 		update_player_stats()
@@ -76,6 +79,11 @@ func SkeletonEnemyBattle():
 
 func GhostEnemyBattle():
 	animationEnemyPlayer.play("tbc_ghost_idle_animation")
+	enemyNameLabel.text = current_enemy.enemy_name
+	update_enemy_stats()
+	
+func ZombieEnemyBattle():
+	animationEnemyPlayer.play("tbc_zombie_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
 	update_enemy_stats()
 	
@@ -108,11 +116,9 @@ func Player_Basic_Attack():
 		
 		
 func _on_sparkle_animation_finished() -> void:
-	if current_enemy.is_in_group("skeleton"):
-		animationEnemyPlayer.play("tbc_skeleton_getHit_animation")
-	elif current_enemy.is_in_group("ghost"):
-		animationEnemyPlayer.play("tbc_ghost_getHit_animation")
-
+	var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()
+	animationEnemyPlayer.play("tbc_"+scene_name_enemy+"_getHit_animation")
+		
 	await animationEnemyPlayer.animation_finished
 	
 	current_enemy.health -= 5

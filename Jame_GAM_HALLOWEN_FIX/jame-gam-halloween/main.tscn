@@ -288,10 +288,13 @@ enemy_name = "Ghost (Ella)"
 [node name="zombie" parent="." unique_id=760905082 instance=ExtResource("13_ycdy4")]
 position = Vector2(-88, 33)
 rotation = 0.8408073
+health = 10
+enemy_name = "Zombie"
 
 [node name="witch" parent="." unique_id=1545696519 instance=ExtResource("14_w48qg")]
 position = Vector2(82, 60.999992)
 rotation = 3.0303998
+enemy_name = "witch"
 
 [connection signal="body_entered" from="SceneSwitch" to="SceneSwitch" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneSwitch" to="SceneSwitch" method="_on_body_exited"]
