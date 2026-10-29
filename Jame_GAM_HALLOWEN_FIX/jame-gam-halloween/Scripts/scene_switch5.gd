@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	print("Timeout")
-	#get_tree().call_deferred("change_scene_to_file", "res://area_3.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://final_area.tscn")
 
 
 func _on_body_entered(body: Node2D) -> void:
