@@ -8,6 +8,8 @@ extends CanvasLayer
 var fireball_selected = false
 var meteor_selected = false
 
+var select_move = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,7 +17,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if GameState.player_level == 2 and select_move:
+		move_milestone_1.show()
+		select_move = false
 
 
 func _on_fire_card_1_pressed() -> void:
