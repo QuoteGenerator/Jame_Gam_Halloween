@@ -32,8 +32,8 @@ player=""
 combat_ui=""
 ghost=""
 skeleton=""
-which=""
 zombie=""
+witch=""
 
 [input]
 

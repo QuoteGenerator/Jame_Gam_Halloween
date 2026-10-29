@@ -149,7 +149,7 @@ _data = {
 radius = 5.244383
 height = 17.08169
 
-[node name="witch" type="CharacterBody2D" unique_id=845605063 groups=["skeleton", "which"]]
+[node name="witch" type="CharacterBody2D" unique_id=845605063 groups=["witch"]]
 rotation = 1.5707964
 scale = Vector2(1.4, 1.4)
 script = ExtResource("1_bv18x")
