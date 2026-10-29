@@ -116,6 +116,7 @@ func end_combat():
 	
 func Player_Basic_Attack():
 	if playersTurn:
+		playersTurn = false
 		turnLabel.text = "* YOUR TURN *"
 		sparkle.play("sparkle")
 		wand_path_following = true
