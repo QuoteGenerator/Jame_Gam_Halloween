@@ -23,6 +23,8 @@ var current_player: CharacterBody2D
 @onready var remote_transform: RemoteTransform2D = $Panel/WandPath1/PathFollow2D/RemoteTransform2D
 @onready var wand: AnimatedSprite2D = $Panel/Wand/Wand
 
+
+
 var wand_path_following:bool = false
 
 var playersTurn:bool = true

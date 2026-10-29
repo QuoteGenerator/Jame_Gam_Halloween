@@ -1,12 +1,18 @@
 extends Button
 
 @onready var CombatUI: CanvasLayer = $"../../.."
+@onready var move2: Label = $"../S2/Label"
+@onready var move3: Label = $"../S3/Label"
+@onready var move4: Label = $"../S4/Label"
+
+@onready var move_milestone_1: CanvasLayer = $"../../../Move_Milestone1"
 
 var label:Label
 var itemImage:Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+		
 	label = get_child(0) as Label
 	
 	if get_child_count() > 1:
@@ -21,6 +27,9 @@ func _process(delta: float) -> void:
 func _on_mouse_exited() -> void:
 	if(name == "simple_attack_button"):
 		label.position = Vector2(56.5, 16)
+		
+	if(name == "S2"):
+		label.position =Vector2(56.5, 16)
 		
 	if(name == "pumpkin_spice_latte_button"):
 		label.position.y = 15
@@ -60,3 +69,58 @@ func _on_pressed() -> void:
 
 	if(name == "pumpkin_pie_button"):
 		pass
+
+
+func _on_s_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_s_2_mouse_entered() -> void:
+	move2.position = Vector2(18, 20)
+
+
+func _on_s_2_mouse_exited() -> void:
+	move2.position = Vector2(18, 16)
+
+
+func _on_s_3_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_s_3_mouse_entered() -> void:
+	move3.position = Vector2(56.5, 20)
+
+
+func _on_s_3_mouse_exited() -> void:
+	move3.position = Vector2(56.5, 16)
+
+
+func _on_s_4_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_s_4_mouse_entered() -> void:
+	move4.position = Vector2(56.5, 20)
+
+
+func _on_s_4_mouse_exited() -> void:
+	move4.position = Vector2(56.5, 16)
+
+func update_moves(attack_name: String):
+	if attack_name == "FIREBALL":
+		print("Fireball selected")
+		move2.text = "FIREBALL\nDMG: 7   COST: 10   HIT%: 70"
+	
+	elif attack_name == "METEOR":
+		print("Meteor selected")
+		move2.text = "METEOR\nDMG: 12  COST: 15  HIT%: 45"
+	
+	#if move_milestone_1.fireball_selected:
+	#	print("selected 1")
+	#	move2.text = "FIREBALL
+	#	DMG: 7  COST: 10  HIT%: 70"
+	#	
+	#if move_milestone_1.meteor_selected:
+	#	print("selected 1")
+	#	move2.text = "METEOR
+	#	DMG: 12   COST: 15  HIT%: 45"

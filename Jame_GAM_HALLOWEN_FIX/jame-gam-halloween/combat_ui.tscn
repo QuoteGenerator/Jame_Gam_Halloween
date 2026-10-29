@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://jds3dystspv4" path="res://Assets/sparkles.png" id="13_b12oa"]
 [ext_resource type="Texture2D" uid="uid://dbq05cio0v82a" path="res://Assets/Sprites/tbc_sprites/wand_idle.png" id="14_nw44a"]
 [ext_resource type="Texture2D" uid="uid://byeoo7x84ks8r" path="res://Assets/Sprites/tbc_sprites/sunglasses_anim_skelly.png" id="21_gjqx6"]
+[ext_resource type="PackedScene" uid="uid://cnokheo2ovrgs" path="res://fire_cards.tscn" id="22_1dsod"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -733,6 +734,65 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 
+[node name="Label" type="Label" parent="Panel/Control/S2" unique_id=564180113]
+custom_maximum_size = Vector2(355.19, 66.635)
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="S3" type="Button" parent="Panel/Control" unique_id=1227104619]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 1051.0
+offset_right = 443.0
+offset_bottom = 1154.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="Label" type="Label" parent="Panel/Control/S3" unique_id=1928465580]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 56.5
+offset_top = 16.0
+offset_right = 332.5
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 26
+
+[node name="S4" type="Button" parent="Panel/Control" unique_id=4213693]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 1051.0
+offset_right = 860.0
+offset_bottom = 1154.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="Label" type="Label" parent="Panel/Control/S4" unique_id=1712202752]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 56.5
+offset_top = 16.0
+offset_right = 332.5
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 26
+
 [node name="pumpkin_spice_latte_button" type="Button" parent="Panel/Control" unique_id=1131345316]
 layout_mode = 0
 offset_left = 963.0
@@ -814,26 +874,6 @@ position = Vector2(80, 27)
 rotation = -0.07870076
 scale = Vector2(5.3799896, 5.3799896)
 texture = ExtResource("11_tnwwt")
-
-[node name="S3" type="Button" parent="Panel/Control" unique_id=1227104619]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 1051.0
-offset_right = 443.0
-offset_bottom = 1154.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
-
-[node name="S4" type="Button" parent="Panel/Control" unique_id=4213693]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 1051.0
-offset_right = 860.0
-offset_bottom = 1154.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 
 [node name="PlayerName" type="Label" parent="Panel/Control" unique_id=188503472]
 layout_mode = 0
@@ -940,9 +980,21 @@ scale = Vector2(3.921, 3.921)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 
+[node name="Move_Milestone1" parent="." unique_id=581881684 instance=ExtResource("22_1dsod")]
+visible = false
+
 [connection signal="mouse_entered" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/S2" to="Panel/Control/simple_attack_button" method="_on_s_2_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/S2" to="Panel/Control/simple_attack_button" method="_on_s_2_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/S2" to="Panel/Control/simple_attack_button" method="_on_s_2_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/S3" to="Panel/Control/simple_attack_button" method="_on_s_3_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/S3" to="Panel/Control/simple_attack_button" method="_on_s_3_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/S3" to="Panel/Control/simple_attack_button" method="_on_s_3_pressed"]
+[connection signal="mouse_entered" from="Panel/Control/S4" to="Panel/Control/simple_attack_button" method="_on_s_4_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Control/S4" to="Panel/Control/simple_attack_button" method="_on_s_4_mouse_exited"]
+[connection signal="pressed" from="Panel/Control/S4" to="Panel/Control/simple_attack_button" method="_on_s_4_pressed"]
 [connection signal="mouse_entered" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Panel/Control/pumpkin_spice_latte_button" to="Panel/Control/pumpkin_spice_latte_button" method="_on_pressed"]
