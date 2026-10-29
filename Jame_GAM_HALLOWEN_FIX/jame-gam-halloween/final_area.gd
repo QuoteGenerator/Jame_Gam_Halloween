@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var textbox: DialogueBox_End1 = $Textbox
+@onready var timer: Timer = $Timer
 
 @onready var player: CharacterBody2D = $PlayerPath/PathFollow2D/Player
 @onready var path_follower: PathFollow2D = $PlayerPath/PathFollow2D
@@ -10,10 +11,12 @@ extends Node2D
 @onready var witch: CharacterBody2D = $witch
 @onready var path_follower_witch: PathFollow2D = $Path2D/PathFollow2D
 @onready var remote_transform_witch: RemoteTransform2D = $Path2D/PathFollow2D/RemoteTransform2D
+@onready var combat_ui: CanvasLayer = $CombatUI
 
 var is_path_following = false
 var witch_chase = false
 var dialogue_started = false
+var queue_outro = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,9 +47,15 @@ func _physics_process(delta: float) -> void:
 	if witch_chase:
 		witch.chasing = true
 		
-	if is_instance_valid(witch) and witch.health <= 0:
-		print("witch dead!")
+	if combat_ui.combat_over and queue_outro:
+		queue_outro = false
+		fade_anim.play("fade_in")
+		timer.start()
 
 func _on_dialogue_end_finished():
 	witch.speed = 110.0
 	witch.chasing = true
+
+
+func _on_timer_timeout() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://outro.tscn")

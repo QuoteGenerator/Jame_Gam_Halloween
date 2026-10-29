@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cu2f7vt5i3vl5"]
+
+[ext_resource type="Script" uid="uid://rx2s7aavyle2" path="res://outro.gd" id="1_d2ofq"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_njae7"]
+
+[node name="Outro" type="Node2D" unique_id=166334674]
+script = ExtResource("1_d2ofq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=59400768]
+offset_left = -591.0
+offset_top = -580.0
+offset_right = 1226.0
+offset_bottom = 962.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1050877139]
+position = Vector2(385, 322)
+zoom = Vector2(1.765, 1.765)
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=787114298]
+visible = false
+offset_left = -253.0
+offset_top = -52.0
+offset_right = 271.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_njae7")
+theme_override_font_sizes/font_size = 23
+text = "After a long and arduous battle, 
+you've defeated the witch!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Camera2D" unique_id=1944068940]
+visible = false
+offset_left = -336.0
+offset_top = -58.0
+offset_right = 341.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("2_njae7")
+theme_override_font_sizes/font_size = 23
+text = "You can finally turn back 
+into a human again! 
+Yay!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Camera2D" unique_id=1625830352]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_njae7")
+theme_override_font_sizes/font_size = 23
+text = "Thank you for playing!!!!!!"
+horizontal_alignment = 1

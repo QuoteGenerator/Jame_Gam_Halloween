@@ -27,6 +27,8 @@ var wand_path_following:bool = false
 var playersTurn:bool = true
 var enemysTurn:bool = false
 
+var combat_over:bool = false
+
 func _ready() -> void:
 	visible = false
 	turnLabel.text = "* YOUR TURN *"
@@ -113,6 +115,7 @@ func end_combat():
 	current_enemy = null
 	visible = false
 	get_tree().paused = false
+	combat_over = true
 	
 func Player_Basic_Attack():
 	if playersTurn:
