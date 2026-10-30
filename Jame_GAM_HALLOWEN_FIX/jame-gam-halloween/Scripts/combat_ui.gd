@@ -285,10 +285,11 @@ func _on_sparkle_animation_finished() -> void:
 		spell4_used = false
 		
 		
-	update_player_stats()	
-	update_enemy_stats()	
+		
 	playersTurn = false
 	enemysTurn = true
+	update_player_stats()	
+	update_enemy_stats()
 	current_player.damage_multiplier = 1.0
 	GameState.damage_multiplier = current_player.damage_multiplier
 	
