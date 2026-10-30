@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 var level:int = 1
-var speed:int = 100
+var speed:int = 300
 
 var health:int = 100
 var max_health:int = 100

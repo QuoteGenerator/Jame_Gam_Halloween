@@ -1,4 +1,6 @@
 extends CanvasLayer
+@onready var player: CharacterBody2D = $Player
+@onready var mg_2_box: StaticBody2D = $MG2_Box
 
 @onready var animationEnemyPlayer: AnimationPlayer = $tbc_AnimationEnemy
 @onready var path_follower: PathFollow2D = $Path2D/PathFollow2D
@@ -34,9 +36,15 @@ func _ready() -> void:
 	
 	collision2.set_deferred("disabled", true)
 	collision3.set_deferred("disabled", true)
+	
+	player.set_physics_process(false)
+	player.hide()
+	mg_2_box.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
 func _process(delta: float) -> void:
 	if GameState.start_minigame:
 		show()
@@ -75,7 +83,12 @@ func _process(delta: float) -> void:
 					field3_cleared = true
 					collision2.set_deferred("disabled", true)
 					field_3.hide()
+					color_rect.hide()
 					print("YOU BEAT MINIGAME ONE!")
+					
+					mg_2_box.show()
+					player.show()
+					player.set_physics_process(true)
 			
 				else:
 					lose_heart()
