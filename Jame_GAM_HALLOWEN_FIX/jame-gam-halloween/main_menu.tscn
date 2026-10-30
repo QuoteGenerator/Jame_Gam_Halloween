@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://b6mr3uolybi14" path="res://Assets/Sprites/play_btn.png" id="2_jix8l"]
 [ext_resource type="Texture2D" uid="uid://b1e0w1lkvmosp" path="res://Assets/Sprites/play_btn_pressed.png" id="3_glbon"]
 [ext_resource type="Texture2D" uid="uid://d1wc4lvyewliu" path="res://Assets/Sprites/play_btn_hover.png" id="4_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://cekf8trj2hqgx" path="res://Assets/Sprites/hard_btn.png" id="6_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://cprfadgjjdo4e" path="res://Assets/Sprites/hard_btn_pressed.png" id="7_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://6ehkwnelbxg8" path="res://Assets/Sprites/hard_btn_hover.png" id="8_iotk1"]
+[ext_resource type="Texture2D" uid="uid://cendb3hrdmeoe" path="res://Assets/normal_btn.png" id="9_w44g7"]
+[ext_resource type="Texture2D" uid="uid://cyqxwvwc4mb6j" path="res://Assets/normal_btn_pressed.png" id="10_cm266"]
+[ext_resource type="Texture2D" uid="uid://c5f4nqu3d640c" path="res://Assets/normal_btn_hover.png" id="11_g8g3n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vrkn"]
 atlas = ExtResource("1_06t4h")
@@ -36,6 +42,24 @@ texture = ExtResource("3_glbon")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0u6y"]
 texture = ExtResource("4_nlkkf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6rid"]
+texture = ExtResource("6_0k4wn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5icn"]
+texture = ExtResource("7_j5v2v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyjgu"]
+texture = ExtResource("8_iotk1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rubpl"]
+texture = ExtResource("9_w44g7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bj05s"]
+texture = ExtResource("10_cm266")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qejde"]
+texture = ExtResource("11_g8g3n")
 
 [sub_resource type="Animation" id="Animation_0b11v"]
 length = 0.001
@@ -124,10 +148,9 @@ offset_left = -41.0
 offset_top = 60.0
 offset_right = 41.0
 offset_bottom = 88.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_57qmd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d0u6y")
-text = "HARD"
+theme_override_styles/normal = SubResource("StyleBoxTexture_l6rid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q5icn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eyjgu")
 
 [node name="NormalBtn" type="Button" parent="Control" unique_id=1033196706]
 visible = false
@@ -136,10 +159,9 @@ offset_left = -41.0
 offset_top = 26.0
 offset_right = 41.0
 offset_bottom = 54.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_57qmd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d0u6y")
-text = "NORMAL"
+theme_override_styles/normal = SubResource("StyleBoxTexture_rubpl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bj05s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qejde")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=728284851]
 position = Vector2(8, -40)

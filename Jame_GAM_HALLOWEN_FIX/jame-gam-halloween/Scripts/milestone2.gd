@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal move2_selected
 
+@onready var click: AudioStreamPlayer = $Click
+
 @onready var move_milestone_2: CanvasLayer = $"."
 @onready var combat_button = get_node("/root/Area1/CombatUI/Panel/Control/simple_attack_button")
 @onready var card_select: CanvasLayer = $"."
@@ -35,6 +37,7 @@ func _on_wind_card_1_pressed() -> void:
 	GameState.move_milestone_2_completed = true
 	GameState.gust_picked = true
 	GameState.move2_selected.emit()
+	click.play()
 	hide()
 
 
@@ -43,4 +46,5 @@ func _on_wind_card_2_pressed() -> void:
 	GameState.move_milestone_2_completed = true
 	GameState.tornado_picked = true
 	GameState.move2_selected.emit()
+	click.play()
 	hide()

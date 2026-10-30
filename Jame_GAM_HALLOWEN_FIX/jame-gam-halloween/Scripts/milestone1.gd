@@ -5,6 +5,7 @@ signal move1_selected
 @onready var move_milestone_1: CanvasLayer = $"."
 @onready var card_select: CanvasLayer = $"."
 @onready var label: Label = $Label
+@onready var click: AudioStreamPlayer = $Click
 
 
 var text_speed = 0.5
@@ -28,6 +29,7 @@ func _process(delta: float) -> void:
 func _on_fire_card_1_pressed() -> void:
 	GameState.player_moveset["S2"] = "FIREBALL\nDMG: 8  COST: 10  HIT%: 70"
 	GameState.move_milestone_1_completed = true
+	click.play()
 	
 	GameState.move1_selected.emit()
 	hide()
@@ -37,6 +39,7 @@ func _on_fire_card_1_pressed() -> void:
 func _on_fire_card_2_pressed() -> void:
 	GameState.player_moveset["S2"] = "METEOR\nDMG: 12  COST: 15  HIT%: 45"
 	GameState.move_milestone_1_completed = true
+	click.play()
 	
 	GameState.move1_selected.emit()
 	hide()

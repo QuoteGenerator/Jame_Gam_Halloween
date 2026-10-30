@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bahkdi53jc6bf"]
 
 [ext_resource type="Script" uid="uid://brfdwqt2q3ura" path="res://Scripts/dialoguebox_end.gd" id="1_vwf7o"]
+[ext_resource type="AudioStream" uid="uid://ujpquq01ol2u" path="res://Assets/Sounds/SFX_RetroMultiplev1.wav" id="2_n2bh6"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_qmh15"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gngh"]
@@ -14,8 +15,8 @@ border_color = Color(1, 1, 1, 1)
 [node name="Textbox" type="CanvasLayer" unique_id=1368686350]
 script = ExtResource("1_vwf7o")
 
-[node name="SfxRetroMultiplev1" type="AudioStreamPlayer" parent="." unique_id=896633466]
-volume_db = -24.969
+[node name="SfxRetroMultiplev1" type="AudioStreamPlayer" parent="." unique_id=1271077313]
+stream = ExtResource("2_n2bh6")
 
 [node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1881389443]
 anchors_preset = 12

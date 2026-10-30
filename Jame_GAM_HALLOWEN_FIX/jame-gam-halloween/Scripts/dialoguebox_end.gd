@@ -10,7 +10,7 @@ enum State {
 	READING,
 	FINISHED
 }
-# @onready var type_sound: AudioStreamPlayer = $SfxRetroMultiplev1
+@onready var type_sound: AudioStreamPlayer = $SfxRetroMultiplev1
 
 @onready var textbox_container: MarginContainer = $TextboxContainer
 @onready var start_symbol: Label = $TextboxContainer/MarginContainer/HBoxContainer/StartSymbol
@@ -72,7 +72,7 @@ func display_text():
 	#tween = create_tween()
 	tween.tween_property(label, "visible_ratio", 1, len(next_text) * CHAR_READ_RATE)
 	state = State.READING
-	# type_sound.play()
+	type_sound.play()
 	#tween.start()
 
 func finish_text():
@@ -80,7 +80,7 @@ func finish_text():
 	label.visible_ratio = 1
 	state = State.FINISHED
 	end_symbol.text = "V"
-	# type_sound.stop()
+	type_sound.stop()
 
 
 func _on_dialogue_end_finished() -> void:

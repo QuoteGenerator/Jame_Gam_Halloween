@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://s4d17eurxlp2"]
 
 [ext_resource type="Script" uid="uid://fhmrcwiayavl" path="res://Scripts/milestone2.gd" id="1_pq5lh"]
+[ext_resource type="AudioStream" uid="uid://mh2shntgg1g" path="res://Assets/Sounds/click.wav" id="2_fw1y1"]
 [ext_resource type="Texture2D" uid="uid://mmwrq8s4nyyg" path="res://Assets/Sprites/panel2.png" id="2_pq5lh"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="3_fw1y1"]
 [ext_resource type="Texture2D" uid="uid://6p4v5m2ypm2h" path="res://Assets/Sprites/wind_card.png" id="4_fw1y1"]
@@ -25,6 +26,9 @@ offset = Vector2(232.785, 206.455)
 scale = Vector2(4.27, 4.27)
 transform = Transform2D(4.27, 0, 0, 4.27, 232.785, 206.455)
 script = ExtResource("1_pq5lh")
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1795954740]
+stream = ExtResource("2_fw1y1")
 
 [node name="Panel" type="Sprite2D" parent="." unique_id=1674253189]
 position = Vector2(84.59368, -22.823185)

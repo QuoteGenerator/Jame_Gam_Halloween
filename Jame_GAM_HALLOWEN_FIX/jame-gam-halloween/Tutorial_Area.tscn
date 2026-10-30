@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://c6qwfkx23a2oe" path="res://rock_2.tscn" id="11_dipwe"]
 [ext_resource type="PackedScene" uid="uid://b8j662xpheekl" path="res://rock_1.tscn" id="12_fpldr"]
 [ext_resource type="PackedScene" uid="uid://dsm14bv6t17br" path="res://pumpkin_pie.tscn" id="13_0b11v"]
-[ext_resource type="PackedScene" uid="uid://cnokheo2ovrgs" path="res://fire_cards.tscn" id="13_uwtsg"]
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="14_dipwe"]
 [ext_resource type="PackedScene" uid="uid://ckiiat4ysplny" path="res://ghost.tscn" id="15_fpldr"]
 [ext_resource type="Script" uid="uid://dolpru2rub64q" path="res://Scripts/scene_switch2.gd" id="16_fpldr"]
@@ -89,8 +88,6 @@ point_count = 2
 
 [node name="TutorialArea" type="Node2D" unique_id=1696652792]
 script = ExtResource("1_0b11v")
-
-[node name="CardSelect" parent="." unique_id=581881684 instance=ExtResource("13_uwtsg")]
 
 [node name="Player" parent="." unique_id=1519202898 instance=ExtResource("2_ueham")]
 z_index = 1

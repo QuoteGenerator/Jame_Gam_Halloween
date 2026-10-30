@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cueu02bm2rthk" path="res://Assets/Sprites/fire_card.png" id="1_g0tij"]
 [ext_resource type="Texture2D" uid="uid://dao2n4lbhokdr" path="res://Assets/Sprites/panel.png" id="2_0ho6w"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_8d0gq"]
+[ext_resource type="AudioStream" uid="uid://mh2shntgg1g" path="res://Assets/Sounds/click.wav" id="2_xgxvq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
 texture = ExtResource("1_g0tij")
@@ -25,6 +26,9 @@ offset = Vector2(232.785, 206.455)
 scale = Vector2(4.27, 4.27)
 transform = Transform2D(4.27, 0, 0, 4.27, 232.785, 206.455)
 script = ExtResource("1_8d0gq")
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1037500863]
+stream = ExtResource("2_xgxvq")
 
 [node name="Panel" type="Sprite2D" parent="." unique_id=1674253189]
 position = Vector2(84.59368, -22.823185)
