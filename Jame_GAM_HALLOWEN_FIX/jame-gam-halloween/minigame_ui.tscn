@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dsaqcqamjxlk0" path="res://Scripts/player_minigame.gd" id="7_1sfjf"]
 [ext_resource type="Texture2D" uid="uid://b0r6jj6w2mskx" path="res://Assets/Sprites/player_ball.png" id="7_wpe2l"]
 [ext_resource type="PackedScene" uid="uid://bahkdi53jc6bf" path="res://dialoguebox_end.tscn" id="9_d2hxl"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="10_xwqhf"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -713,6 +714,38 @@ libraries/ = SubResource("AnimationLibrary_1sfjf")
 
 [node name="dialogue_starter" type="Timer" parent="." unique_id=1382728128]
 one_shot = true
+
+[node name="Instructions1" type="Label" parent="." unique_id=1072577243]
+visible = false
+clip_contents = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -427.5
+offset_top = 23.0
+offset_right = 422.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_xwqhf")
+theme_override_font_sizes/font_size = 31
+text = "* LEFT CLICK / PRESS 'E' / PRESS 'SPACE' *"
+horizontal_alignment = 1
+
+[node name="Instructions2" type="Label" parent="." unique_id=1737383862]
+visible = false
+clip_contents = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -428.5
+offset_top = 23.0
+offset_right = 421.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_xwqhf")
+theme_override_font_sizes/font_size = 31
+text = "* 'W', 'A', 'S', 'D' TO MOVE. DODGE! *"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="field1" to="." method="_on_field_1_area_entered"]

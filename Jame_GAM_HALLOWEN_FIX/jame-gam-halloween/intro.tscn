@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdqenjng2uhjf" path="res://intro.gd" id="1_ayt76"]
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_7a8ye"]
+[ext_resource type="AudioStream" uid="uid://ujpquq01ol2u" path="res://Assets/Sounds/SFX_RetroMultiplev1.wav" id="3_7a8ye"]
 
 [node name="Intro" type="Node2D" unique_id=166334674]
 script = ExtResource("1_ayt76")
@@ -151,3 +152,6 @@ text = "As you open your eyes,
 you find yourself in the 
 enchanted forest again."
 horizontal_alignment = 1
+
+[node name="SfxRetroMultiplev1" type="AudioStreamPlayer" parent="." unique_id=910803149]
+stream = ExtResource("3_7a8ye")

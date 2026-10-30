@@ -1067,6 +1067,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_akiti")
 theme_override_font_sizes/font_size = 31
 text = "* YOUR TURN *"
+horizontal_alignment = 1
 
 [node name="Wand" type="Node2D" parent="Panel" unique_id=1002404145]
 

@@ -2,6 +2,9 @@ extends CanvasLayer
 
 const BALL = preload("uid://chlatv77gfsbh")
 
+@onready var instructions_1: Label = $Instructions1
+@onready var instructions_2: Label = $Instructions2
+
 @onready var dialogue_starter: Timer = $dialogue_starter
 @onready var timer: Timer = $Timer
 @onready var end_minigame_timer: Timer = $End_Minigame2
@@ -77,6 +80,7 @@ func _process(delta: float) -> void:
 			dialogue_starter.start()
 			Music.stop()
 			text_queued = true
+			instructions_1.show()
 			
 		path_follower.progress_ratio += 0.007
 		
@@ -115,8 +119,9 @@ func _process(delta: float) -> void:
 					field_3.hide()
 					color_rect.hide()
 					print("YOU BEAT MINIGAME ONE!")
-					
+					instructions_1.hide()
 					mg_2_box.show()
+					instructions_2.show()
 					player.show()
 					player.set_physics_process(true)
 					timer.start()
