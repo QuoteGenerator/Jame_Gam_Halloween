@@ -179,6 +179,7 @@ func Player_Basic_Attack():
 		path_follower.progress = 0.0
 		remote_transform.remote_path = wand.get_path()
 		basic_attack_used = true
+		update_player_stats()
 		
 func Player_2nd_Spell():
 	if playersTurn:

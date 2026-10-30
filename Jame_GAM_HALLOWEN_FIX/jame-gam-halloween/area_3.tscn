@@ -370,12 +370,12 @@ rotation = 1.8675023
 
 [node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("14_2fqny")]
 position = Vector2(-39, -45)
-health = 20
-max_health = 20
+health = 25
+max_health = 25
 hard_health = 5
 hard_max_health = 5
-hit_chance = 0.1
-hard_hit_chance = 0.2
+hit_chance = 0.2
+hard_hit_chance = 0.3
 enemy_name = "Ghost (Grill)"
 
 [node name="SkeletonEnemy" parent="." unique_id=1071752477 instance=ExtResource("15_85wqg")]
@@ -417,7 +417,8 @@ update_scale = false
 
 [node name="zombie" parent="." unique_id=767436491 instance=ExtResource("16_e6mn2")]
 position = Vector2(31, -148)
-max_health = 5
+health = 1
+max_health = 10
 hard_health = 10
 hard_max_health = 10
 mana = 25
