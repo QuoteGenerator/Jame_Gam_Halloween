@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://isg1f625y4p8"]
+[gd_scene format=3 uid="uid://yl61oh578af6"]
 
 [ext_resource type="Script" uid="uid://csjgifgn87tqj" path="res://Scripts/player.gd" id="1_08gt5"]
 [ext_resource type="Texture2D" uid="uid://cynlxv1u1jnyg" path="res://Assets/Sprites/pumpkin.png" id="2_7ygsn"]

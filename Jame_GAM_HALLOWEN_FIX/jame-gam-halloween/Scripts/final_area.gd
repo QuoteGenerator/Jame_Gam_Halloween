@@ -40,8 +40,6 @@ func _physics_process(delta: float) -> void:
 	#print("final area ps")
 	
 	print("Final Area BlackScreen: ", black_screen.visible)
-	print("Final Area CanvasLayer: ", get_tree().current_scene.visible)
-	print("Final Area BlackScreen Modulate: ", black_screen.modulate)
 	
 	if is_path_following:
 		player.set_physics_process(false)
@@ -57,11 +55,11 @@ func _physics_process(delta: float) -> void:
 	if witch_chase:
 		witch.chasing = true
 		
-	if combat_ui.combat_over and queue_outro:
-		queue_outro = false
-		black_screen.show()
-		fade_anim.play("fade_in")
-		timer.start()
+#	if combat_ui.combat_over and queue_outro:
+#		queue_outro = false
+#		black_screen.show()
+#		fade_anim.play("fade_in")
+#		timer.start()
 
 func _on_dialogue_end_finished():
 	witch.speed = 110.0

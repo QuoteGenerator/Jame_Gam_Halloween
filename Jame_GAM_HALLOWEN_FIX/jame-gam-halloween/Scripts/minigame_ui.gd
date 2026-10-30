@@ -67,8 +67,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	print("prunning")
+	print(GameState.start_minigame)
 	if GameState.start_minigame:
-		
+		print("starting minigame")
 		show()
 		
 		if not text_queued:
@@ -134,6 +136,7 @@ func dialogue2_finished():
 		print("hide minigame")
 		hide()
 		print("Minigame visible: ", visible)
+		get_tree().call_deferred("change_scene_to_file", "res://outro.tscn")
 		GameState.start_second_tbc_phase = true
 		print("GameState value: ", GameState.start_second_tbc_phase)
 		
