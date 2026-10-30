@@ -153,8 +153,8 @@ func update_enemy_stats():
 		return
 		
 	enemyStatsLabel.text = \
-	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "    "\
-	+ "MANA: " + str(current_enemy.mana) + "/" + str(current_enemy.max_mana)
+	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "\n"\
+	+ "Hit Chance: " + str(current_enemy.hit_chance * 100) + "%"
 	
 	Enemy_Attack()
 	
@@ -261,8 +261,10 @@ func Enemy_Attack():
 		
 		await animationEnemyPlayer.animation_finished
 		
-		current_player.health -= 5
-		GameState.player_health -= 5
+		if(randf_range(0,1) < current_enemy.hit_chance):	
+			current_player.health -= 5
+			GameState.player_health -= 5
+			
 		playersTurn = true
 		enemysTurn = false
 		update_player_stats()

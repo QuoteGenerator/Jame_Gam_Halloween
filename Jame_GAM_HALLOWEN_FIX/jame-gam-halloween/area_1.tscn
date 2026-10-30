@@ -208,6 +208,7 @@ position = Vector2(-5, 1)
 texture = ExtResource("3_weo7h")
 region_enabled = true
 region_rect = Rect2(0, 0, 550, 867.23)
+metadata/_edit_lock_ = true
 
 [node name="Path" type="Sprite2D" parent="." unique_id=716328072]
 position = Vector2(-3, -272.25)
@@ -302,6 +303,9 @@ position = Vector2(10, 4)
 
 [node name="GhostEnemy" parent="." unique_id=845605063 instance=ExtResource("13_r2afo")]
 position = Vector2(-78, 28)
+hard_health = 10
+hard_max_health = 10
+hit_chance = 0.7
 enemy_name = "Ghost (Aleks)"
 
 [node name="pumpkin_spice_latte" parent="." unique_id=870276362 instance=ExtResource("14_th8es")]
@@ -313,6 +317,7 @@ rotation = 3.1415927
 max_health = 5
 hard_health = 10
 hard_max_health = 10
+hard_hit_chance = 0.8
 enemy_name = "Skeleton (Ella)"
 
 [node name="CombatUI" parent="." unique_id=111705774 instance=ExtResource("16_ayu7x")]

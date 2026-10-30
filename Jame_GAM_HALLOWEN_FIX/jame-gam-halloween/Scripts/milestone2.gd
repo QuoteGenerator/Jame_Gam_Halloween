@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_wind_card_1_pressed() -> void:
-	GameState.player_moveset["S3"] = "GUST\nDMG: 7  COST: 10  HIT%: 70"
+	GameState.player_moveset["S3"] = "GUST\nDMG: 8  COST: 10  HIT%: 70"
 	GameState.move_milestone_2_completed = true
 	GameState.gust_picked = true
 	GameState.move2_selected.emit()

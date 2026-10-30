@@ -8,6 +8,9 @@ var in_combat: bool = false
 @export var max_health: int = 100
 @export var hard_health = 100
 @export var hard_max_health = 100 
+@export var hit_chance = 1.0
+
+@export var hard_hit_chance = 1.0
 
 @export var mana: int = 15
 @export var max_mana: int = 15
@@ -17,6 +20,12 @@ var in_combat: bool = false
 @onready var detection_area: Area2D = $DetectionArea
 
 func _ready() -> void:
+	
+	if GameState.difficulty == "hard":
+		health = hard_health
+		max_health = hard_max_health
+		hit_chance = hard_hit_chance
+		
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 
