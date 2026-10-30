@@ -6,6 +6,9 @@ var chasing: bool = false
 var in_combat: bool = false
 @export var health: int = 100
 @export var max_health: int = 100
+@export var hard_health = 100
+@export var hard_max_health = 100 
+
 @export var mana: int = 15
 @export var max_mana: int = 15
 @export var enemy_name: String = "ENEMY"

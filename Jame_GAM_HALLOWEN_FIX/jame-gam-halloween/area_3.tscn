@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdi0o04fopi7" path="res://Scripts/area_3.gd" id="1_1tdum"]
 [ext_resource type="Texture2D" uid="uid://bqfxlnpdio3ll" path="res://Assets/Sprites/Areas/area3.png" id="1_jbiam"]
-[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://player.tscn" id="1_y2vgt"]
+[ext_resource type="PackedScene" uid="uid://yl61oh578af6" path="res://player.tscn" id="1_y2vgt"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="2_kwpfj"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_k2lr6"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_dxi2c"]
@@ -370,6 +370,8 @@ rotation = 1.8675023
 position = Vector2(-39, -45)
 health = 5
 max_health = 5
+hard_health = 5
+hard_max_health = 5
 enemy_name = "Ghost (Grill)"
 
 [node name="SkeletonEnemy" parent="." unique_id=1071752477 instance=ExtResource("15_85wqg")]
@@ -378,6 +380,8 @@ rotation = -1.5707964
 scale = Vector2(1.400002, 1.400002)
 health = 10
 max_health = 10
+hard_health = 10
+hard_max_health = 10
 mana = 5
 max_mana = 5
 enemy_name = "Cool Skeleton (Tom)"
