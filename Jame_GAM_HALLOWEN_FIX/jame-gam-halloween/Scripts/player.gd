@@ -53,15 +53,15 @@ func on_mouse_entered() -> void:
 	
 	
 func _on_pickup_area_area_entered(area: Area2D) -> void:
-	if area.name == "pumpkin_pie":
+	if area.name.begins_with("pumpkin_pie"):
 		add_item("pumpkin_pie")
 		area.queue_free()
 	
-	elif area.name == "pumpkin_soup":
+	elif area.name.begins_with("pumpkin_soup"):
 		add_item("pumpkin_soup")
 		area.queue_free()
 	
-	elif area.name == "pumpkin_spice_latte":
+	elif area.name.begins_with("pumpkin_spice_latte"):
 		add_item("pumpkin_spice_latte")
 		area.queue_free()	
 	
