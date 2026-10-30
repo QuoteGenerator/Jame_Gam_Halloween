@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const BALL = preload("uid://chlatv77gfsbh")
 
+@onready var dialogue_starter: Timer = $dialogue_starter
 @onready var timer: Timer = $Timer
 @onready var end_minigame_timer: Timer = $End_Minigame2
 
@@ -26,6 +27,12 @@ const BALL = preload("uid://chlatv77gfsbh")
 @onready var heart_2: Sprite2D = $Heart2
 @onready var heart_3: Sprite2D = $Heart3
 
+@onready var fade_anim: AnimationPlayer = $BlackScreen/AnimationPlayer
+@onready var black_screen: ColorRect = $BlackScreen
+@onready var textbox: DialogueBox_End1 = $Textbox
+
+var text_queued = false
+
 var field1_cleared = false
 var field2_cleared = false
 var field3_cleared = false
@@ -37,6 +44,8 @@ var player_in_field3 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	textbox.dialogue_end_finished.connect(dialogue2_finished)
+	black_screen.show()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	animationEnemyPlayer.play("tbc_witch_idle_animation")
 	hide()
@@ -54,10 +63,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if GameState.start_minigame:
+		
 		show()
+		
+		if not text_queued:
+			dialogue_starter.start()
+			text_queued = true
+			
 		path_follower.progress_ratio += 0.007
-		
-		
 		
 		if (Input.is_action_just_pressed("Interact")):
 			if not field1_cleared:
@@ -103,9 +116,10 @@ func _process(delta: float) -> void:
 			
 				else:
 					lose_heart()
-	
-	
-	
+
+func dialogue2_finished():
+	fade_anim.play("fade_out")
+
 func lose_heart():
 	if heart_3.visible:
 		heart_3.hide()
@@ -116,7 +130,9 @@ func lose_heart():
 		GameState.player_health = 0
 		print("you lose!")
 		
-		
+func _on_dialogue_starter_timeout() -> void:
+	textbox.queue_text("WITCH: Let's see if you can survive this!")
+
 func _on_timer_timeout() -> void:
 	var ballClone : Sprite2D = BALL.instantiate()
 	add_child(ballClone)

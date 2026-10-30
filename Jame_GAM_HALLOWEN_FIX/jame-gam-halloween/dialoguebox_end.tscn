@@ -79,4 +79,5 @@ theme_override_fonts/font = ExtResource("2_qmh15")
 theme_override_font_sizes/font_size = 34
 text = "V"
 
+[connection signal="dialogue2_finished" from="." to="." method="_on_dialogue_2_finished"]
 [connection signal="dialogue_end_finished" from="." to="." method="_on_dialogue_end_finished"]

@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d1i38w8slc57a" path="res://Assets/Sprites/tbc_sprites/tbc_witch_idle.png" id="3_18msi"]
 [ext_resource type="Texture2D" uid="uid://dsjwfnm2y2thx" path="res://Assets/Sprites/heart.png" id="4_18msi"]
 [ext_resource type="Texture2D" uid="uid://cedgnmk4sq17a" path="res://Assets/Sprites/kasterl.png" id="6_7do3c"]
-[ext_resource type="Script" uid="uid://dsaqcqamjxlk0" path="res://player_minigame.gd" id="7_1sfjf"]
+[ext_resource type="Script" uid="uid://dsaqcqamjxlk0" path="res://Scripts/player_minigame.gd" id="7_1sfjf"]
 [ext_resource type="Texture2D" uid="uid://b0r6jj6w2mskx" path="res://Assets/Sprites/player_ball.png" id="7_wpe2l"]
+[ext_resource type="PackedScene" uid="uid://bahkdi53jc6bf" path="res://dialoguebox_end.tscn" id="9_d2hxl"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -489,11 +490,66 @@ b = Vector2(-544, -96)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 12.0
 
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sfjf"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
+
 [node name="minigame_ui" type="CanvasLayer" unique_id=713393390]
 process_mode = 3
 script = ExtResource("1_2i8h0")
 
 [node name="Timer" type="Timer" parent="." unique_id=1734488584]
+wait_time = 0.5
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1225152431]
 offset_right = 1200.0
@@ -638,7 +694,23 @@ position = Vector2(474, 1000)
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="End_Minigame2" type="Timer" parent="." unique_id=1937765066]
-wait_time = 10.0
+wait_time = 30.0
+one_shot = true
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1681471136]
+z_index = 4096
+offset_left = -884.0
+offset_top = -632.0
+offset_right = 1914.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=1701594841]
+libraries/ = SubResource("AnimationLibrary_1sfjf")
+
+[node name="Textbox" parent="." unique_id=1368686350 instance=ExtResource("9_d2hxl")]
+
+[node name="dialogue_starter" type="Timer" parent="." unique_id=1382728128]
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
@@ -649,3 +721,4 @@ one_shot = true
 [connection signal="area_entered" from="field3" to="." method="_on_field_3_area_entered"]
 [connection signal="area_exited" from="field3" to="." method="_on_field_3_area_exited"]
 [connection signal="timeout" from="End_Minigame2" to="." method="_on_end_minigame_2_timeout"]
+[connection signal="timeout" from="dialogue_starter" to="." method="_on_dialogue_starter_timeout"]
