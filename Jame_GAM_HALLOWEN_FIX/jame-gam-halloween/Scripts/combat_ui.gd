@@ -229,15 +229,20 @@ func _on_sparkle_animation_finished() -> void:
 			GameState.player_mana = GameState.player_max_mana
 		basic_attack_used = false
 		
+		
 	elif spell2_used and GameState.fireball_picked and current_player.mana >= 10:
 		current_player.mana -= 10
 		GameState.player_mana -= 10
 		if(randf_range(0,1) < 0.7):		
+			if current_enemy.is_in_group("zombie"):
+				current_enemy.health -= 11 * current_player.damage_multiplier
 			current_enemy.health -= 8 * current_player.damage_multiplier
 		spell2_used = false
 	
 	elif spell2_used and GameState.meteor_picked and current_player.mana >= 15:
 		if(randf_range(0,1) <= 0.7):
+			if current_enemy.is_in_group("zombie"):
+				current_enemy.health -= 15 * current_player.damage_multiplier
 			current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
@@ -245,6 +250,8 @@ func _on_sparkle_animation_finished() -> void:
 		
 	elif spell3_used and GameState.gust_picked and current_player.mana >= 10:
 		if(randf_range(0,1) <= 0.7):
+			if current_enemy.is_in_group("ghost"):
+				current_enemy.health -= 11 * current_player.damage_multiplier
 			current_enemy.health -= 8 * current_player.damage_multiplier
 		current_player.mana -= 10
 		GameState.player_mana -= 10
@@ -252,6 +259,8 @@ func _on_sparkle_animation_finished() -> void:
 		
 	elif spell3_used and GameState.tornado_picked and current_player.mana >= 15:
 		if(randf_range(0,1) < 0.45):
+			if current_enemy.is_in_group("ghost"):
+				current_enemy.health -= 15 * current_player.damage_multiplier
 			current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
@@ -259,6 +268,8 @@ func _on_sparkle_animation_finished() -> void:
 		
 	elif spell4_used and GameState.rockthrow_picked and current_player.mana >= 10:
 		if(randf_range(0,1) <= 0.7):
+			if current_enemy.is_in_group("skeleton"):
+				current_enemy.health -= 11 * current_player.damage_multiplier
 			current_enemy.health -= 8 * current_player.damage_multiplier
 		current_player.mana -= 10
 		GameState.player_mana -= 10
@@ -266,16 +277,21 @@ func _on_sparkle_animation_finished() -> void:
 		
 	elif spell4_used and GameState.brickthrow_picked and current_player.mana >= 10:
 		if(randf_range(0,1) <= 0.45):
+			if current_enemy.is_in_group("skeleton"):
+				current_enemy.health -= 15 * current_player.damage_multiplier
 			current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell4_used = false
 		
+		
+	update_player_stats()	
+	update_enemy_stats()	
 	playersTurn = false
 	enemysTurn = true
 	current_player.damage_multiplier = 1.0
 	GameState.damage_multiplier = current_player.damage_multiplier
-	update_enemy_stats()
+	
 	
 func Enemy_Attack():
 	if enemysTurn:
