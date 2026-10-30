@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 
 func _on_fire_card_1_pressed() -> void:
-	GameState.player_moveset["S2"] = "FIREBALL\nDMG: 7  COST: 10  HIT%: 70"
+	GameState.player_moveset["S2"] = "FIREBALL\nDMG: 8  COST: 10  HIT%: 70"
 	GameState.move_milestone_1_completed = true
 	
 	GameState.move1_selected.emit()

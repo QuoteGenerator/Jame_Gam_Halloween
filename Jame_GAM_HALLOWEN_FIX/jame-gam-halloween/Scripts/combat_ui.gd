@@ -173,7 +173,7 @@ func Player_Basic_Attack():
 		
 func Player_2nd_Spell():
 	if playersTurn:
-		if (GameState.fireball_picked and current_player.mana >= 10 or GameState.meteor_picked and current_player.mana >= 15):
+		if (GameState.fireball_picked and current_player.mana >= 10 or GameState.meteor_picked and current_player.mana >= 15):			
 			playersTurn = false
 			turnLabel.text = "* YOUR TURN *"
 			sparkle.play("sparkle")
@@ -211,7 +211,8 @@ func _on_sparkle_animation_finished() -> void:
 	elif spell2_used and GameState.fireball_picked and current_player.mana >= 10:
 		current_player.mana -= 10
 		GameState.player_mana -= 10
-		current_enemy.health -= 7 * current_player.damage_multiplier
+		if(randf_range(0,1) > 0.7):
+			current_enemy.health -= 7 * current_player.damage_multiplier
 		spell2_used = false
 	
 	elif spell2_used and GameState.meteor_picked and current_player.mana >= 15:
@@ -221,7 +222,7 @@ func _on_sparkle_animation_finished() -> void:
 		spell2_used = false
 		
 	elif spell3_used and GameState.gust_picked and current_player.mana >= 10:
-		current_enemy.health -= 7 * current_player.damage_multiplier
+		current_enemy.health -= 8 * current_player.damage_multiplier
 		current_player.mana -= 10
 		GameState.player_mana -= 10
 		spell3_used = false
