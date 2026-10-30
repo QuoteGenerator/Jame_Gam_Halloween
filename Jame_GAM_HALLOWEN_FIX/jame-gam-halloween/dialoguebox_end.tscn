@@ -17,6 +17,7 @@ script = ExtResource("1_vwf7o")
 
 [node name="SfxRetroMultiplev1" type="AudioStreamPlayer" parent="." unique_id=1271077313]
 stream = ExtResource("2_n2bh6")
+bus = &"SFX"
 
 [node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1881389443]
 anchors_preset = 12

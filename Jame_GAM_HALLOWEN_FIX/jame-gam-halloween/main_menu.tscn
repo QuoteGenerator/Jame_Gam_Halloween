@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cendb3hrdmeoe" path="res://Assets/normal_btn.png" id="9_w44g7"]
 [ext_resource type="Texture2D" uid="uid://cyqxwvwc4mb6j" path="res://Assets/normal_btn_pressed.png" id="10_cm266"]
 [ext_resource type="Texture2D" uid="uid://c5f4nqu3d640c" path="res://Assets/normal_btn_hover.png" id="11_g8g3n"]
+[ext_resource type="AudioStream" uid="uid://mh2shntgg1g" path="res://Assets/Sounds/click.wav" id="12_j5v2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vrkn"]
 atlas = ExtResource("1_06t4h")
@@ -182,6 +183,9 @@ libraries/ = SubResource("AnimationLibrary_nlkkf")
 [node name="Timer" type="Timer" parent="." unique_id=981695959]
 wait_time = 3.0
 one_shot = true
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=66432818]
+stream = ExtResource("12_j5v2v")
 
 [connection signal="pressed" from="Control/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="Control/HardBtn" to="." method="_on_hard_btn_pressed"]

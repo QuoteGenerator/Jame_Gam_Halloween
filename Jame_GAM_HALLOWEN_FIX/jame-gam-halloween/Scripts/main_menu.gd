@@ -6,6 +6,7 @@ extends Node2D
 @onready var hardBtn: Button = $Control/HardBtn
 @onready var normalBtn: Button = $Control/NormalBtn
 @onready var playBtn: Button = $Control/PlayBtn
+@onready var click: AudioStreamPlayer = $Click
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,17 +16,20 @@ func _ready() -> void:
 
 
 func _on_play_btn_pressed() -> void:
+	click.play()
 	hardBtn.visible = true
 	normalBtn.visible = true
 	playBtn.visible = false
 
 func _on_hard_btn_pressed() -> void:
+	click.play()
 	GameState.difficulty = "hard"
 	black_screen.show()
 	fade_anim.play("fade_in")
 	timer.start()
 
 func _on_normal_btn_pressed() -> void:
+	click.play()
 	GameState.difficulty = "normal"
 	black_screen.show()
 	fade_anim.play("fade_in")
