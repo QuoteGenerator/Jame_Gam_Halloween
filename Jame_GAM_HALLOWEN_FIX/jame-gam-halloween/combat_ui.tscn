@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dbq05cio0v82a" path="res://Assets/Sprites/tbc_sprites/wand_idle.png" id="14_nw44a"]
 [ext_resource type="Texture2D" uid="uid://byeoo7x84ks8r" path="res://Assets/Sprites/tbc_sprites/sunglasses_anim_skelly.png" id="21_gjqx6"]
 [ext_resource type="PackedScene" uid="uid://cnokheo2ovrgs" path="res://fire_cards.tscn" id="22_1dsod"]
+[ext_resource type="Texture2D" uid="uid://b38tplirfg6df" path="res://Assets/Sprites/infobox.png" id="24_27hpn"]
 
 [sub_resource type="Animation" id="Animation_rltsl"]
 length = 0.001
@@ -1119,6 +1120,68 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=773661854]
 libraries/ = SubResource("AnimationLibrary_1dsod")
+
+[node name="Infobox" type="Sprite2D" parent="." unique_id=980048691]
+visible = false
+position = Vector2(1019, 793.00006)
+scale = Vector2(4.66, 4.66)
+texture = ExtResource("24_27hpn")
+
+[node name="Label_pie" type="Label" parent="Infobox" unique_id=500008483]
+visible = false
+custom_maximum_size = Vector2(666.36, 505.84)
+offset_left = -28.326181
+offset_top = -21.673834
+offset_right = 638.0338
+offset_bottom = 484.16617
+scale = Vector2(0.085, 0.085)
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 58
+text = "
+ITEM DESC.: PUMPKIN PIE
+
+HEALS YOU 
+FOR 5 HP!
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label_soup" type="Label" parent="Infobox" unique_id=430436005]
+visible = false
+custom_maximum_size = Vector2(666.36, 505.84)
+offset_left = -28.326181
+offset_top = -21.673834
+offset_right = 638.0338
+offset_bottom = 484.16617
+scale = Vector2(0.085, 0.085)
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 58
+text = "
+ITEM DESC.: PUMPKIN SOUP
+
+RECHARGE
+ 5 MANA!
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label_latte" type="Label" parent="Infobox" unique_id=1790498060]
+visible = false
+custom_maximum_size = Vector2(666.36, 505.84)
+offset_left = -28.326181
+offset_top = -21.673834
+offset_right = 638.0338
+offset_bottom = 484.16617
+scale = Vector2(0.085, 0.085)
+theme_override_fonts/font = ExtResource("7_akiti")
+theme_override_font_sizes/font_size = 54
+text = "
+ITEM DESC.: PUMPKIN SPICED LATTE
+
++50% DMG FOR 1 TURN!
+"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_exited"]

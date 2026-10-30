@@ -5,6 +5,12 @@ extends Button
 @onready var move3: Label = $"../S3/Label"
 @onready var move4: Label = $"../S4/Label"
 
+@onready var infobox: Sprite2D = $"../../../Infobox"
+@onready var label_pie: Label = $"../../../Infobox/Label_pie"
+@onready var label_soup: Label = $"../../../Infobox/Label_soup"
+@onready var label_latte: Label = $"../../../Infobox/Label_latte"
+
+
 @onready var move_milestone_1: CanvasLayer = $"../../../Move_Milestone1"
 
 var label:Label
@@ -37,14 +43,20 @@ func _on_mouse_exited() -> void:
 		label.position =Vector2(56.5, 16)
 		
 	if(name == "pumpkin_spice_latte_button"):
+		infobox.hide()
+		label_latte.hide()
 		label.position.y = 15
 		itemImage.position.y = 27
 		
 	if(name == "pumpkin_soup_button"):
+		infobox.hide()
+		label_soup.hide()
 		label.position.y = 15
 		itemImage.position.y = 27
 		
 	if(name == "pumpkin_pie_button"):
+		infobox.hide()
+		label_pie.hide()
 		label.position.y = 15
 		itemImage.position.y = 27
 
@@ -53,12 +65,18 @@ func _on_mouse_entered() -> void:
 		label.position = Vector2(56.5, 20)
 		
 	if(name == "pumpkin_spice_latte_button"):
+		infobox.show()
+		label_latte.show()
 		label.position.y = 18
 		itemImage.position.y = 30
 	if(name == "pumpkin_soup_button"):
+		infobox.show()
+		label_soup.show()
 		label.position.y = 18
 		itemImage.position.y = 30
 	if(name == "pumpkin_pie_button"):
+		infobox.show()
+		label_pie.show()
 		label.position.y = 18
 		itemImage.position.y = 30
 
