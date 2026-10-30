@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cq3as0urft43k" path="res://Assets/Sprites/Objects/tree_empty.png" id="2_4ekaj"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_wyo8o"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="4_f5s4f"]
-[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_qy1bl"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://player.tscn" id="5_qy1bl"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="6_npc6x"]
 [ext_resource type="PackedScene" uid="uid://dns0dt1n55247" path="res://witch.tscn" id="7_f5s4f"]
 [ext_resource type="PackedScene" uid="uid://bahkdi53jc6bf" path="res://dialoguebox_end.tscn" id="9_npc6x"]
@@ -306,8 +306,11 @@ position = Vector2(0, 3.8146973e-06)
 rotation = -3.1415925
 
 [node name="witch" parent="." unique_id=845605063 groups=["skeleton", "which"] instance=ExtResource("7_f5s4f")]
-health = 10
-max_health = 10
+health = 25
+max_health = 25
+mana = 25
+max_mana = 25
+enemy_name = "Witch (Agatha)"
 
 [node name="Path2D" type="Path2D" parent="." unique_id=105194992]
 curve = SubResource("Curve2D_npc6x")

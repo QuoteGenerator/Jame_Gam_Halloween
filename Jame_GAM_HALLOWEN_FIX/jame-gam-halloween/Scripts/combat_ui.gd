@@ -4,6 +4,7 @@ extends CanvasLayer
 var current_enemy: CharacterBody2D
 var current_player: CharacterBody2D
 @onready var animationEnemyPlayer: AnimationPlayer = $Panel/tbc_AnimationEnemy
+@onready var animationPlayerPlayer: AnimationPlayer = $Panel/tbc_AnimationPlayer
 
 @onready var enemyNameLabel: Label = $Panel/Control/EnemyName
 @onready var enemyStatsLabel: Label = $Panel/Control/EnemyStats
@@ -216,6 +217,12 @@ func Enemy_Attack():
 		turnLabel.modulate = Color(255,0,0)
 		turnLabel.text = "*" + current_enemy.enemy_name + "*"
 		await get_tree().create_timer(2.0, true).timeout
+		
+		var scene_name_player = current_player.scene_file_path.get_file().get_basename()
+		animationEnemyPlayer.play("tbc_"+scene_name_player+"_getHit_animation")
+		
+		await animationEnemyPlayer.animation_finished
+		
 		current_player.health -= 5
 		GameState.player_health -= 5
 		playersTurn = true
@@ -223,6 +230,8 @@ func Enemy_Attack():
 		update_player_stats()
 		turnLabel.modulate = Color(255,255,255)
 		turnLabel.text = "* YOUR TURN *"
+		
+
 		
 
 func showItemAmount():
@@ -268,3 +277,8 @@ func play_enemy_idle_animation():
 	if(current_enemy != null):
 		var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()
 		animationEnemyPlayer.play("tbc_"+ scene_name_enemy +"_idle_animation")
+
+func play_player_idle_animation():
+	if(current_player != null):
+		var scene_name_player = current_player.scene_file_path.get_file().get_basename()
+		animationPlayerPlayer.play("tbc_"+ scene_name_player +"_idle_animation")
