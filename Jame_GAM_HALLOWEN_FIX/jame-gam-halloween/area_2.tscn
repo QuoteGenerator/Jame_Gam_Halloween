@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://beokwlpeuu3o0" path="res://pumpkin_spice_latte.tscn" id="17_3opce"]
 [ext_resource type="PackedScene" uid="uid://drk3f3b55nuev" path="res://zombie.tscn" id="18_3opce"]
 [ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="19_vurkv"]
+[ext_resource type="PackedScene" uid="uid://cy7na0he65nf6" path="res://earth_cards.tscn" id="20_vurkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(222, 129)
@@ -423,6 +424,8 @@ enemy_name = "Zombie (Brain)"
 [node name="PumpkinSoup" type="Sprite2D" parent="." unique_id=1139758955]
 position = Vector2(188, 42)
 texture = ExtResource("19_vurkv")
+
+[node name="Move_Milestone3" parent="." unique_id=581881684 instance=ExtResource("20_vurkv")]
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]

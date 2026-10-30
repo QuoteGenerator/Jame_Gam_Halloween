@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cy7na0he65nf6"]
+
+[ext_resource type="Script" uid="uid://b8xtv48hdwyw2" path="res://eath_cards.gd" id="1_b30xh"]
+[ext_resource type="AudioStream" uid="uid://mh2shntgg1g" path="res://Assets/Sounds/click.wav" id="2_bn4eg"]
+[ext_resource type="Texture2D" uid="uid://d3vemdnowqx1" path="res://Assets/Sprites/panel3.png" id="3_b30xh"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="4_5sum5"]
+[ext_resource type="Texture2D" uid="uid://da0hryahvloup" path="res://Assets/Sprites/earth_card.png" id="5_bn4eg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("5_bn4eg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0tij"]
+texture = ExtResource("5_bn4eg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8d0gq"]
+texture = ExtResource("5_bn4eg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ho6w"]
+texture = ExtResource("5_bn4eg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgxvq"]
+texture = ExtResource("5_bn4eg")
+
+[node name="Move_Milestone3" type="CanvasLayer" unique_id=581881684]
+offset = Vector2(232.785, 206.455)
+scale = Vector2(4.27, 4.27)
+transform = Transform2D(4.27, 0, 0, 4.27, 232.785, 206.455)
+script = ExtResource("1_b30xh")
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1037500863]
+stream = ExtResource("2_bn4eg")
+
+[node name="Panel" type="Sprite2D" parent="." unique_id=1674253189]
+position = Vector2(84.59368, -22.823185)
+scale = Vector2(2, 2)
+texture = ExtResource("3_b30xh")
+
+[node name="Label" type="Label" parent="." unique_id=1417226030]
+custom_minimum_size = Vector2(232.89, 27.725)
+offset_left = -29.45784
+offset_top = -33.361847
+offset_right = 1055.632
+offset_bottom = 67.63815
+scale = Vector2(0.21, 0.21)
+theme_override_fonts/font = ExtResource("4_5sum5")
+theme_override_font_sizes/font_size = 40
+text = "YOU'VE REACHED LVL 6! 
+PICK YOUR ENCHANTED SPELL."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EarthCard1" type="Button" parent="." unique_id=1967584284]
+offset_right = 78.0
+offset_bottom = 125.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g0tij")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8d0gq")
+
+[node name="Title1" type="Label" parent="EarthCard1" unique_id=2127294883]
+layout_mode = 0
+offset_left = 4.0316124
+offset_top = 4.108896
+offset_right = 303.99677
+offset_bottom = 44.00576
+scale = Vector2(0.235, 0.235)
+theme_override_fonts/font = ExtResource("4_5sum5")
+theme_override_font_sizes/font_size = 35
+text = "ROCK THROW"
+horizontal_alignment = 1
+
+[node name="Desc1" type="Label" parent="EarthCard1" unique_id=1438758037]
+custom_maximum_size = Vector2(267.09, 214.24)
+layout_mode = 0
+offset_left = 4.5
+offset_top = 65.23297
+offset_right = 271.5
+offset_bottom = 266.23297
+scale = Vector2(0.26, 0.26)
+theme_override_constants/line_spacing = -3
+theme_override_constants/paragraph_spacing = 1
+theme_override_fonts/font = ExtResource("4_5sum5")
+theme_override_font_sizes/font_size = 22
+text = "Strong vs. Skeletons!
+
+Stats:
+
+BASE DMG: 8 
+MANA COST: 10
+HITRATE: 70%"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EarthCard2" type="Button" parent="." unique_id=1709500327]
+offset_left = 98.0
+offset_right = 176.0
+offset_bottom = 125.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ho6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xgxvq")
+
+[node name="Title2" type="Label" parent="EarthCard2" unique_id=878296019]
+layout_mode = 0
+offset_left = 4.031616
+offset_top = 4.108896
+offset_right = 303.99677
+offset_bottom = 47.108894
+scale = Vector2(0.235, 0.235)
+theme_override_fonts/font = ExtResource("4_5sum5")
+theme_override_font_sizes/font_size = 35
+text = "BRICK THROW"
+horizontal_alignment = 1
+
+[node name="Desc2" type="Label" parent="EarthCard2" unique_id=1636307949]
+custom_maximum_size = Vector2(267.09, 214.24)
+layout_mode = 0
+offset_left = 4.5
+offset_top = 65.23297
+offset_right = 271.5
+offset_bottom = 266.23297
+scale = Vector2(0.26, 0.26)
+theme_override_constants/line_spacing = -3
+theme_override_constants/paragraph_spacing = 1
+theme_override_fonts/font = ExtResource("4_5sum5")
+theme_override_font_sizes/font_size = 22
+text = "Strong vs. Skeletons!
+
+Stats:
+
+BASE DMG: 12
+MANA COST: 15
+HITRATE: 45%"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="EarthCard1" to="." method="_on_earth_card_1_pressed"]
+[connection signal="pressed" from="EarthCard2" to="." method="_on_earth_card_2_pressed"]

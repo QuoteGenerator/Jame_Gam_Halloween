@@ -20,6 +20,7 @@ func _ready() -> void:
 		
 	GameState.move1_selected.connect(update_moves)
 	GameState.move2_selected.connect(update_moves)
+	GameState.move3_selected.connect(update_moves)
 	update_moves()
 
 
@@ -100,15 +101,15 @@ func _on_s_3_mouse_exited() -> void:
 
 
 func _on_s_4_pressed() -> void:
-	pass # Replace with function body.
+	CombatUI.Player_4th_Spell()
 
 
 func _on_s_4_mouse_entered() -> void:
-	move4.position = Vector2(56.5, 20)
+	move4.position = Vector2(18, 20)
 
 
 func _on_s_4_mouse_exited() -> void:
-	move4.position = Vector2(56.5, 16)
+	move4.position = Vector2(18, 16)
 
 func update_moves():
 	move2.text= GameState.player_moveset["S2"]
