@@ -637,6 +637,10 @@ texture = ExtResource("7_wpe2l")
 position = Vector2(474, 1000)
 shape = SubResource("CircleShape2D_g4v7s")
 
+[node name="End_Minigame2" type="Timer" parent="." unique_id=1937765066]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="field1" to="." method="_on_field_1_area_entered"]
 [connection signal="area_exited" from="field1" to="." method="_on_field_1_area_exited"]
@@ -644,3 +648,4 @@ shape = SubResource("CircleShape2D_g4v7s")
 [connection signal="area_exited" from="field2" to="." method="_on_field_2_area_exited"]
 [connection signal="area_entered" from="field3" to="." method="_on_field_3_area_entered"]
 [connection signal="area_exited" from="field3" to="." method="_on_field_3_area_exited"]
+[connection signal="timeout" from="End_Minigame2" to="." method="_on_end_minigame_2_timeout"]

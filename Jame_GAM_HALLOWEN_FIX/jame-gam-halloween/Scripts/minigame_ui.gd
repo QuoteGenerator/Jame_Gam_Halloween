@@ -3,6 +3,7 @@ extends CanvasLayer
 const BALL = preload("uid://chlatv77gfsbh")
 
 @onready var timer: Timer = $Timer
+@onready var end_minigame_timer: Timer = $End_Minigame2
 
 @onready var player: CharacterBody2D = $Player
 @onready var mg_2_box: StaticBody2D = $MG2_Box
@@ -32,6 +33,7 @@ var field3_cleared = false
 var player_in_field1 = false
 var player_in_field2 = false
 var player_in_field3 = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -97,6 +99,7 @@ func _process(delta: float) -> void:
 					player.show()
 					player.set_physics_process(true)
 					timer.start()
+					end_minigame_timer.start()
 			
 				else:
 					lose_heart()
@@ -120,12 +123,18 @@ func _on_timer_timeout() -> void:
 	ballClone.position = Vector2(get_viewport().get_visible_rect().size.x - 325, randf_range(900, 1160))
 	print("cloning")
 
+func _on_end_minigame_2_timeout() -> void:
+	print("minigame 2 over!")
+	remove_all_balls()
+	
+func remove_all_balls():
+	timer.stop()
+	get_tree().call_group("ball_clones", "queue_free")
+
 func _on_field_1_area_entered(area: Area2D) -> void:
 	print("entered")
 	player_in_field1 = true
 	
-
-
 func _on_field_1_area_exited(area: Area2D) -> void:
 	print("exited")
 	player_in_field1 = false
