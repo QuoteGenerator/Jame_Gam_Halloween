@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://baegsgw25pgu2" path="res://Scripts/minigame_ui.gd" id="1_2i8h0"]
 [ext_resource type="Texture2D" uid="uid://bpn5kqx720rtq" path="res://Assets/Sprites/minigame_ui.png" id="1_aaclp"]
+[ext_resource type="Texture2D" uid="uid://doqyxraw7rma1" path="res://Assets/Sprites/tbc_sprites/tbc_witch_hit.png" id="3_8a7m1"]
 [ext_resource type="Texture2D" uid="uid://d1i38w8slc57a" path="res://Assets/Sprites/tbc_sprites/tbc_witch_idle.png" id="3_18msi"]
 [ext_resource type="Texture2D" uid="uid://dsjwfnm2y2thx" path="res://Assets/Sprites/heart.png" id="4_18msi"]
 
@@ -477,6 +478,14 @@ texture = ExtResource("1_aaclp")
 
 [node name="tbc_AnimationEnemy" type="AnimationPlayer" parent="." unique_id=1133464467]
 libraries/ = SubResource("AnimationLibrary_8a7m1")
+
+[node name="tbc_witch_getHit_animation" type="Sprite2D" parent="." unique_id=238606305]
+visible = false
+position = Vector2(633, 480)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("3_8a7m1")
+region_enabled = true
+region_rect = Rect2(0, 0, 90, 90)
 
 [node name="tbc_witch_idle_animation" type="Sprite2D" parent="." unique_id=316787157]
 position = Vector2(635, 480)
