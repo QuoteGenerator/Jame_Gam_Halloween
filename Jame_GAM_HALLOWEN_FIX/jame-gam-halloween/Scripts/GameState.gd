@@ -31,6 +31,8 @@ var fireball_picked = false
 var meteor_picked = false
 var gust_picked = false
 var tornado_picked = false
+var rockthrow_picked = false
+var brickthrow_picked = false
 
 var final_area_reached = false
 

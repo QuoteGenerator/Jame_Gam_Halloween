@@ -32,6 +32,7 @@ var final_boss:bool = false
 var basic_attack_used:bool = false
 var spell2_used:bool = false
 var spell3_used:bool = false
+var spell4_used:bool = false
 
 var wand_path_following:bool = false
 
@@ -200,6 +201,17 @@ func Player_3rd_Spell():
 			path_follower.progress = 0.0
 			remote_transform.remote_path = wand.get_path()
 			spell3_used = true
+
+func Player_4th_Spell():
+	if playersTurn:
+		if (GameState.rockthrow_picked and current_player.mana >= 10 or GameState.brickthrow_picked and current_player.mana >= 15):
+			playersTurn = false
+			turnLabel.text = "* YOUR TURN *"
+			sparkle.play("sparkle")
+			wand_path_following = true
+			path_follower.progress = 0.0
+			remote_transform.remote_path = wand.get_path()
+			spell4_used = true
 		
 func _on_sparkle_animation_finished() -> void:
 	var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()
@@ -243,6 +255,20 @@ func _on_sparkle_animation_finished() -> void:
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell3_used = false
+		
+	elif spell4_used and GameState.rockthrow_picked and current_player.mana >= 10:
+		if(randf_range(0,1) <= 0.7):
+			current_enemy.health -= 8 * current_player.damage_multiplier
+		current_player.mana -= 10
+		GameState.player_mana -= 10
+		spell4_used = false
+		
+	elif spell4_used and GameState.brickthrow_picked and current_player.mana >= 10:
+		if(randf_range(0,1) <= 0.45):
+			current_enemy.health -= 12 * current_player.damage_multiplier
+		current_player.mana -= 15
+		GameState.player_mana -= 15
+		spell4_used = false
 		
 	playersTurn = false
 	enemysTurn = true

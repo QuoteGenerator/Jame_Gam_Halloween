@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bptdk5hntivvj"]
 
 [ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="1_y26ei"]
-[ext_resource type="Script" uid="uid://cxnbe5kt2qyxr" path="res://game_over.gd" id="1_yxx3c"]
+[ext_resource type="Script" uid="uid://cxnbe5kt2qyxr" path="res://Scripts/game_over.gd" id="1_yxx3c"]
 [ext_resource type="Texture2D" uid="uid://b51ketwi4oy8i" path="res://Assets/Sprites/Buttons/restart_btn.png" id="3_ftari"]
 [ext_resource type="Texture2D" uid="uid://veobekrcv2ch" path="res://Assets/Sprites/Buttons/restart_btn_pressed.png" id="4_28vn7"]
 [ext_resource type="Texture2D" uid="uid://lltj22lcju00" path="res://Assets/Sprites/Buttons/restart_btn_hover.png" id="5_k2vha"]

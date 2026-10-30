@@ -100,7 +100,7 @@ func _on_s_3_mouse_exited() -> void:
 
 
 func _on_s_4_pressed() -> void:
-	pass # Replace with function body.
+	CombatUI.Player_4th_Spell()
 
 
 func _on_s_4_mouse_entered() -> void:
