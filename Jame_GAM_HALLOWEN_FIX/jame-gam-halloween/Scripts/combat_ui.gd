@@ -243,9 +243,13 @@ func useItem(itemName):
 
 			match itemName:
 				"pumpkin_pie":
+					if current_player.health == current_player.max_health:
+						return
 					current_player.health = min(5+current_player.health,current_player.max_health)
 					GameState.player_health = current_player.health
 				"pumpkin_soup":
+					if current_player.mana == current_player.max_mana:
+						return
 					current_player.mana = min(5+current_player.mana,current_player.max_mana)
 					GameState.player_mana = current_player.mana
 				"pumpkin_spice_latte":
