@@ -31,3 +31,5 @@ var tornado_picked = false
 var move_milestone_1_completed = false
 var move_milestone_2_completed = false
 var move_milestone_3_completed = false
+
+var start_minigame = false

@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	if GameState.player_level == 4 and not GameState.move_milestone_2_completed:
 		move_milestone_2.show()
 		
-	if not GameState.move_milestone_1_completed:
+	if not GameState.move_milestone_2_completed:
 		if move_milestone_2.visible:
 			label.visible_ratio += text_speed * delta
 	

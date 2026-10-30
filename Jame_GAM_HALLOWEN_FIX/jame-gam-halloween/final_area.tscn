@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="6_npc6x"]
 [ext_resource type="PackedScene" uid="uid://dns0dt1n55247" path="res://witch.tscn" id="7_f5s4f"]
 [ext_resource type="PackedScene" uid="uid://bahkdi53jc6bf" path="res://dialoguebox_end.tscn" id="9_npc6x"]
+[ext_resource type="PackedScene" uid="uid://bachmuf3v5erx" path="res://minigame_ui.tscn" id="10_sfq7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(41, 327)
@@ -305,6 +306,8 @@ position = Vector2(0, 3.8146973e-06)
 rotation = -3.1415925
 
 [node name="witch" parent="." unique_id=845605063 groups=["skeleton", "which"] instance=ExtResource("7_f5s4f")]
+health = 10
+max_health = 10
 
 [node name="Path2D" type="Path2D" parent="." unique_id=105194992]
 curve = SubResource("Curve2D_npc6x")
@@ -336,5 +339,7 @@ transform = Transform2D(1.165, 0, 0, 1.56, -89.89, -681.73)
 [node name="Timer" type="Timer" parent="." unique_id=876420372]
 wait_time = 3.0
 one_shot = true
+
+[node name="minigame_ui" parent="." unique_id=713393390 instance=ExtResource("10_sfq7m")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

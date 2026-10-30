@@ -1,0 +1,576 @@
+[gd_scene format=3 uid="uid://bachmuf3v5erx"]
+
+[ext_resource type="Script" uid="uid://baegsgw25pgu2" path="res://Scripts/minigame_ui.gd" id="1_2i8h0"]
+[ext_resource type="Texture2D" uid="uid://bpn5kqx720rtq" path="res://Assets/Sprites/minigame_ui.png" id="1_aaclp"]
+[ext_resource type="Texture2D" uid="uid://d1i38w8slc57a" path="res://Assets/Sprites/tbc_sprites/tbc_witch_idle.png" id="3_18msi"]
+[ext_resource type="Texture2D" uid="uid://dsjwfnm2y2thx" path="res://Assets/Sprites/heart.png" id="4_18msi"]
+
+[sub_resource type="Animation" id="Animation_rltsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_zombie_getHit_animation2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j62ju"]
+resource_name = "tbc_ghost_getHit_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_ghost_getHit_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ucios"]
+resource_name = "tbc_ghost_idle_animation"
+length = 0.46666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_ghost_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 69, 80), Rect2(69, 0, 69, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qedbx"]
+resource_name = "tbc_player_getHit_animation"
+length = 0.36666667
+
+[sub_resource type="Animation" id="Animation_j56r1"]
+resource_name = "tbc_player_idle_animation"
+length = 0.43333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_player_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 39), Rect2(38, 0, 38, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_nw44a"]
+resource_name = "tbc_skeleton_getHit_animation"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_getHit_animation:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wkp8b"]
+resource_name = "tbc_skeleton_idle_animation"
+length = 0.36666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_skeleton_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 38, 97), Rect2(38, 0, 38, 97)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gjqx6"]
+resource_name = "tbc_witch_getHit_animation"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_witch_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_witch_getHit_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bvyq1"]
+resource_name = "tbc_witch_idle_animation"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_witch_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 88, 88), Rect2(90, -1, 88, 89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_witch_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7wprw"]
+resource_name = "tbc_zombie_getHit_animation"
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_enemy_idle_animation"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_zombie_getHit_animation2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cikkb"]
+resource_name = "tbc_zombie_idle_animation"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_zombie_idle_animation:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 46, 97), Rect2(47, 1, 47, 97)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_zombie_idle_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_ghost_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tbc_skeleton_idle_animation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8a7m1"]
+_data = {
+&"RESET": SubResource("Animation_rltsl"),
+&"tbc_ghost_getHit_animation": SubResource("Animation_j62ju"),
+&"tbc_ghost_idle_animation": SubResource("Animation_ucios"),
+&"tbc_player_getHit_animation": SubResource("Animation_qedbx"),
+&"tbc_player_idle_animation": SubResource("Animation_j56r1"),
+&"tbc_skeleton_getHit_animation": SubResource("Animation_nw44a"),
+&"tbc_skeleton_idle_animation": SubResource("Animation_wkp8b"),
+&"tbc_witch_getHit_animation": SubResource("Animation_gjqx6"),
+&"tbc_witch_idle_animation": SubResource("Animation_bvyq1"),
+&"tbc_zombie_getHit_animation": SubResource("Animation_7wprw"),
+&"tbc_zombie_idle_animation": SubResource("Animation_cikkb")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_2i8h0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 347, 1013, 0, 0, 0, 0, 855, 1014, 0, 0, 0, 0, 347, 1013)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(7.082596, 41.986084)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(132, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(89, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(64, 30)
+
+[node name="minigame_ui" type="CanvasLayer" unique_id=713393390]
+process_mode = 3
+script = ExtResource("1_2i8h0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1225152431]
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("1_aaclp")
+
+[node name="tbc_AnimationEnemy" type="AnimationPlayer" parent="." unique_id=1133464467]
+libraries/ = SubResource("AnimationLibrary_8a7m1")
+
+[node name="tbc_witch_idle_animation" type="Sprite2D" parent="." unique_id=316787157]
+position = Vector2(635, 480)
+scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("3_18msi")
+region_enabled = true
+region_rect = Rect2(90, 0, 88, 88)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=987297936]
+curve = SubResource("Curve2D_2i8h0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=818709714]
+position = Vector2(347, 1013)
+rotation = 0.0019685014
+
+[node name="PlayerHit" type="Area2D" parent="Path2D/PathFollow2D" unique_id=322353279]
+process_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/PlayerHit" unique_id=1955561953]
+process_mode = 3
+position = Vector2(-0.5019226, -0.99902344)
+scale = Vector2(1.0000004, 1.0000004)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D/PlayerHit" unique_id=819667396]
+z_index = 5
+offset_left = -4.0433044
+offset_top = -21.992065
+offset_right = 2.7124023
+offset_bottom = 19.66632
+color = Color(0.8576384, 0.24612239, 0, 1)
+
+[node name="field1" type="Area2D" parent="." unique_id=159254980]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="field1" unique_id=790237599]
+offset_left = 554.0
+offset_top = 1000.0
+offset_right = 686.0
+offset_bottom = 1028.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field1" unique_id=2028405913]
+process_mode = 3
+position = Vector2(620, 1013)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="field2" type="Area2D" parent="." unique_id=1933343546]
+process_mode = 3
+visible = false
+position = Vector2(-103, 0)
+
+[node name="ColorRect" type="ColorRect" parent="field2" unique_id=1369334898]
+offset_left = 549.0
+offset_top = 1000.0
+offset_right = 639.0
+offset_bottom = 1028.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field2" unique_id=1695810752]
+position = Vector2(593.5, 1012)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="field3" type="Area2D" parent="." unique_id=604753881]
+process_mode = 3
+visible = false
+position = Vector2(-103, 0)
+
+[node name="ColorRect" type="ColorRect" parent="field3" unique_id=1924078536]
+offset_left = 801.0
+offset_top = 999.0
+offset_right = 864.0
+offset_bottom = 1027.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field3" unique_id=397309221]
+position = Vector2(833, 1012)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="Heart" type="Sprite2D" parent="." unique_id=1682808320]
+position = Vector2(84, 1126.9999)
+scale = Vector2(5.59, 5.59)
+texture = ExtResource("4_18msi")
+
+[node name="Heart2" type="Sprite2D" parent="." unique_id=412361228]
+position = Vector2(167, 1126.9999)
+scale = Vector2(5.59, 5.59)
+texture = ExtResource("4_18msi")
+
+[node name="Heart3" type="Sprite2D" parent="." unique_id=809611801]
+position = Vector2(248.99997, 1126.9999)
+scale = Vector2(5.59, 5.59)
+texture = ExtResource("4_18msi")
+
+[connection signal="area_entered" from="field1" to="." method="_on_field_1_area_entered"]
+[connection signal="area_exited" from="field1" to="." method="_on_field_1_area_exited"]
+[connection signal="area_entered" from="field2" to="." method="_on_field_2_area_entered"]
+[connection signal="area_exited" from="field2" to="." method="_on_field_2_area_exited"]
+[connection signal="area_entered" from="field3" to="." method="_on_field_3_area_entered"]
+[connection signal="area_exited" from="field3" to="." method="_on_field_3_area_exited"]

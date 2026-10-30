@@ -23,6 +23,7 @@ var current_player: CharacterBody2D
 @onready var remote_transform: RemoteTransform2D = $Panel/WandPath1/PathFollow2D/RemoteTransform2D
 @onready var wand: AnimatedSprite2D = $Panel/Wand/Wand
 
+var final_boss:bool = false
 
 var basic_attack_used:bool = false
 var spell2_used:bool = false
@@ -102,6 +103,7 @@ func ZombieEnemyBattle():
 func WitchEnemyBattle():
 	animationEnemyPlayer.play("tbc_witch_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
+	final_boss = true
 	update_enemy_stats()	
 	
 func update_enemy_stats():
@@ -109,6 +111,12 @@ func update_enemy_stats():
 		GameState.player_level += 1
 		end_combat()
 		return
+		
+	if current_enemy.health <= current_enemy.max_health / 2 and final_boss:
+		print("queue minigame!!!")
+		GameState.start_minigame = true
+		get_tree().paused = false
+		hide()
 		
 	enemyStatsLabel.text = \
 	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "    "\
