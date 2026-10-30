@@ -3,6 +3,8 @@ extends Sprite2D
 var speed: float = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if GameState.difficulty == "hard":
+		speed = 350
 	add_to_group("ball_clones")
 
 

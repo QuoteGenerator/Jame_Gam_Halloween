@@ -53,6 +53,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#print("physics process running ")
+	
 	if wand_path_following:
 		path_follower.progress_ratio += 0.050
 	
@@ -114,6 +115,9 @@ func update_player_stats():
 	"HP: " + str(current_player.health) + "/" + str(current_player.max_health) + "    "\
 	+ "MANA: " + str(current_player.mana) + "/" + str(current_player.max_mana)
 	playerLvlLabel.text = "LVL: " + str(GameState.player_level)
+
+	if current_player.health <= 0:
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 
 func SkeletonEnemyBattle():

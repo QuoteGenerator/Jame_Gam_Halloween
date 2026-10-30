@@ -51,6 +51,8 @@ var player_in_field3 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	
 	textbox.dialogue_end_finished.connect(dialogue2_finished)
 	
 	black_screen.show()
@@ -124,6 +126,8 @@ func _process(delta: float) -> void:
 					instructions_2.show()
 					player.show()
 					player.set_physics_process(true)
+					if GameState.difficulty == "hard":
+						timer.wait_time = timer.wait_time / 2.0
 					timer.start()
 					end_minigame_timer.start()
 			

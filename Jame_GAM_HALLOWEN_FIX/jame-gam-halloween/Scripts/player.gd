@@ -25,9 +25,11 @@ func _ready() -> void:
 	max_mana = GameState.player_max_mana
 	
 	damage_multiplier = GameState.damage_multiplier
-		
-	
+
+
+
 func _physics_process(delta: float) -> void:
+	
 	
 	sprite.rotation = global_position.angle_to_point(get_global_mouse_position())
 	
