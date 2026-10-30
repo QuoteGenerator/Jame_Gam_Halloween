@@ -211,24 +211,27 @@ func _on_sparkle_animation_finished() -> void:
 	elif spell2_used and GameState.fireball_picked and current_player.mana >= 10:
 		current_player.mana -= 10
 		GameState.player_mana -= 10
-		if(randf_range(0,1) > 0.7):
-			current_enemy.health -= 7 * current_player.damage_multiplier
+		if(randf_range(0,1) < 0.7):		
+			current_enemy.health -= 8 * current_player.damage_multiplier
 		spell2_used = false
 	
 	elif spell2_used and GameState.meteor_picked and current_player.mana >= 15:
-		current_enemy.health -= 12 * current_player.damage_multiplier
+		if(randf_range(0,1) <= 0.7):
+			current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell2_used = false
 		
 	elif spell3_used and GameState.gust_picked and current_player.mana >= 10:
-		current_enemy.health -= 8 * current_player.damage_multiplier
+		if(randf_range(0,1) <= 0.7):
+			current_enemy.health -= 8 * current_player.damage_multiplier
 		current_player.mana -= 10
 		GameState.player_mana -= 10
 		spell3_used = false
 		
 	elif spell3_used and GameState.tornado_picked and current_player.mana >= 15:
-		current_enemy.health -= 12 * current_player.damage_multiplier
+		if(randf_range(0,1) < 0.45):
+			current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell3_used = false
