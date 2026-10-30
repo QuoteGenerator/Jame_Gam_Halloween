@@ -8,6 +8,8 @@ var speed:int = 300
 var health:int = 100
 var max_health:int = 100
 
+var damage_multiplier = 1.0
+
 var mana: int = 25
 var max_mana:int = 100
 
@@ -21,6 +23,8 @@ func _ready() -> void:
 	
 	mana = GameState.player_mana
 	max_mana = GameState.player_max_mana
+	
+	damage_multiplier = GameState.damage_multiplier
 		
 	
 func _physics_process(delta: float) -> void:

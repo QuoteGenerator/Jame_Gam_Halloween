@@ -66,13 +66,13 @@ func _on_pressed() -> void:
 		CombatUI.Player_Basic_Attack()
 		
 	if(name == "pumpkin_spice_latte_button"):
-		pass
+		CombatUI.useItem("pumpkin_spice_latte")
 		
 	if(name == "pumpkin_soup_button"):
-		pass
+		CombatUI.useItem("pumpkin_soup")
 
 	if(name == "pumpkin_pie_button"):
-		pass
+		CombatUI.useItem("pumpkin_pie")
 
 
 func _on_s_2_pressed() -> void:

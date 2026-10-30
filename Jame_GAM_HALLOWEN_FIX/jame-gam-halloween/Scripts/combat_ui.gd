@@ -84,6 +84,7 @@ func update_player_stats():
 	+ "MANA: " + str(current_player.mana) + "/" + str(current_player.max_mana)
 	playerLvlLabel.text = "LVL: " + str(GameState.player_level)
 
+
 func SkeletonEnemyBattle():
 	animationEnemyPlayer.play("tbc_skeleton_idle_animation")
 	enemyNameLabel.text = current_enemy.enemy_name
@@ -172,7 +173,7 @@ func _on_sparkle_animation_finished() -> void:
 	await animationEnemyPlayer.animation_finished
 	
 	if basic_attack_used:
-		current_enemy.health -= 5
+		current_enemy.health -= 5 * current_player.damage_multiplier
 		current_player.mana += 5
 		GameState.player_mana += 5
 		if current_player.mana > current_player.max_mana:
@@ -183,29 +184,31 @@ func _on_sparkle_animation_finished() -> void:
 	elif spell2_used and GameState.fireball_picked and current_player.mana >= 10:
 		current_player.mana -= 10
 		GameState.player_mana -= 10
-		current_enemy.health -= 7
+		current_enemy.health -= 7 * current_player.damage_multiplier
 		spell2_used = false
 	
 	elif spell2_used and GameState.meteor_picked and current_player.mana >= 15:
-		current_enemy.health -= 12
+		current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell2_used = false
 		
 	elif spell3_used and GameState.gust_picked and current_player.mana >= 10:
-		current_enemy.health -= 7
+		current_enemy.health -= 7 * current_player.damage_multiplier
 		current_player.mana -= 10
 		GameState.player_mana -= 10
 		spell3_used = false
 		
 	elif spell3_used and GameState.tornado_picked and current_player.mana >= 15:
-		current_enemy.health -= 12
+		current_enemy.health -= 12 * current_player.damage_multiplier
 		current_player.mana -= 15
 		GameState.player_mana -= 15
 		spell3_used = false
 		
 	playersTurn = false
 	enemysTurn = true
+	current_player.damage_multiplier = 1.0
+	GameState.damage_multiplier = current_player.damage_multiplier
 	update_enemy_stats()
 	
 func Enemy_Attack():
@@ -233,6 +236,28 @@ func showItemAmount():
 	pumpkin_pie_amount_label.text = str(pumpkin_pie_amount) + "x"
 	pumpkin_soup_amount_label.text = str(pumpkin_soup_amount) + "x"
 	pumpkin_spice_latte_amount_label.text = str(pumpkin_spice_latte_amount) + "x"
+
+func useItem(itemName):
+	for item in GameState.items:
+		if item["Name"] == itemName and item["Amount"] > 0:
+
+			match itemName:
+				"pumpkin_pie":
+					current_player.health = min(5+current_player.health,current_player.max_health)
+					GameState.player_health = current_player.health
+				"pumpkin_soup":
+					current_player.mana = min(5+current_player.mana,current_player.max_mana)
+					GameState.player_mana = current_player.mana
+				"pumpkin_spice_latte":
+					current_player.damage_multiplier += 0.5
+					GameState.damage_multiplier += 0.5
+
+			item["Amount"] -= 1
+			update_player_stats()
+			showItemAmount()
+			return
+		
+		
 
 
 func play_enemy_idle_animation():
