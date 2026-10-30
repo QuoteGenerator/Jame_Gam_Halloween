@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://bp45x5khumj1s"]
+
+[ext_resource type="Script" uid="uid://cdqenjng2uhjf" path="res://intro.gd" id="1_ayt76"]
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="2_7a8ye"]
+
+[node name="Intro" type="Node2D" unique_id=166334674]
+script = ExtResource("1_ayt76")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=59400768]
+offset_left = -591.0
+offset_top = -580.0
+offset_right = 1226.0
+offset_bottom = 962.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1050877139]
+position = Vector2(385, 322)
+zoom = Vector2(1.765, 1.765)
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=787114298]
+visible = false
+offset_left = -253.0
+offset_top = -52.0
+offset_right = 271.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "Once on a rainy day, 
+you got lost in a strange forest."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Camera2D" unique_id=1944068940]
+visible = false
+offset_left = -336.0
+offset_top = -58.0
+offset_right = 341.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "After walking for a long time, 
+you stumble upon a hut."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Camera2D" unique_id=1625830352]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "There, a woman riding a
+broom greets you."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Camera2D" unique_id=548114311]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "A witch."
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Camera2D" unique_id=325038682]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "\"How'd you get here,
+into this enchanted forest?\"
+She said."
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Camera2D" unique_id=105244704]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "\"Well, not that it matters!
+for committing the crime
+of disturbing my peace...\""
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Camera2D" unique_id=1319741886]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "\"I'm gonna turn you into a pumpkin! 
+NYEHEHEHEHE...\""
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="Camera2D" unique_id=1209944256]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "\"If you ever want to become
+human again, you must 
+find me again!\""
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="Camera2D" unique_id=2108894976]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "\"Well. Not that you will be able to.
+NYEHEHEHEHE\""
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="Camera2D" unique_id=1155538047]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "Next thing you know, 
+you've become unconscious."
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="Camera2D" unique_id=81282313]
+visible = false
+offset_left = -253.0
+offset_top = -24.0
+offset_right = 271.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7a8ye")
+theme_override_font_sizes/font_size = 23
+text = "As you open your eyes,
+you find yourself in the 
+enchanted forest again."
+horizontal_alignment = 1
