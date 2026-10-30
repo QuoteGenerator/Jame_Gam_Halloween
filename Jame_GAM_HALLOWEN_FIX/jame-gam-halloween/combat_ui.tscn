@@ -600,6 +600,60 @@ animations = [{
 "speed": 5.38
 }]
 
+[sub_resource type="Animation" id="Animation_0b11v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bx2f0"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.04, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dipwe"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1dsod"]
+_data = {
+&"RESET": SubResource("Animation_0b11v"),
+&"fade_in": SubResource("Animation_bx2f0"),
+&"fade_out": SubResource("Animation_dipwe")
+}
+
 [node name="CombatUI" type="CanvasLayer" unique_id=111705774 groups=["combat_ui"]]
 process_mode = 2
 script = ExtResource("1_h1lix")
@@ -985,6 +1039,17 @@ autoplay = "default"
 
 [node name="Move_Milestone1" parent="." unique_id=581881684 instance=ExtResource("22_1dsod")]
 visible = false
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1160713947]
+z_index = 4096
+offset_left = -884.0
+offset_top = -632.0
+offset_right = 1914.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen" unique_id=773661854]
+libraries/ = SubResource("AnimationLibrary_1dsod")
 
 [connection signal="mouse_entered" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Control/simple_attack_button" to="Panel/Control/simple_attack_button" method="_on_mouse_exited"]

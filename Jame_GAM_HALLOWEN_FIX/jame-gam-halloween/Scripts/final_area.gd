@@ -22,8 +22,12 @@ var queue_outro = true
 func _ready() -> void:
 	textbox.dialogue_end_finished.connect(_on_dialogue_end_finished)
 	is_path_following = true
-	fade_anim.play("fade_out")
+	
 	black_screen.show()
+	fade_anim.play("fade_out")
+	await fade_anim.animation_finished
+	black_screen.hide()
+	
 	
 	witch_chase = false
 	witch.chasing = false
@@ -33,6 +37,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	#print("final area ps")
+	
+	print("Final Area BlackScreen: ", black_screen.visible)
+	print("Final Area CanvasLayer: ", get_tree().current_scene.visible)
+	print("Final Area BlackScreen Modulate: ", black_screen.modulate)
+	
 	if is_path_following:
 		player.set_physics_process(false)
 		path_follower.progress_ratio += 0.007
@@ -49,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		
 	if combat_ui.combat_over and queue_outro:
 		queue_outro = false
+		black_screen.show()
 		fade_anim.play("fade_in")
 		timer.start()
 

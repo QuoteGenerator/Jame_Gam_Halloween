@@ -23,6 +23,9 @@ var current_player: CharacterBody2D
 @onready var remote_transform: RemoteTransform2D = $Panel/WandPath1/PathFollow2D/RemoteTransform2D
 @onready var wand: AnimatedSprite2D = $Panel/Wand/Wand
 
+@onready var black_screen: ColorRect = $BlackScreen
+@onready var fade_anim: AnimationPlayer = $BlackScreen/AnimationPlayer
+
 var final_boss:bool = false
 
 var basic_attack_used:bool = false
@@ -36,17 +39,39 @@ var enemysTurn:bool = false
 
 var combat_over:bool = false
 
+var ZweitePhase = false
+
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	black_screen.hide()
 	visible = false
 	turnLabel.text = "* YOUR TURN *"
+	
 
 func _physics_process(delta: float) -> void:
+	#print("physics process running ")
 	if wand_path_following:
 		path_follower.progress_ratio += 0.050
 	
 	if path_follower.progress_ratio >= 1 and wand_path_following:
 		remote_transform.remote_path = NodePath("")
 		wand_path_following = false
+	
+	if GameState.start_second_tbc_phase and not ZweitePhase:
+		ZweitePhase = true
+		show()
+		black_screen.show()
+		print("start 2nd phase")
+		print(GameState.start_second_tbc_phase)
+		fade_anim.play("fade_out")
+		
+		await fade_anim.animation_finished
+		black_screen.hide()
+		
+		print("Combat BlackScreen visible: ", black_screen.visible)
+		print("Combat UI visible: ", visible)
+		
 
 func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
 	playersTurn = true
@@ -115,9 +140,10 @@ func update_enemy_stats():
 		
 	if current_enemy.health <= current_enemy.max_health / 2 and final_boss:
 		print("queue minigame!!!")
+		black_screen.show()
 		GameState.start_minigame = true
 		get_tree().paused = false
-		hide()
+		#hide()
 		
 	enemyStatsLabel.text = \
 	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "    "\

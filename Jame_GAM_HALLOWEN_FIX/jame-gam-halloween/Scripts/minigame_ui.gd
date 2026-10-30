@@ -32,6 +32,10 @@ const BALL = preload("uid://chlatv77gfsbh")
 @onready var textbox: DialogueBox_End1 = $Textbox
 
 var text_queued = false
+var dialogue_end = false
+
+var play_fadein = false
+var play_fadeout = false
 
 var field1_cleared = false
 var field2_cleared = false
@@ -45,6 +49,7 @@ var player_in_field3 = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	textbox.dialogue_end_finished.connect(dialogue2_finished)
+	
 	black_screen.show()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	animationEnemyPlayer.play("tbc_witch_idle_animation")
@@ -72,7 +77,7 @@ func _process(delta: float) -> void:
 			
 		path_follower.progress_ratio += 0.007
 		
-		if (Input.is_action_just_pressed("Interact")):
+		if (Input.is_action_just_pressed("Interact") and dialogue_end):
 			if not field1_cleared:
 				if player_in_field1:
 					print("hit ONE")
@@ -118,7 +123,21 @@ func _process(delta: float) -> void:
 					lose_heart()
 
 func dialogue2_finished():
-	fade_anim.play("fade_out")
+	
+	if not play_fadeout:
+		play_fadeout = true
+		fade_anim.play("fade_out")
+		await fade_anim.animation_finished
+		dialogue_end = true
+		
+	else:
+		print("hide minigame")
+		hide()
+		print("Minigame visible: ", visible)
+		GameState.start_second_tbc_phase = true
+		print("GameState value: ", GameState.start_second_tbc_phase)
+		
+		
 
 func lose_heart():
 	if heart_3.visible:
@@ -132,7 +151,10 @@ func lose_heart():
 		
 func _on_dialogue_starter_timeout() -> void:
 	textbox.queue_text("WITCH: Let's see if you can survive this!")
-
+	
+func dialogue3_finished():
+	hide()
+	
 func _on_timer_timeout() -> void:
 	var ballClone : Sprite2D = BALL.instantiate()
 	add_child(ballClone)
@@ -142,7 +164,13 @@ func _on_timer_timeout() -> void:
 func _on_end_minigame_2_timeout() -> void:
 	print("minigame 2 over!")
 	remove_all_balls()
+	player.set_physics_process(false)
+	fade_anim.play("fade_in")
 	
+	await fade_anim.animation_finished
+	
+	textbox.queue_text("WITCH: ...")
+
 func remove_all_balls():
 	timer.stop()
 	get_tree().call_group("ball_clones", "queue_free")

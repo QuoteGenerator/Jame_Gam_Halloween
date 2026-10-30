@@ -698,6 +698,7 @@ wait_time = 30.0
 one_shot = true
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=1681471136]
+visible = false
 z_index = 4096
 offset_left = -884.0
 offset_top = -632.0

@@ -35,3 +35,5 @@ var move_milestone_2_completed = false
 var move_milestone_3_completed = false
 
 var start_minigame = false
+
+var start_second_tbc_phase = false

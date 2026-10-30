@@ -3,6 +3,7 @@ class_name DialogueBox_End1
 
 signal dialogue_end_finished
 signal dialogue2_finished
+signal dialogue3_finished
 
 enum State {
 	READY,
@@ -87,4 +88,8 @@ func _on_dialogue_end_finished() -> void:
 
 
 func _on_dialogue_2_finished() -> void:
+	pass # Replace with function body.
+
+
+func _on_dialogue_3_finished() -> void:
 	pass # Replace with function body.
