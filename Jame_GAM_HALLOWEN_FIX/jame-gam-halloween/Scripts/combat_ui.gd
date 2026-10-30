@@ -97,6 +97,8 @@ func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
 		ZombieEnemyBattle()
 		
 	if(enemy.is_in_group("witch")):
+		print("witchy")
+		final_boss = true
 		WitchEnemyBattle()
 		
 	if player != null:
@@ -135,10 +137,6 @@ func WitchEnemyBattle():
 	update_enemy_stats()	
 	
 func update_enemy_stats():
-	if current_enemy.health <= 0:
-		GameState.player_level += 1
-		end_combat()
-		return
 		
 	if current_enemy.health <= 0 and final_boss:
 	#final_boss:
@@ -147,6 +145,10 @@ func update_enemy_stats():
 		GameState.start_minigame = true
 		get_tree().paused = false
 		#hide()
+	if current_enemy.health <= 0:
+		GameState.player_level += 1
+		end_combat()
+		return
 		
 	enemyStatsLabel.text = \
 	"HP: " + str(current_enemy.health) + "/" + str(current_enemy.max_health) + "    "\
