@@ -20,6 +20,7 @@ var queue_outro = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameState.final_area_reached = true
 	Music.play("final_area")
 	textbox.dialogue_end_finished.connect(_on_dialogue_end_finished)
 	is_path_following = true

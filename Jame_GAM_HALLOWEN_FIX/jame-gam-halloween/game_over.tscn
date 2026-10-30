@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bptdk5hntivvj"]
+
+[ext_resource type="FontFile" uid="uid://dx2uphxemt1ij" path="res://Assets/PixeloidSans-Bold.otf" id="1_y26ei"]
+[ext_resource type="Script" uid="uid://cxnbe5kt2qyxr" path="res://game_over.gd" id="1_yxx3c"]
+[ext_resource type="Texture2D" uid="uid://b51ketwi4oy8i" path="res://Assets/Sprites/Buttons/restart_btn.png" id="3_ftari"]
+[ext_resource type="Texture2D" uid="uid://veobekrcv2ch" path="res://Assets/Sprites/Buttons/restart_btn_pressed.png" id="4_28vn7"]
+[ext_resource type="Texture2D" uid="uid://lltj22lcju00" path="res://Assets/Sprites/Buttons/restart_btn_hover.png" id="5_k2vha"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("3_ftari")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf5fn"]
+texture = ExtResource("4_28vn7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("5_k2vha")
+
+[node name="game_over" type="Control" unique_id=930374216]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxx3c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=534187438]
+layout_mode = 0
+offset_left = -433.0
+offset_top = -229.0
+offset_right = 1541.0
+offset_bottom = 879.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=61104108]
+layout_mode = 0
+offset_left = 339.00003
+offset_top = 199.0
+offset_right = 1476.0
+offset_bottom = 417.18182
+scale = Vector2(0.495, 0.495)
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 165
+text = "GAME OVER"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2123671818]
+position = Vector2(625, 357)
+zoom = Vector2(1.335, 1.335)
+
+[node name="Restart" type="Button" parent="." unique_id=221864165]
+visible = false
+layout_mode = 0
+offset_left = 465.0
+offset_top = 344.0
+offset_right = 768.0
+offset_bottom = 450.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+
+[node name="Timer" type="Timer" parent="." unique_id=449820744]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -32,6 +32,8 @@ var meteor_picked = false
 var gust_picked = false
 var tornado_picked = false
 
+var final_area_reached = false
+
 var move_milestone_1_completed = false
 var move_milestone_2_completed = false
 var move_milestone_3_completed = false
