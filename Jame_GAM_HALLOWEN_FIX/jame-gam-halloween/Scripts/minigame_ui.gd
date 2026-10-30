@@ -75,6 +75,7 @@ func _process(delta: float) -> void:
 		
 		if not text_queued:
 			dialogue_starter.start()
+			Music.stop()
 			text_queued = true
 			
 		path_follower.progress_ratio += 0.007
@@ -130,6 +131,7 @@ func dialogue2_finished():
 		play_fadeout = true
 		fade_anim.play("fade_out")
 		await fade_anim.animation_finished
+		Music.play("fighting_area")
 		dialogue_end = true
 		
 	else:

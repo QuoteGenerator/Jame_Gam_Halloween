@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5t4tlorg75ga"
+path="res://.godot/imported/Dreamcore Ice Cream (by juanjo_sound).wav-c05184add6c939dc713d2a98b7a9c9a0.sample"
+
+[deps]
+
+source_file="res://Assets/Musics/Dreamcore Ice Cream (by juanjo_sound).wav"
+dest_files=["res://.godot/imported/Dreamcore Ice Cream (by juanjo_sound).wav-c05184add6c939dc713d2a98b7a9c9a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

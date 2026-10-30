@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drwwnxp7w1ta2"
+path="res://.godot/imported/LonePeakMusic - 22 Phobos -Retro Gaming Version-.wav-f7647c01c00fad67b933bbe54eea46a0.sample"
+
+[deps]
+
+source_file="res://Assets/Musics/LonePeakMusic - 22 Phobos -Retro Gaming Version-.wav"
+dest_files=["res://.godot/imported/LonePeakMusic - 22 Phobos -Retro Gaming Version-.wav-f7647c01c00fad67b933bbe54eea46a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

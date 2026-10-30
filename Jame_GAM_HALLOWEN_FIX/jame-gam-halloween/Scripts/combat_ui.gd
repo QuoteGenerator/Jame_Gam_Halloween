@@ -75,6 +75,8 @@ func _physics_process(delta: float) -> void:
 		
 
 func start_combat(enemy: CharacterBody2D, player: CharacterBody2D) -> void:
+	Music.stop()
+	Music.play("fighting_area")
 	playersTurn = true
 	
 	enemysTurn = false
@@ -164,6 +166,8 @@ func end_combat():
 	visible = false
 	get_tree().paused = false
 	combat_over = true
+	Music.stop()
+	Music.play("explore_areas")
 	
 func Player_Basic_Attack():
 	if playersTurn:

@@ -3,15 +3,16 @@ extends Node
 
 @onready var player: AudioStreamPlayer = $AudioStreamPlayer
 
+
 var current_track:= ""
 
 
 const TRACKS := {
-#	"menu": preload("res://Music/Dreamcore Tone (by juanjo_sound).wav"),
-#	"opening_cs": preload("res://Music/Ambiance_Forest_Birds_Loop_Stereo.wav"),
-#	"starter_area": preload("res://Music/Dreamcore Ice Cream (by juanjo_sound).wav"),
+	"menu": preload("res://Assets/Musics/Dreamcore Ice Cream (by juanjo_sound).wav"),
+	"final_area": preload("res://Assets/Musics/Ambiance_Forest_Birds_Loop_Stereo.wav"),
+	"explore_areas": preload("res://Assets/Musics/05-8bit05loop.ogg"),
 	"fighting_area": preload("res://Assets/Musics/SwitchWithMeTheme.wav"),
-#	"boss": preload("res://Music/LonePeakMusic - 22 Phobos -Retro Gaming Version-.wav"),
+	"boss": preload("res://Assets/Musics/SwitchWithMeTheme.wav"),
 }
 
 # Called when the node enters the scene tree for the first time.

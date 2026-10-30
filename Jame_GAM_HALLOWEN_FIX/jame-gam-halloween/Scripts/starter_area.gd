@@ -7,7 +7,8 @@ extends Node2D
 func _ready() -> void:
 	black_screen.show()
 	fade_anim.play("fade_out")
-	Music.play("fighting_area")
+	
+	Music.play("explore_areas")
 	
 
 
