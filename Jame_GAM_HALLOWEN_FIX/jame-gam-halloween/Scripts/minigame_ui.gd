@@ -1,4 +1,9 @@
 extends CanvasLayer
+
+const BALL = preload("uid://chlatv77gfsbh")
+
+@onready var timer: Timer = $Timer
+
 @onready var player: CharacterBody2D = $Player
 @onready var mg_2_box: StaticBody2D = $MG2_Box
 
@@ -50,6 +55,8 @@ func _process(delta: float) -> void:
 		show()
 		path_follower.progress_ratio += 0.007
 		
+		
+		
 		if (Input.is_action_just_pressed("Interact")):
 			if not field1_cleared:
 				if player_in_field1:
@@ -89,6 +96,7 @@ func _process(delta: float) -> void:
 					mg_2_box.show()
 					player.show()
 					player.set_physics_process(true)
+					timer.start()
 			
 				else:
 					lose_heart()
@@ -104,6 +112,13 @@ func lose_heart():
 		heart.hide()
 		GameState.player_health = 0
 		print("you lose!")
+		
+		
+func _on_timer_timeout() -> void:
+	var ballClone : Sprite2D = BALL.instantiate()
+	add_child(ballClone)
+	ballClone.position = Vector2(get_viewport().get_visible_rect().size.x - 325, randf_range(900, 1160))
+	print("cloning")
 
 func _on_field_1_area_entered(area: Area2D) -> void:
 	print("entered")
