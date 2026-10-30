@@ -23,6 +23,11 @@ var player_moveset = {
 	"S4": ""
 }
 
+var fireball_picked = false
+var meteor_picked = false
+var gust_picked = false
+var tornado_picked = false
+
 var move_milestone_1_completed = false
 var move_milestone_2_completed = false
 var move_milestone_3_completed = false

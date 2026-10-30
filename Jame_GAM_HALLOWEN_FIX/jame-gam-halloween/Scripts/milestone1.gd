@@ -31,9 +31,7 @@ func _on_fire_card_1_pressed() -> void:
 	
 	GameState.move1_selected.emit()
 	hide()
-	#fireball_selected = true
-	#combat_button.update_moves("FIREBALL")
-	#move_milestone_1.hide()
+	GameState.fireball_picked = true
 	
 
 func _on_fire_card_2_pressed() -> void:
@@ -42,9 +40,7 @@ func _on_fire_card_2_pressed() -> void:
 	
 	GameState.move1_selected.emit()
 	hide()
-	#meteor_selected = true
-	#combat_button.update_moves("METEOR")
-	#move_milestone_1.hide()
+	GameState.meteor_picked = true
 
 
 

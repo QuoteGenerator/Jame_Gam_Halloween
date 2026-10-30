@@ -76,7 +76,7 @@ func _on_pressed() -> void:
 
 
 func _on_s_2_pressed() -> void:
-	pass # Replace with function body.
+	CombatUI.Player_2nd_Spell()
 
 
 func _on_s_2_mouse_entered() -> void:
@@ -88,7 +88,7 @@ func _on_s_2_mouse_exited() -> void:
 
 
 func _on_s_3_pressed() -> void:
-	pass # Replace with function body.
+	CombatUI.Player_3rd_Spell()
 
 
 func _on_s_3_mouse_entered() -> void:
@@ -114,19 +114,5 @@ func update_moves():
 	move2.text= GameState.player_moveset["S2"]
 	move3.text= GameState.player_moveset["S3"]
 	move4.text= GameState.player_moveset["S4"]
-	#if attack_name == "FIREBALL":
-	#	print("Fireball selected")
-	#	move2.text = "FIREBALL\nDMG: 7   COST: 10   HIT%: 70"
 	
-	#elif attack_name == "METEOR":
-	#	print("Meteor selected")
-	#	move2.text = "METEOR\nDMG: 12  COST: 15  HIT%: 45"
-		
-	#elif attack_name == "GUST":
-	#	print("Gust selected")
-	#	move3.text = "GUST\nDMG: 7   COST: 10   HIT%: 70"
-	
-	#elif attack_name == "TORNADO":
-	#	print("Tornado selected")
-	#	move3.text = "TORNADO\nDMG: 12  COST: 15  HIT%: 45"
 	

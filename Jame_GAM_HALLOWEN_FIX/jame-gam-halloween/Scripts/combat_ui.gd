@@ -24,6 +24,9 @@ var current_player: CharacterBody2D
 @onready var wand: AnimatedSprite2D = $Panel/Wand/Wand
 
 
+var basic_attack_used:bool = false
+var spell2_used:bool = false
+var spell3_used:bool = false
 
 var wand_path_following:bool = false
 
@@ -130,7 +133,29 @@ func Player_Basic_Attack():
 		wand_path_following = true
 		path_follower.progress = 0.0
 		remote_transform.remote_path = wand.get_path()
+		basic_attack_used = true
 		
+func Player_2nd_Spell():
+	if playersTurn:
+		if (GameState.fireball_picked and current_player.mana >= 10 or GameState.meteor_picked and current_player.mana >= 15):
+			playersTurn = false
+			turnLabel.text = "* YOUR TURN *"
+			sparkle.play("sparkle")
+			wand_path_following = true
+			path_follower.progress = 0.0
+			remote_transform.remote_path = wand.get_path()
+			spell2_used = true
+	
+func Player_3rd_Spell():
+	if playersTurn:
+		if (GameState.gust_picked and current_player.mana >= 10 or GameState.tornado_picked and current_player.mana >= 15):
+			playersTurn = false
+			turnLabel.text = "* YOUR TURN *"
+			sparkle.play("sparkle")
+			wand_path_following = true
+			path_follower.progress = 0.0
+			remote_transform.remote_path = wand.get_path()
+			spell3_used = true
 		
 func _on_sparkle_animation_finished() -> void:
 	var scene_name_enemy = current_enemy.scene_file_path.get_file().get_basename()
@@ -138,7 +163,39 @@ func _on_sparkle_animation_finished() -> void:
 		
 	await animationEnemyPlayer.animation_finished
 	
-	current_enemy.health -= 5
+	if basic_attack_used:
+		current_enemy.health -= 5
+		current_player.mana += 5
+		GameState.player_mana += 5
+		if current_player.mana > current_player.max_mana:
+			current_player.mana = current_player.max_mana
+			GameState.player_mana = GameState.player_max_mana
+		basic_attack_used = false
+		
+	elif spell2_used and GameState.fireball_picked and current_player.mana >= 10:
+		current_player.mana -= 10
+		GameState.player_mana -= 10
+		current_enemy.health -= 7
+		spell2_used = false
+	
+	elif spell2_used and GameState.meteor_picked and current_player.mana >= 15:
+		current_enemy.health -= 12
+		current_player.mana -= 15
+		GameState.player_mana -= 15
+		spell2_used = false
+		
+	elif spell3_used and GameState.gust_picked and current_player.mana >= 10:
+		current_enemy.health -= 7
+		current_player.mana -= 10
+		GameState.player_mana -= 10
+		spell3_used = false
+		
+	elif spell3_used and GameState.tornado_picked and current_player.mana >= 15:
+		current_enemy.health -= 12
+		current_player.mana -= 15
+		GameState.player_mana -= 15
+		spell3_used = false
+		
 	playersTurn = false
 	enemysTurn = true
 	update_enemy_stats()

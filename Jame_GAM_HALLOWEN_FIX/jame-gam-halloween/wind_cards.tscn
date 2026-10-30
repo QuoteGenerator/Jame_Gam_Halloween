@@ -21,7 +21,6 @@ texture = ExtResource("4_fw1y1")
 texture = ExtResource("4_fw1y1")
 
 [node name="Move_Milestone2" type="CanvasLayer" unique_id=581881684]
-visible = false
 offset = Vector2(232.785, 206.455)
 scale = Vector2(4.27, 4.27)
 transform = Transform2D(4.27, 0, 0, 4.27, 232.785, 206.455)

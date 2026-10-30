@@ -30,11 +30,10 @@ func _process(delta: float) -> void:
 			label.visible_ratio += text_speed * delta
 	
 
-
 func _on_wind_card_1_pressed() -> void:
 	GameState.player_moveset["S3"] = "GUST\nDMG: 7  COST: 10  HIT%: 70"
 	GameState.move_milestone_2_completed = true
-	
+	GameState.gust_picked = true
 	GameState.move2_selected.emit()
 	hide()
 
@@ -42,6 +41,6 @@ func _on_wind_card_1_pressed() -> void:
 func _on_wind_card_2_pressed() -> void:
 	GameState.player_moveset["S3"] = "TORNADO\nDMG: 12  COST: 15  HIT%: 45"
 	GameState.move_milestone_2_completed = true
-	
-	GameState.move_selected2.emit()
+	GameState.tornado_picked = true
+	GameState.move2_selected.emit()
 	hide()
