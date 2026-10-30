@@ -139,7 +139,7 @@ func update_enemy_stats():
 		end_combat()
 		return
 		
-	if current_enemy.health <= current_enemy.max_health / 2 and final_boss:
+	if current_enemy.health <= current_enemy.max_health <= 0 and final_boss:
 		print("queue minigame!!!")
 		black_screen.show()
 		GameState.start_minigame = true
