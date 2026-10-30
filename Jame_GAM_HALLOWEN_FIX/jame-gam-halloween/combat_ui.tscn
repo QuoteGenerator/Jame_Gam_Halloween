@@ -903,17 +903,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vivmo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 
-[node name="Label" type="Label" parent="Panel/Control/S4" unique_id=1712202752]
+[node name="Label" type="Label" parent="Panel/Control/S4" unique_id=292928432]
+custom_maximum_size = Vector2(355.19, 66.635)
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-offset_left = 56.5
+offset_left = 18.0
 offset_top = 16.0
-offset_right = 332.5
-offset_bottom = 83.0
+offset_right = 372.0
+offset_bottom = 82.635
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_akiti")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="pumpkin_spice_latte_button" type="Button" parent="Panel/Control" unique_id=1131345316]
 layout_mode = 0
@@ -1106,6 +1109,7 @@ autoplay = "default"
 visible = false
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=1160713947]
+visible = false
 z_index = 4096
 offset_left = -884.0
 offset_top = -632.0

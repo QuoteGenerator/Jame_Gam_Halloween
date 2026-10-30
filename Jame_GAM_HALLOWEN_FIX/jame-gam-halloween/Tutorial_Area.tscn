@@ -283,7 +283,7 @@ hard_max_health = 10
 enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]
-position = Vector2(52, -50.000004)
+position = Vector2(40.000004, -50)
 rotation = -3.1415927
 health = 5
 max_health = 5

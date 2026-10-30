@@ -2,6 +2,7 @@ extends Node
 
 signal move1_selected
 signal move2_selected
+signal move3_selected
 
 var difficulty:String = "normal"
 

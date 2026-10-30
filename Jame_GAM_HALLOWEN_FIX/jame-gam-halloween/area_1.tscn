@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dejoqp57xlvc" path="res://skeleton.tscn" id="15_th8es"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="16_ayu7x"]
 [ext_resource type="PackedScene" uid="uid://s4d17eurxlp2" path="res://wind_cards.tscn" id="17_f5w84"]
+[ext_resource type="PackedScene" uid="uid://cy7na0he65nf6" path="res://earth_cards.tscn" id="18_q5abr"]
 
 [sub_resource type="Curve2D" id="Curve2D_1rxqu"]
 _data = {
@@ -338,6 +339,8 @@ position = Vector2(-102, -9)
 rotation = -2.115339
 
 [node name="Move_Milestone2" parent="." unique_id=581881684 instance=ExtResource("17_f5w84")]
+
+[node name="Move_Milestone3" parent="." unique_id=495413522 instance=ExtResource("18_q5abr")]
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
