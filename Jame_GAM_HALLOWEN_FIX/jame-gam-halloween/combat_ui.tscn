@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://kay1mmbidjs2" path="res://Assets/Sprites/Consumables/pumpkin_soup.png" id="10_6coxg"]
 [ext_resource type="Texture2D" uid="uid://bd6i66vvrqfcu" path="res://Assets/Sprites/Consumables/pumpkin_spice_latte.png" id="10_tnwwt"]
 [ext_resource type="Texture2D" uid="uid://mq7782la3467" path="res://Assets/Sprites/Consumables/pumpkin_pie.png" id="11_tnwwt"]
+[ext_resource type="Texture2D" uid="uid://g00jlhcxm0q1" path="res://Assets/Sprites/tbc_sprites/tbc_pumpkin_hit.png" id="12_6b7x5"]
 [ext_resource type="Texture2D" uid="uid://jds3dystspv4" path="res://Assets/sparkles.png" id="13_b12oa"]
 [ext_resource type="Texture2D" uid="uid://dbq05cio0v82a" path="res://Assets/Sprites/tbc_sprites/wand_idle.png" id="14_nw44a"]
 [ext_resource type="Texture2D" uid="uid://byeoo7x84ks8r" path="res://Assets/Sprites/tbc_sprites/sunglasses_anim_skelly.png" id="21_gjqx6"]
@@ -36,6 +37,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_player_getHit_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tbc_player_idle_animation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_j62ju"]
@@ -135,7 +160,45 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_qedbx"]
 resource_name = "tbc_player_getHit_animation"
-length = 0.36666667
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tbc_player_idle_animation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tbc_player_getHit_animation:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_player_idle_animation"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_j56r1"]
 resource_name = "tbc_player_idle_animation"
@@ -745,8 +808,10 @@ region_enabled = true
 region_rect = Rect2(0, 0, 38, 39)
 
 [node name="tbc_player_getHit_animation" type="Sprite2D" parent="Panel" unique_id=1910426232]
-position = Vector2(917, 443)
+visible = false
+position = Vector2(309, 676)
 scale = Vector2(3.9210527, 3.9210527)
+texture = ExtResource("12_6b7x5")
 
 [node name="Control" type="Control" parent="Panel" unique_id=1928000521]
 anchors_preset = 0

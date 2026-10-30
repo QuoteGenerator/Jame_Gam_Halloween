@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dug6057aw0vsc"]
 
 [ext_resource type="Script" uid="uid://b0pvd1jrhn0en" path="res://Scripts/tutorial_area.gd" id="1_0b11v"]
-[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="2_ueham"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://player.tscn" id="2_ueham"]
 [ext_resource type="Texture2D" uid="uid://dewhohg7hkc26" path="res://Assets/Sprites/Areas/t_area.png" id="3_nkvb4"]
 [ext_resource type="Texture2D" uid="uid://dbh8kx1j1oydj" path="res://Assets/Sprites/Objects/tree_full.png" id="4_3va81"]
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="5_4ndks"]
@@ -280,6 +280,8 @@ rotation = 0.37350047
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("14_dipwe")]
 position = Vector2(-75, -26)
+health = 10
+enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]
 position = Vector2(52, -50.000004)

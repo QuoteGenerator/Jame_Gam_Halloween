@@ -117,6 +117,30 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_57qmd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d0u6y")
 
+[node name="HardBtn" type="Button" parent="Control" unique_id=1779184465]
+visible = false
+layout_mode = 0
+offset_left = -41.0
+offset_top = 60.0
+offset_right = 41.0
+offset_bottom = 88.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_57qmd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d0u6y")
+text = "HARD"
+
+[node name="NormalBtn" type="Button" parent="Control" unique_id=1033196706]
+visible = false
+layout_mode = 0
+offset_left = -41.0
+offset_top = 26.0
+offset_right = 41.0
+offset_bottom = 54.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_57qmd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d0u6y")
+text = "NORMAL"
+
 [node name="Camera" type="Camera2D" parent="." unique_id=728284851]
 position = Vector2(8, -40)
 zoom = Vector2(4.515, 4.515)
@@ -138,4 +162,6 @@ wait_time = 3.0
 one_shot = true
 
 [connection signal="pressed" from="Control/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Control/HardBtn" to="." method="_on_hard_btn_pressed"]
+[connection signal="pressed" from="Control/NormalBtn" to="." method="_on_normal_btn_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

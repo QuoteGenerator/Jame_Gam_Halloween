@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cairtwsoy2paa" path="res://Assets/Sprites/Areas/row.png" id="3_nenjx"]
 [ext_resource type="Texture2D" uid="uid://lqpt80n814nh" path="res://Assets/Sprites/Objects/tree_half.png" id="4_e2j2b"]
 [ext_resource type="Texture2D" uid="uid://o7mfhydtvir8" path="res://Assets/Sprites/Areas/path.png" id="4_vfcf2"]
-[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://Player.tscn" id="5_ma1mr"]
+[ext_resource type="PackedScene" uid="uid://isg1f625y4p8" path="res://player.tscn" id="5_ma1mr"]
 [ext_resource type="PackedScene" uid="uid://cvh34udiaksh4" path="res://combat_ui.tscn" id="6_uaa26"]
 [ext_resource type="Script" uid="uid://b25bvj0s3dyvf" path="res://Scripts/scene_switch4.gd" id="7_uuvrh"]
 [ext_resource type="PackedScene" uid="uid://b74wv7b68e7fr" path="res://fallenlog_1.tscn" id="9_n06xo"]
@@ -345,6 +345,7 @@ rotation = 1.6179202
 z_index = 1
 position = Vector2(-42, 49)
 rotation = 0.0
+max_health = 5
 
 [node name="treestump" parent="." unique_id=148929270 instance=ExtResource("15_e2j2b")]
 position = Vector2(5, -15)
@@ -358,6 +359,9 @@ position = Vector2(32, -20)
 [node name="GhostEnemy" parent="." unique_id=1587126569 instance=ExtResource("13_e2j2b")]
 position = Vector2(165, -90)
 scale = Vector2(1.4000001, 1.4000001)
+health = 15
+max_health = 15
+enemy_name = "Ghost (Toast)"
 
 [node name="pumpkin_spice_latte" parent="." unique_id=870276362 instance=ExtResource("17_3opce")]
 position = Vector2(126, -97)
@@ -399,6 +403,11 @@ position = Vector2(-23, 48)
 [node name="zombie" parent="." unique_id=744630692 instance=ExtResource("18_3opce")]
 position = Vector2(33, -55)
 rotation = -1.5707964
+health = 20
+max_health = 20
+mana = 15
+max_mana = 15
+enemy_name = "Zombie (Brain)"
 
 [connection signal="body_entered" from="Scene_Switch" to="Scene_Switch" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene_Switch" to="Scene_Switch" method="_on_body_exited"]
