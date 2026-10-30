@@ -306,8 +306,10 @@ position = Vector2(0, 3.8146973e-06)
 rotation = -3.1415925
 
 [node name="witch" parent="." unique_id=845605063 groups=["which"] instance=ExtResource("7_f5s4f")]
-health = 25
-max_health = 25
+health = 20
+max_health = 20
+hard_health = 25
+hard_max_health = 25
 mana = 25
 max_mana = 25
 enemy_name = "Witch (Agatha)"

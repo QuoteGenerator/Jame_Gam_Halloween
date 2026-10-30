@@ -277,12 +277,19 @@ rotation = 0.37350047
 
 [node name="SkeletonEnemy" parent="." unique_id=845605063 instance=ExtResource("14_dipwe")]
 position = Vector2(-75, -26)
-health = 10
+max_health = 5
+hard_health = 10
+hard_max_health = 10
 enemy_name = "Damaged Skeleton (Fred)"
 
 [node name="GhostEnemy" parent="." unique_id=538779952 instance=ExtResource("15_fpldr")]
 position = Vector2(52, -50.000004)
 rotation = -3.1415927
+health = 5
+max_health = 5
+hard_health = 10
+hard_max_health = 10
+enemy_name = "Ghost (Charlie)"
 
 [node name="SceneSwitch" type="Area2D" parent="." unique_id=1350106262]
 script = ExtResource("16_fpldr")
